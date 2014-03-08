@@ -1,0 +1,45 @@
+package models;
+
+import play.db.ebean.*;
+import play.data.validation.Constraints.*;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Product extends Model {
+
+    @Id
+    public Long id;
+
+    @Required
+    public String name;
+
+    @Required
+    public Float price;
+
+    @ManyToMany
+    public List<Shop> shops = new ArrayList<Shop>();
+
+    public Product(String name, float price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public static Model.Finder<Long, Product> find = new Model.Finder(Long.class, Product.class);
+
+    public static Product create(String name,float price) {
+        Product product = new Product(name, price);
+        product.save();
+        product.saveManyToManyAssociations("shops");
+        return product;
+    }
+
+    public static List<Shop> findByShopName(String keyword) {
+        return Shop.find.where().ilike("name", "%" + keyword + "%").findList();
+    }
+
+
+
+}

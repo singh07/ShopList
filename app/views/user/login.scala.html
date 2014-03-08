@@ -1,0 +1,30 @@
+@(login: Form[viewmodels.Login])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Create User")) {
+
+@form(action = routes.UserController.submit(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
+<fieldset>
+    <legend>LogIn</legend>
+
+    @inputText(login("email"),
+    '_label -> "Email Address:",
+    'class -> "form-control",
+    'placeholder -> "Enter email address.",
+    '_error -> login.globalError)
+
+    @inputPassword(login("password"),
+    '_label -> "Password:",
+    'class -> "form-control",
+    'placeholder -> "enter password")
+</fieldset>
+
+<div class="actions">
+    <input type="submit" class="btn btn-primary" value="Sign Up">
+    <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+</div>
+}
+
+}

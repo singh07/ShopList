@@ -1,0 +1,40 @@
+@(userForm: Form[models.Shop], users:Map[String, String] )
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Create Shop")) {
+
+<fieldset>
+    <legend>Add a new shop</legend>
+
+
+
+@form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form") {
+
+@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
+@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
+@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")
+@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")
+@inputText(userForm("city"), '_label -> "City",'class -> "form-control")
+@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
+@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
+@select(
+    userForm("owner.email"),
+    options = helper.options(users),
+    'class -> "form-horizontal",
+    '_default -> "--- Choose an owner ---",
+    '_label -> "Select Owner",
+    '_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
+)
+
+    <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Create">
+        <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+    </div>
+
+}
+
+
+    </fieldset>
+        }

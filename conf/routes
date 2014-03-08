@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Application Urls
+GET     /                           controllers.ApplicationController.index()
+GET     /about                      controllers.ApplicationController.about()
+POST    /search                     controllers.SearchController.search()
+
+# Shop Urls
+GET	     /shop/create				controllers.ShopController.blank()
+POST     /shop/create               controllers.ShopController.submit()
+#POST    /shop/update/:id           controllers.ShopController.update(id:Int)
+GET      /shop/:id                	controllers.ShopController.display(id:Int)
+
+# User Urls
+GET   /user/login                   controllers.UserController.loginform()
+#POST   /user/login                 controllers.UserController.login()
+#GET	/user/logout			    controllers.UserController.logout()
+
+GET	    /user/create				controllers.UserController.blank()
+POST    /user/create                controllers.UserController.submit()
+
+#POST	/user/update/:id			controllers.UserController.update(id:Int)
+#POST 	/user/delete/:id			controllers.UserController.delete(id:Int)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

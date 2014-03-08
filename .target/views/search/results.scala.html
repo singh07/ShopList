@@ -1,0 +1,18 @@
+@(result: viewmodels.SearchResult)
+
+@import helper._
+
+@main(Html("Shop Details")) {
+    @for(shop <- result.shops) {
+        <h2>Shop Details</h2>
+
+        <p><b>Shop Name: </b>@shop.name</p>
+        <p><b>Address Line 1: </b>@shop.addressLine1</p>
+        <p><b>Address Line 2: </b>@shop.addressLine2</p>
+        <p><b>Address Line 3: </b>@shop.addressLine3</p>
+        <p><b>City: </b>@shop.city</p>
+        <p><b>Town: </b>@shop.town</p>
+        <p><b>Phone: </b>@shop.phoneNumber</p>
+        <p><b>Owner: </b>@shop.owner.firstName @shop.owner.lastName</p>
+    }
+}

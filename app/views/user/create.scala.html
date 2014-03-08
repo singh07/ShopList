@@ -1,0 +1,41 @@
+@(signupForm: Form[models.User])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Create User")) {
+
+    @form(action = routes.UserController.submit(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
+        <fieldset>
+            <legend>Account information</legend>
+
+
+            @inputText(signupForm("firstName"),
+            '_label -> "First name:",
+            'class -> "form-control",
+            '_help -> "Please enter your first name.")
+
+            @inputText(signupForm("lastName"),
+            '_label -> "Last name:",
+            'class -> "form-control",
+            '_help -> "Please enter your last name.")
+
+            @inputText(signupForm("email"),
+                        '_label -> "Email Address:",
+                        'class -> "form-control",
+                        '_help -> "Enter a valid email address.",
+                        '_error -> signupForm.globalError)
+
+            @inputPassword(signupForm("password"),
+                            '_label -> "password:",
+                            'class -> "form-control",
+                            '_help -> "A password must be at least 6 characters.")
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn btn-primary" value="Sign Up">
+            <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+        </div>
+    }
+
+}
