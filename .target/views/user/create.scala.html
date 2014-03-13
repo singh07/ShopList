@@ -9,17 +9,6 @@
         <fieldset>
             <legend>Account information</legend>
 
-
-            @inputText(signupForm("firstName"),
-            '_label -> "First name:",
-            'class -> "form-control",
-            '_help -> "Please enter your first name.")
-
-            @inputText(signupForm("lastName"),
-            '_label -> "Last name:",
-            'class -> "form-control",
-            '_help -> "Please enter your last name.")
-
             @inputText(signupForm("email"),
                         '_label -> "Email Address:",
                         'class -> "form-control",
@@ -31,7 +20,18 @@
                             'class -> "form-control",
                             '_help -> "A password must be at least 6 characters.")
         </fieldset>
+        <fieldset>
+            <legend>Account information</legend>
+            @inputText(signupForm("firstName"),
+                        '_label -> "First name:",
+                        'class -> "form-control",
+                        '_help -> "Please enter your first name.")
 
+            @inputText(signupForm("lastName"),
+                        '_label -> "Last name:",
+                        'class -> "form-control",
+                        '_help -> "Please enter your last name.")
+        </fieldset>
         <div class="actions">
             <input type="submit" class="btn btn-primary" value="Sign Up">
             <a href="@routes.ApplicationController.index" class="btn">Cancel</a>

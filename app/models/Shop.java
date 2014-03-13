@@ -54,6 +54,8 @@ public class Shop extends Model {
         return shop;
     }
     public static List<Shop> findByShopName(String keyword) {
-        return Shop.find.where().ilike("name", "%" + keyword + "%").findList();
+        return Shop.find.where()
+                .ilike("name", "%" + keyword + "%")
+                .findList();
     }
 }

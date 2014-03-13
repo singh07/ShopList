@@ -1,25 +1,7 @@
 @import helper._
 @import helper.twitterBootstrap._
 
-@main(Html("Home")) {
-
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <h1>Shop Directory</h1>
-    <p>Lets you search a nearby Shop and get to know their location</p>
-    <p>Search Shop by Product or Shop name</p>
-    <p>
-    <form class="form-inline" action="@routes.SearchController.search" method="post">
-
-        <input type="text" class="form-inline input-lg" placeholder="Product/Shop name" name="keyword">
+@main(Html("Home Page")) {
 
 
-        <button class="btn btn-lg btn-primary"  role="button">Search</button>
-
-    </form>
-
-    </p>
-</div>
-
-</div>
 }

@@ -28,8 +28,8 @@ public class SearchController extends Controller {
 
     public static Result search() {
         DynamicForm requestData = Form.form().bindFromRequest();
-        String criteria = "product";
-        //String criteria = requestData.get("criteria");
+       String criteria = "product";
+       // String criteria = requestData.get("criteria");
 
         String keyword = requestData.get("keyword");
 
@@ -42,8 +42,10 @@ public class SearchController extends Controller {
             result.shops.addAll(shops);
         }
         else
-        result.shops.addAll(Product.findByShopName(keyword));
-
+        if (criteria == "product") {
+            List<Shop> shops = Product.findByShopName(keyword);
+        result.shops.addAll(shops);
+        }
 
         return ok(views.html.search.results.render(result));
     }

@@ -22,7 +22,7 @@
 @select(
     userForm("owner.email"),
     options = helper.options(users),
-    'class -> "form-horizontal",
+    'class -> "form-control",
     '_default -> "--- Choose an owner ---",
     '_label -> "Select Owner",
     '_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
