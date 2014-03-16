@@ -5,7 +5,7 @@
 
 @main(Html("Create User")) {
 
-@form(action = routes.UserController.submit(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
+@form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
 <fieldset>
     <legend>LogIn</legend>
 
@@ -21,10 +21,10 @@
     'placeholder -> "Enter password")
 </fieldset>
 
-<div class="actions">
-    <input type="submit" class="btn btn-primary" value="Log In">
-    <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
-</div>
+    <div class="actions">
+     <input type="submit" class="btn btn-primary" value="Log In">
+     <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+   </div>
 }
 
 }

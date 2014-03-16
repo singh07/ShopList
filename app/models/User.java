@@ -2,6 +2,7 @@ package models;
 
 import play.db.ebean.*;
 import play.data.validation.Constraints.*;
+import play.data.*;
 
 import javax.persistence.*;
 import java.util.HashMap;
@@ -47,7 +48,7 @@ public class User extends Model {
         return find.all();
     }
 
-	public User authenticate(String email, String password) {
+	public static User authenticate(String email, String password) {
 		return find
 				.where()
 				.eq("email", email)
