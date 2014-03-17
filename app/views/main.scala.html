@@ -40,18 +40,12 @@
 
 
             </ul>
-            @if(session.get("email")==null){
+           
             <ul class="nav navbar-nav navbar-right">
 
                 <li><a href="@routes.UserController.login()">Log In</a></li>
                 <li class="@("active".when(nav == "signup"))"><a href="@routes.UserController.blank()">Sign Up</a></li>
-            </ul>  }else{
-            <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="@routes.UserController.login()">@session.get("name")</a></li>
-
-            </ul>
-            }
+            </ul> 
         </div><!--/.nav-collapse -->
     </div>
 </div>
