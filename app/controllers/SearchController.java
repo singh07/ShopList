@@ -28,7 +28,7 @@ public class SearchController extends Controller {
 
     public static Result search() {
         DynamicForm requestData = Form.form().bindFromRequest();
-       String criteria = "product";
+       String criteria = "shop";
        // String criteria = requestData.get("criteria");
 
         String keyword = requestData.get("keyword");

@@ -20,13 +20,15 @@ public class Product extends Model {
     public Float price;
 
     @ManyToMany
-    public List<Shop> shops = new ArrayList<Shop>();
+    public List<Shop> shops = new ArrayList();
 
     public Product(String name, float price) {
         this.name = name;
         this.price = price;
     }
-
+    public static List<Product> all(){
+        return find.all();
+    }
     public static Model.Finder<Long, Product> find = new Model.Finder(Long.class, Product.class);
 
     public static Product create(String name,float price) {
@@ -34,6 +36,9 @@ public class Product extends Model {
         product.save();
         product.saveManyToManyAssociations("shops");
         return product;
+    }
+    public static void delete(Long id) {
+        find.ref(id).delete();
     }
 
     public static List<Shop> findByShopName(String keyword) {

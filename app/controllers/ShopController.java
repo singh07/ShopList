@@ -16,7 +16,11 @@ public class ShopController extends Controller {
 
     public static Result blank()
     {
-        return ok(views.html.shop.create.render(shopForm, User.names()));
+       /* if (session().get("email")==null)
+            return redirect(routes.UserController.login());
+
+        else  */
+            return ok(views.html.shop.create.render(shopForm, User.names()));
     }
 
     public static Result submit()
@@ -28,7 +32,9 @@ public class ShopController extends Controller {
         else {
             Shop shop = filledForm.get();
             Shop.create(shop);
-            return redirect(routes.ApplicationController.index());
+
+            return redirect(routes.ProductController.blank());
+
         }
     }
 }

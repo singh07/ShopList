@@ -48,6 +48,7 @@ public class User extends Model {
         return find.all();
     }
 
+
 	public static User authenticate(String email, String password) {
 		return find
 				.where()
