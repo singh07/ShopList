@@ -22,6 +22,6 @@ public class SearchResult extends Controller {
 
     public SearchResult()
     {
-        shops = new ArrayList<>();
+        shops = new ArrayList();
     }
 }
