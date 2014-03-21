@@ -3,30 +3,44 @@
 @import helper._
 @import helper.twitterBootstrap._
 
+
 @main(Html("Create Shop")) {
 
-<h2>Add a new shop</h2>
+@if(session.get("email")==null){
 
-@form(action = routes.ShopController.submit(), 'id -> "shopCreationForm") {
+<div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
+}else{
+<fieldset>
+    <legend>Add a new shop</legend>
+     <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
 
-@inputText(userForm("name"), '_label -> "Shop Name")
-@inputText(userForm("addressLine1"), '_label -> "Address Line 1")
-@inputText(userForm("addressLine2"), '_label -> "Address Line 2")
-@inputText(userForm("addressLine3"), '_label -> "Address Line 3")
-@inputText(userForm("city"), '_label -> "City")
-@inputText(userForm("town"), '_label -> "Town")
-@inputText(userForm("phoneNumber"), '_label -> "Phone")
-@select(
+
+@form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form") {
+
+@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
+@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
+@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")
+@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")
+@inputText(userForm("city"), '_label -> "City",'class -> "form-control")
+@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
+@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->session.get("email") )
+@*
+    @select(
     userForm("owner.email"),
     options = helper.options(users),
+    'class -> "form-control",
     '_default -> "--- Choose an owner ---",
     '_label -> "Select Owner",
     '_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
-)
+) *@
 
-<input type="submit" value="Create">
+    <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Create">
+        <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+    </div>
 
 }
-
-
-   }
+</fieldset>
+        }
+        }
