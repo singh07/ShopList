@@ -9,7 +9,7 @@
     <title>@title</title>
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("dist/css/bootstrap.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("dist/css/bootstrap.min.css")">
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("dist/css/sticky-footer-navbar.css")">
+    
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap-select.css">
 
 
@@ -18,7 +18,7 @@
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 
 </head>
-<body style="padding-top:10px;background-color:white">
+<body style="padding-top:70px;background-color:white">
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -40,12 +40,20 @@
 
 
             </ul>
-           
+            @if(session.get("email")==null){
             <ul class="nav navbar-nav navbar-right">
 
                 <li><a href="@routes.UserController.login()">Log In</a></li>
                 <li class="@("active".when(nav == "signup"))"><a href="@routes.UserController.blank()">Sign Up</a></li>
-            </ul> 
+            </ul> }else{
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="@("active".when(nav == "signup"))"><a href="@routes.UserController.authenticate()">My Account</a></li>
+                <li><a href="@routes.UserController.logout()">Logout</a></li>
+
+            </ul>
+            }
         </div><!--/.nav-collapse -->
     </div>
 </div>
