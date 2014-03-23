@@ -1,6 +1,7 @@
 package viewmodels;
 
 import models.Shop;
+import play.mvc.Controller;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +10,7 @@ import models.Shop;
  * Time: 1:37 AM
  * To change this template use File | Settings | File Templates.
  */
-public class Search {
+public class Search  extends Controller{
         public String keyword;
         public String criteria;
 

@@ -26,14 +26,15 @@ import play.mvc.Result;
 
 public class SearchController extends Controller {
 
+	static SearchResult result;
     public static Result search() {
         DynamicForm requestData = Form.form().bindFromRequest();
-       String criteria = "shop";
-       // String criteria = requestData.get("criteria");
+      // String criteria = "shop";
+       String criteria = requestData.get("criteria");
 
         String keyword = requestData.get("keyword");
 
-        SearchResult result = new SearchResult();
+         result = new SearchResult();
         result.criteria = criteria;
         result.keyword = keyword;
 
@@ -42,7 +43,7 @@ public class SearchController extends Controller {
             result.shops.addAll(shops);
         }
         else
-        if (criteria == "product") {
+        	if (criteria == "product") {
             List<Shop> shops = Product.findByShopName(keyword);
         result.shops.addAll(shops);
         }
