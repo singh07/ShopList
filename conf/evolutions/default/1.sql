@@ -4,14 +4,14 @@
 # --- !Ups
 
 create table product (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255),
   price                     float,
   constraint pk_product primary key (id))
 ;
 
 create table shop (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(255),
   address_line1             varchar(255),
   address_line2             varchar(255),
@@ -37,26 +37,34 @@ create table product_shop (
   shop_id                        bigint not null,
   constraint pk_product_shop primary key (product_id, shop_id))
 ;
-alter table shop add constraint fk_shop_owner_1 foreign key (owner_email) references user (email) on delete restrict on update restrict;
+create sequence product_seq;
+
+create sequence shop_seq;
+
+create sequence user_seq;
+
+alter table shop add constraint fk_shop_owner_1 foreign key (owner_email) references user (email);
 create index ix_shop_owner_1 on shop (owner_email);
 
 
 
-alter table product_shop add constraint fk_product_shop_product_01 foreign key (product_id) references product (id) on delete restrict on update restrict;
+alter table product_shop add constraint fk_product_shop_product_01 foreign key (product_id) references product (id);
 
-alter table product_shop add constraint fk_product_shop_shop_02 foreign key (shop_id) references shop (id) on delete restrict on update restrict;
+alter table product_shop add constraint fk_product_shop_shop_02 foreign key (shop_id) references shop (id);
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+drop table if exists product cascade;
 
-drop table product;
+drop table if exists product_shop cascade;
 
-drop table product_shop;
+drop table if exists shop cascade;
 
-drop table shop;
+drop table if exists user cascade;
 
-drop table user;
+drop sequence if exists product_seq;
 
-SET FOREIGN_KEY_CHECKS=1;
+drop sequence if exists shop_seq;
+
+drop sequence if exists user_seq;
 
