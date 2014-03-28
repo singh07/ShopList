@@ -1,7 +1,7 @@
 package controllers;
 
 import models.Shop;
-import models.User;
+import models.Member;
 import models.Product;
 import play.data.Form;
 import play.mvc.Controller;

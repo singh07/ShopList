@@ -38,7 +38,7 @@ public class Shop extends Model {
 	
 	@ManyToOne
     @Required
-	public User owner;
+	public Member owner;
 
     public static Model.Finder<Long,Shop> find = new Model.Finder(Long.class, Shop.class);
 

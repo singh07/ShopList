@@ -1,6 +1,6 @@
 package controllers;
 
-import models.User;
+import models.Member;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -9,7 +9,7 @@ import static play.data.Form.*;
 
 public class UserController extends Controller{
 
-	static Form<User> userForm = Form.form(User.class);
+	static Form<Member> userForm = Form.form(Member.class);
    // static Form<Login> loginForm = Form.form(Login.class);
 
     public static Result blank()
@@ -19,13 +19,13 @@ public class UserController extends Controller{
 
     public static Result submit()
     {
-        Form<User> filledForm = userForm.bindFromRequest();
+        Form<Member> filledForm = userForm.bindFromRequest();
 
         if(filledForm.hasErrors()) {
             return ok(views.html.user.create.render(userForm));
         }
         else {
-            User.create(filledForm.get());
+            Member.create(filledForm.get());
             return redirect(routes.ApplicationController.index());
         }
     }

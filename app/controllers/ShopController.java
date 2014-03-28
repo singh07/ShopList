@@ -1,7 +1,7 @@
 package controllers;
 
 import models.Shop;
-import models.User;
+import models.Member;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -20,14 +20,14 @@ public class ShopController extends Controller {
             return redirect(routes.UserController.login());
 
         else  */
-            return ok(views.html.shop.create.render(shopForm, User.names()));
+            return ok(views.html.shop.create.render(shopForm, Member.names()));
     }
 
     public static Result submit()
     {
         Form<Shop> filledForm = shopForm.bindFromRequest();
         if(filledForm.hasErrors()) {
-            return badRequest(views.html.shop.create.render(filledForm, User.names()));
+            return badRequest(views.html.shop.create.render(filledForm, Member.names()));
         }
         else {
             Shop shop = filledForm.get();

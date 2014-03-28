@@ -1,5 +1,5 @@
 package viewmodels;
-   import models.User;
+   import models.Member;
    import play.mvc.Controller;
 
 /**
@@ -13,7 +13,7 @@ public class Login extends Controller{
     public  String email;
     public  String password;
     public static boolean validate(String email,String password) {
-        if (User.authenticate(email, password) == null) {
+        if (Member.authenticate(email, password) == null) {
             return false;
         }
         return true;
