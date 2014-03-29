@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/shoplist -Dhttp.port=${PORT} -Ddb.default.url="jdbc:postgresql://ec2-107-22-163-140.compu‌​te-1.amazonaws.com‌​:5432/d6s749rg71m651" -Ddb.default.user=wgvvlxnnjghjvl -Ddb.default.password=okEBIYECK9y_RBVkBwDMD8dg1H -DapplyEvolutions.default=true
+web: target/universal/stage/bin/shoplist -Dhttp.port=${PORT} -DapplyEvolutions.default=true
