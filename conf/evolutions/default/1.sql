@@ -27,7 +27,7 @@ create table shop (
   city                      varchar(255),
   town                      varchar(255),
   phone_number              varchar(255),
-  owner_email               varchar(255),
+  email_email               varchar(255),
   constraint pk_shop primary key (id))
 ;
 
@@ -43,8 +43,8 @@ create sequence product_seq;
 
 create sequence shop_seq;
 
-alter table shop add constraint fk_shop_owner_1 foreign key (owner_email) references member (email);
-create index ix_shop_owner_1 on shop (owner_email);
+alter table shop add constraint fk_shop_email_1 foreign key (email_email) references member (email);
+create index ix_shop_email_1 on shop (email_email);
 
 
 

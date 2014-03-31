@@ -1,5 +1,3 @@
-
-
 # --- !Ups
 
 create table member (
@@ -11,14 +9,14 @@ create table member (
 ;
 
 create table product (
-  id                        bigint not null,
+  id                        bigint serial not null,
   name                      varchar(255),
   price                     float,
   constraint pk_product primary key (id))
 ;
 
 create table shop (
-  id                        bigint not null,
+  id                        bigint serial not null,
   name                      varchar(255),
   address_line1             varchar(255),
   address_line2             varchar(255),
@@ -26,14 +24,14 @@ create table shop (
   city                      varchar(255),
   town                      varchar(255),
   phone_number              varchar(255),
-  owner_email               varchar(255),
+  email                     varchar(255) REFERENCES member(email),
   constraint pk_shop primary key (id))
 ;
 
 
 create table product_shop (
-  product_id                     bigint not null,
-  shop_id                        bigint not null,
+  product_id                     bigint not null REFERENCES product(id),
+  shop_id                        bigint not null REFERENCES shop(id),
   constraint pk_product_shop primary key (product_id, shop_id))
 ;
 create sequence member_seq;
@@ -42,12 +40,20 @@ create sequence product_seq;
 
 create sequence shop_seq;
 
-alter table shop add constraint fk_shop_owner_1 foreign key (owner_email) references member (email);
+
 create index ix_shop_owner_1 on shop (owner_email);
 
+# --- !Downs
 
+drop table if exists member cascade;
 
-alter table product_shop add constraint fk_product_shop_product_01 foreign key (product_id) references product (id);
+drop table if exists product cascade;
 
-alter table product_shop add constraint fk_product_shop_shop_02 foreign key (shop_id) references shop (id);
+drop table if exists product_shop cascade;
+
+drop table if exists shop cascade;
+
+drop sequence if exists member_seq;
+
+drop sequence if exists product_seq;
 
