@@ -30,7 +30,7 @@ create table shop (
 
 
 create table product_shop (
-  product_id                     bigint REFERENCES products ON DELETE RESTRICT,
+  product_id                     bigint REFERENCES product ON DELETE RESTRICT,
   shop_id                        bigint REFERENCES shop ON DELETE CASCADE,
   PRIMARY KEY (product_id, shop_id)
   )
