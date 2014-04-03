@@ -4,14 +4,14 @@ create table member (
   email                     varchar(255) PRIMARY KEY,
   password                  varchar(255),
   first_name                varchar(255),
-  last_name                 varchar(255),
+  last_name                 varchar(255)
   )
 ;
 
 create table product (
   id                        bigserial PRIMARY KEY,
   name                      varchar(255),
-  price                     real,
+  price                     real
   )
 ;
 
