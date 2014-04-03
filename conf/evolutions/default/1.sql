@@ -24,7 +24,7 @@ create table shop (
   city                      varchar(255),
   town                      varchar(255),
   phone_number              varchar(255),
-  email                     varchar(255) REFERENCES member,
+  email                     varchar(255) REFERENCES member
   )
 ;
 
@@ -32,7 +32,8 @@ create table shop (
 create table product_shop (
   product_id                     bigint REFERENCES products ON DELETE RESTRICT,
   shop_id                        bigint REFERENCES shop ON DELETE CASCADE,
-  PRIMARY KEY (product_id, shop_id))
+  PRIMARY KEY (product_id, shop_id)
+  )
 ;
 
 
