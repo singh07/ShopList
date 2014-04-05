@@ -7,36 +7,37 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 public class ShopController extends Controller {
-    static Form<Shop> shopForm = Form.form(Shop.class);
 
-    public static Result display(int id)
-    {
-        return ok(views.html.shop.display.render(Shop.find(id)));
-    }
+	static Form<Shop> shopForm = Form.form(Shop.class);
 
-    public static Result blank()
-    {
-       /* if (session().get("email")==null)
-            return redirect(routes.UserController.login());
+	public static Result display(int id) {	
 
-        else  */
-            return ok(views.html.shop.create.render(shopForm, Member.names()));
-    }
+		return ok(views.html.shop.display.render(Shop.find(id)));
+	}
 
-    public static Result submit()
-    {
-        Form<Shop> filledForm = shopForm.bindFromRequest();
-        if(filledForm.hasErrors()) {
-        	
-        	
-        	return badRequest(views.html.shop.create.render(filledForm, Member.names()));
-        }
-        else {
-            Shop shop = filledForm.get();
-            Shop.create(shop);
+	public static Result blank() {
+		String loggedInUserEmail = session("email");
+		Shop shop = new Shop();
+				
+		shop.email = Member.get(loggedInUserEmail);
+		shopForm.fill(shop);	
+		
+		return ok(views.html.shop.create.render(shopForm, loggedInUserEmail));
+	}
 
-            return redirect(routes.ProductController.blank());
+	public static Result submit() {
+		Form<Shop> filledForm = shopForm.bindFromRequest();
 
-        }
-    }
+		if (filledForm.hasErrors()) {
+			String loggedInUserEmail = session("email");
+			return badRequest(views.html.shop.create.render(filledForm,
+					loggedInUserEmail));
+		} else {
+			Shop shop = filledForm.get();
+			Shop.create(shop);
+
+			return redirect(routes.ProductController.blank());
+
+		}
+	}
 }
