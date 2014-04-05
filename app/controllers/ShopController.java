@@ -27,9 +27,9 @@ public class ShopController extends Controller {
     {
         Form<Shop> filledForm = shopForm.bindFromRequest();
         if(filledForm.hasErrors()) {
-        	return ok(views.html.index.render());
         	
-        	//return badRequest(views.html.shop.create.render(filledForm, Member.names()));
+        	
+        	return badRequest(views.html.shop.create.render(filledForm, Member.names()));
         }
         else {
             Shop shop = filledForm.get();
