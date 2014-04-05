@@ -1,0 +1,9 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\application.conf,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\db,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\db)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\evolutions)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\logger.xml,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\logger.xml)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\routes,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\db\migration,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\db\migration)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions\default,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions\default\1.sql,C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\classes\evolutions\default\1.sql)[0m

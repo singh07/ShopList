@@ -1,0 +1,39 @@
+[0m[[0minfo[0m] [0mPackaging C:\Users\Akash Singh\Desktop\ShopList\target\scala-2.10\shoplist_2.10-1.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	controllers\SearchController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\controllers\SearchController.java[0m
+[0m[[0mdebug[0m] [0m	models\Member.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\models\Member.java[0m
+[0m[[0mdebug[0m] [0m	models\Product.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\models\Product.java[0m
+[0m[[0mdebug[0m] [0m	evolutions\default\1.sql[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions\default\1.sql[0m
+[0m[[0mdebug[0m] [0m	viewmodels\SearchResult.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\viewmodels\SearchResult.java[0m
+[0m[[0mdebug[0m] [0m	evolutions\default\2.sql[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions\default\2.sql[0m
+[0m[[0mdebug[0m] [0m	viewmodels\Login.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\viewmodels\Login.java[0m
+[0m[[0mdebug[0m] [0m	models\Shop.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\models\Shop.java[0m
+[0m[[0mdebug[0m] [0m	evolutions\default[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions\default[0m
+[0m[[0mdebug[0m] [0m	evolutions[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\evolutions[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\application.conf[0m
+[0m[[0mdebug[0m] [0m	logger.xml[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\logger.xml[0m
+[0m[[0mdebug[0m] [0m	controllers\ProductController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\controllers\ProductController.java[0m
+[0m[[0mdebug[0m] [0m	controllers\UserController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\controllers\UserController.java[0m
+[0m[[0mdebug[0m] [0m	routes[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\conf\routes[0m
+[0m[[0mdebug[0m] [0m	controllers\ShopController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\controllers\ShopController.java[0m
+[0m[[0mdebug[0m] [0m	controllers\ApplicationController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\controllers\ApplicationController.java[0m
+[0m[[0mdebug[0m] [0m	viewmodels\Search.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Akash Singh\Desktop\ShopList\app\viewmodels\Search.java[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
