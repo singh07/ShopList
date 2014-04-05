@@ -11,6 +11,9 @@ import java.util.List;
 public class Product extends Model {
 
     @Id
+    @SequenceGenerator(name="product_gen", sequenceName="product_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_gen")
+    @Column(name="id")
     public Long id;
 
     @Required

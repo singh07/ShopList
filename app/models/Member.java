@@ -15,6 +15,8 @@ public class Member extends Model {
 
 	@Id
     @Email
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	@JoinColumn(name="email_id", referencedColumnName = "email_id")
 	public String email;
 
 	@Required
