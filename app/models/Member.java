@@ -10,13 +10,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
 @Entity
 public class Member extends Model {
 
 	@Id
     @Email
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	@JoinColumn(name="email_id", referencedColumnName = "email_id")
+    @OneToMany(cascade={CascadeType.ALL})
+    @JoinColumn(name="email")
 	public String email;
 
 	@Required

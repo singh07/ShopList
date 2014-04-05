@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
 
 import com.avaje.ebean.*;
 
@@ -23,7 +24,7 @@ public class Shop extends Model {
 	@SequenceGenerator(name="shop_gen", sequenceName="shop_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="shop_gen")
     @Column(name="id")
-	protected Long id;
+	public Long id;
 
 	@Required
 	public String name;
@@ -44,7 +45,10 @@ public class Shop extends Model {
     @Required
 	public String phoneNumber;
 	
-	@ManyToOne
+    @ManyToOne
+    @JoinColumn(name="email",
+            insertable=false, updatable=false,
+            nullable=false)
 	@Required
 	public Member email;
 
