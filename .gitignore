@@ -12,4 +12,7 @@ tmp
 /.classpath
 /.project
 /RUNNING_PID
-/.settings/.target/.README
+/.settings
+/.README
+
+/.target
