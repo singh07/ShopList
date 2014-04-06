@@ -25,6 +25,7 @@
 @inputText(userForm("city"), '_label -> "City",'class -> "form-control")
 @inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
 @inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
+<<<<<<< HEAD
 @*@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )*@
 
 <div class="form-group">
@@ -32,6 +33,9 @@
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Owner email" value="@user" placeholder="@user" readonly>
   </div>
 
+=======
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )
+>>>>>>> 3c771a3302e5d35b84d948b61e1cb7554bf93899
 @*
     @select(
     userForm("owner.email"),
