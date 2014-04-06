@@ -59,6 +59,13 @@ public class Member extends Model {
 				.eq("password", password)
 				.findUnique();
 	}
+	
+	public static Member get(String email) {
+		return find
+				.where()
+				.eq("email", email)				
+				.findUnique();
+	}
 
     public static Map<String, String> names()
     {

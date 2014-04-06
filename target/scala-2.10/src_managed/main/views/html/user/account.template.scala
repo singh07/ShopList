@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.26*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 01 22:26:25 IST 2014
+                    DATE: Sun Apr 06 19:25:32 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/account.scala.html
                     HASH: dcf12ddffdb6fa42d8c02f3414d5124f2130ce9c
                     MATRIX: 791->1|959->25|987->78|1023->80|1057->106|1096->108|1176->152|1189->156|1217->162

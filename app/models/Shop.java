@@ -45,11 +45,11 @@ public class Shop extends Model {
     @Required
 	public String phoneNumber;
 	
+    
     @ManyToOne
     @JoinColumn(name="email",
             insertable=false, updatable=false,
             nullable=false)
-	@Required
 	public Member email;
 
     public static Model.Finder<Long,Shop> find = new Model.Finder(Long.class, Shop.class);

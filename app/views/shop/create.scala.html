@@ -1,4 +1,4 @@
-@(userForm: Form[models.Shop], users:Map[String, String] )
+@(userForm: Form[models.Shop], user: String)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -6,10 +6,11 @@
 
 @main(Html("Create Shop")) {
 
-@if(session.get("email")==null){
+@*@if(session.get("email")==null){
 
 <div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
-}else{
+}else{*@
+
 <fieldset>
     <legend>Add a new shop</legend>
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
@@ -24,7 +25,13 @@
 @inputText(userForm("city"), '_label -> "City",'class -> "form-control")
 @inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
 @inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
-@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->session.get("email") )
+@*@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )*@
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Owner Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Owner email" value="@user" placeholder="@user" readonly>
+  </div>
+
 @*
     @select(
     userForm("owner.email"),
@@ -40,7 +47,7 @@
         <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
     </div>
 
-}
+
 </fieldset>
         }
         }
