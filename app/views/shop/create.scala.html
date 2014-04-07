@@ -17,6 +17,37 @@
 
 
 @form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form") {
+@*
+<div class="form-group">
+    <label >Shop Name:</label>
+    <input type="text" class="form-control" >
+  </div><div class="form-group">
+    <label >Address Line 1:</label>
+    <input type="text" class="form-control" >
+  </div><div class="form-group">
+    <label >Address Line 2:</label>
+    <input type="text" class="form-control" >
+  </div><div class="form-group">
+    <label >Address Line 3:</label>
+    <input type="text" class="form-control" >
+  </div><div class="form-group">
+    <label >City:</label>
+    <input type="text" class="form-control" >
+  </div><div class="form-group">
+    <label >Town:</label>
+    <input type="text" class="form-control" >
+  </div>
+ <div class="form-group">
+    <label >Phone:</label>
+    <input type="text" class="form-control" >
+  </div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Owner Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"  value="@user" placeholder="@user" readonly>
+  </div>
+*@
+
 
 @inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
 @inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
@@ -25,19 +56,17 @@
 @inputText(userForm("city"), '_label -> "City",'class -> "form-control")
 @inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
 @inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
-<<<<<<< HEAD
-@*@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )*@
+
+
 
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Owner email" value="@user" placeholder="@user" readonly>
+    <input type="email" class="form-control" id="exampleInputEmail1"  value="@user" placeholder="@user" readonly>
   </div>
 
-=======
-@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )
->>>>>>> 3c771a3302e5d35b84d948b61e1cb7554bf93899
 @*
-    @select(
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )
+ @select(
     userForm("owner.email"),
     options = helper.options(users),
     'class -> "form-control",
