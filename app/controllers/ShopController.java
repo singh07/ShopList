@@ -1,8 +1,11 @@
 package controllers;
 
+import java.util.List;
+
 import models.Shop;
 import models.Member;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -19,16 +22,38 @@ public class ShopController extends Controller {
 		String loggedInUserEmail = session("email");
 		Shop shop = new Shop();
 				
-		shop.email = Member.get(loggedInUserEmail);
+		shop.owner = Member.get(loggedInUserEmail);
+		
 		shopForm.fill(shop);	
 		
 		return ok(views.html.shop.create.render(shopForm, loggedInUserEmail));
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	public static Result viewAll(){
+		
+		return ok(views.html.shop.viewall.render(shopForm,Shop.all()));	
+		
 	}
 
 	public static Result submit() {
 		Form<Shop> filledForm = shopForm.bindFromRequest();
 
 		if (filledForm.hasErrors()) {
+			
+			for(String key : filledForm.errors().keySet()){
+			      List<ValidationError> currentError = filledForm.errors().get(key);
+			      for(ValidationError error : currentError){
+			          flash(key, error.message());
+			      }
+			  }      
+			
 			String loggedInUserEmail = session("email");
 			return badRequest(views.html.shop.create.render(filledForm,
 					loggedInUserEmail));

@@ -43,7 +43,7 @@ Seq[Any](format.raw/*1.21*/("""
 <p><b>City: </b>"""),_display_(Seq[Any](/*14.18*/shop/*14.22*/.city)),format.raw/*14.27*/("""</p>
 <p><b>Town: </b>"""),_display_(Seq[Any](/*15.18*/shop/*15.22*/.town)),format.raw/*15.27*/("""</p>
 <p><b>Phone: </b>"""),_display_(Seq[Any](/*16.19*/shop/*16.23*/.phoneNumber)),format.raw/*16.35*/("""</p>
-<p><b>Owner: </b>"""),_display_(Seq[Any](/*17.19*/shop/*17.23*/.email.firstName)),format.raw/*17.39*/(""" """),_display_(Seq[Any](/*17.41*/shop/*17.45*/.email.lastName)),format.raw/*17.60*/("""</p>
+<p><b>Owner: </b>"""),_display_(Seq[Any](/*17.19*/shop/*17.23*/.owner.firstName)),format.raw/*17.39*/(""" """),_display_(Seq[Any](/*17.41*/shop/*17.45*/.owner.lastName)),format.raw/*17.60*/("""</p>
 
 """)))})))}
     }
@@ -57,9 +57,9 @@ Seq[Any](format.raw/*1.21*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 06 19:25:32 IST 2014
+                    DATE: Sat Apr 12 11:55:22 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/shop/display.scala.html
-                    HASH: c4c144a0c54faed98d07a70e26895ca778867830
+                    HASH: 638eb36107664ff3d5352e61cdc6be2d33c87bc7
                     MATRIX: 786->1|949->20|977->73|1013->75|1047->101|1086->103|1169->150|1182->154|1209->159|1277->191|1290->195|1325->208|1393->240|1406->244|1441->257|1509->289|1522->293|1557->306|1615->328|1628->332|1655->337|1713->359|1726->363|1753->368|1812->391|1825->395|1859->407|1918->430|1931->434|1969->450|2007->452|2020->456|2057->471
                     LINES: 26->1|32->1|34->5|35->6|35->6|35->6|39->10|39->10|39->10|40->11|40->11|40->11|41->12|41->12|41->12|42->13|42->13|42->13|43->14|43->14|43->14|44->15|44->15|44->15|45->16|45->16|45->16|46->17|46->17|46->17|46->17|46->17|46->17
                     -- GENERATED --

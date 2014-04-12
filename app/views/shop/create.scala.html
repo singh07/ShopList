@@ -11,6 +11,17 @@
 <div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
 }else{*@
 
+ @if(flash.size() > 0){
+      <div class="alert-alert error">
+          @for((key, value) <- flash){
+              <strong>Error : </strong> @value<br />
+          }
+      </div> 
+  }
+
+
+
+
 <fieldset>
     <legend>Add a new shop</legend>
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
@@ -57,23 +68,23 @@
 @inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
 @inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
 
-
-
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1"  value="@user" placeholder="@user" readonly>
+    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value="@user" placeholder="@user" readonly>
   </div>
 
 @*
-@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'_id -> "createdOn",'class -> "form-control",'value -> user,'readonly->"readonly",'placeholder ->user )
+ 
  @select(
     userForm("owner.email"),
-    options = helper.options(users),
+    options = helper.options(user),
     'class -> "form-control",
     '_default -> "--- Choose an owner ---",
     '_label -> "Select Owner",
     '_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
-) *@
+)
+*@
 
     <div class="actions">
         <input type="submit" class="btn btn-primary" value="Create">

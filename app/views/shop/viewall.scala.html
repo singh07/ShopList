@@ -1,0 +1,20 @@
+@(userForm: Form[models.Shop], allshops:List[Shop] )
+
+@import helper._
+@import helper.twitterBootstrap._
+
+
+@main(Html("View All")) {
+
+
+<fieldset>
+    <legend>Shops</legend>
+ 
+        @for(shop <- allshops) {
+          
+<div>Shop Name:@shop.name</div>
+}
+
+</fieldset>
+        }
+       

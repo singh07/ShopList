@@ -5,10 +5,12 @@ import play.data.validation.Constraints.*;
 import play.data.*;
 
 import javax.persistence.*;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 @Entity
@@ -16,9 +18,8 @@ public class Member extends Model {
 
 	@Id
     @Email
-    @OneToMany(cascade={CascadeType.ALL})
-    @JoinColumn(name="email")
-	public String email;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="email")
+    public String email;
 
 	@Required
 	public String password;
@@ -29,7 +30,7 @@ public class Member extends Model {
 	@Required
 	public String lastName;
 
-    public Member(String email, String password, String firstName, String lastName)
+   public Member(String email, String password, String firstName, String lastName)
     {
         this.email = email;
         this.firstName = firstName;
@@ -67,7 +68,7 @@ public class Member extends Model {
 				.findUnique();
 	}
 
-    public static Map<String, String> names()
+  public static Map<String, String> names()
     {
         HashMap<String, String> users = new HashMap();
         for(Member i : all()) {

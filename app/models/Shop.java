@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+
+
+
 
 import com.avaje.ebean.*;
 
@@ -47,17 +51,24 @@ public class Shop extends Model {
 	
     
     @ManyToOne
-    @JoinColumn(name="email",
-            insertable=false, updatable=false,
-            nullable=false)
-	public Member email;
+    @JoinColumn(name="owner")
+    
+	public Member owner;
 
     public static Model.Finder<Long,Shop> find = new Model.Finder(Long.class, Shop.class);
 
     /**
      * Retrieve a Shop from id.
      */
-    public static Shop find(int id) {
+    
+    public static List<Shop> all(){
+        
+    	return find.all();
+    }
+
+   
+
+	public static Shop find(int id) {
         return find.where().eq("id", id).findUnique();
     }
 

@@ -24,7 +24,7 @@ create table shop (
   city                      varchar(255),
   town                      varchar(255),
   phone_number              varchar(255),
-  email                     varchar(255) REFERENCES member(email) ON DELETE RESTRICT ON UPDATE RESTRICT
+  owner                     varchar(255) REFERENCES member(email) ON DELETE RESTRICT ON UPDATE RESTRICT
   )
 ;
 
@@ -36,7 +36,7 @@ create table product_shop (
   )
 ;
 
-create index ix_shop_email on shop (email);
+create index ix_shop_email on shop (owner);
 
 # --- !Downs
 

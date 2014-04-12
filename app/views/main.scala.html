@@ -35,11 +35,22 @@
             <ul class="nav navbar-nav">
                 <li class="@("active".when(nav == "home"))"><a href="@routes.ApplicationController.index()">Home</a></li>
                 <li class="@("active".when(nav == "about"))"><a href="@routes.ApplicationController.about()">About</a></li>
-                <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.blank()">Add Shop</a></li>
                 <li class="@("active".when(nav == "contact"))"><a href="#contact">Contact</a></li>
+                 </ul>
+                 @if(session.get("email")==null){
+                  <ul class="nav navbar-nav">
+                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">ViewAll Shop</a></li>
+                 </ul>
+                 }else{
+                  <ul class="nav navbar-nav">
+                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
+                <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.blank()">Add Shop</a></li>
+                </ul>
+                }
+                
 
 
-            </ul>
+           
             @if(session.get("email")==null){
             <ul class="nav navbar-nav navbar-right">
 
