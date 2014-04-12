@@ -1,20 +1,91 @@
-@(userForm: Form[models.Shop], allshops:List[Shop] )
+@(currentPage: com.avaje.ebean.Page[Shop], currentSortBy: String, currentOrder: String, currentFilter: String)
+
 
 @import helper._
 @import helper.twitterBootstrap._
+
+@****************************************
+* Helper generating navigation links    *
+****************************************@
+@link(newPage:Int, newSortBy:String) = @{
+    
+    var sortBy = currentSortBy
+    var order = currentOrder
+    
+    if(newSortBy != null) {
+        sortBy = newSortBy
+        if(currentSortBy == newSortBy) {
+            if(currentOrder == "asc") {
+                order = "desc"
+            } else {
+                order = "asc"
+            }
+        } else {
+            order = "asc"
+        }
+    }
+    
+    // Generate the link
+    routes.ShopController.viewAll(newPage, sortBy, order, currentFilter)
+    
+}
 
 
 @main(Html("View All")) {
 
 
-<fieldset>
-    <legend>Shops</legend>
- 
-        @for(shop <- allshops) {
-          
-<div>Shop Name:@shop.name</div>
-}
 
-</fieldset>
+   <legend><h1>Shops</h1></legend> 
+ 
+        @for(shop <- currentPage.getList) {
+        
+        @*
+     <div class="page-header"> 
+      <div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="..." alt="...">
+  </a>
+  <div class="media-body">
+    <h2 class="media-heading">@shop.name</h2>
+    <small>@shop.addressLine1,@shop.city,@shop.town</small>
+  </div>
+</div>
+      </div>
+     *@       
+      <div class="page-header">
+  <h2>@shop.name <small>@shop.addressLine1,@shop.city,@shop.town</small></h2>
+</div>
+  }
+  <div id="pagination" class="pagination">
+           
+                @if(currentPage.hasPrev) {
+                   <div style="display:inline-block" >
+                        <a href="@link(currentPage.getPageIndex - 1, null)">&larr; Previous</a>
+                    </div>
+                } else {
+                   <div style="display:inline-block">
+                        <a>&larr; Previous</a>
+                 </div>
+                }
+                <div style="display:inline-block" align="center">
+                    <a>Displaying @currentPage.getDisplayXtoYofZ(" to "," of ")</a>
+                </div>
+                @if(currentPage.hasNext) {
+                   <div style="display:inline-block">
+                        <a  href="@link(currentPage.getPageIndex + 1, null)">Next &rarr;</a>
+                    </div>
+                } else {
+                    <div style="display:inline-block">
+                        <a>Next &rarr;</a>
+                   </div>
+                }
+           
+        </div>
+  
+    
+
+
+
+
         }
        

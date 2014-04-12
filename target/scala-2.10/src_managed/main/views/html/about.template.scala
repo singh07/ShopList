@@ -33,7 +33,7 @@ Seq[Any](format.raw/*4.1*/("""
 """),_display_(Seq[Any](/*5.2*/main(Html("About"))/*5.21*/ {_display_(Seq[Any](format.raw/*5.23*/("""
   <fieldset>
 
-<legend>About us</legend>
+<legend><h1>About us</h1></legend>
        <p>
    Welcome to ShopDirectory , the website helps to advertise shops and similar to search shops all on one website.Small shops,
     and other similar shops have become very popular, with cheap clothing and items for anyone to purchase, you might be surprised by
@@ -56,10 +56,10 @@ Seq[Any](format.raw/*4.1*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 06 19:25:31 IST 2014
+                    DATE: Sat Apr 12 22:13:59 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/about.scala.html
-                    HASH: 133207cea48e5a8538d811bebbe46adb21b9d69c
-                    MATRIX: 907->55|944->58|971->77|1010->79|1800->838
+                    HASH: 33c256d9083bf6907f3baa209f9f0ad089d01ddd
+                    MATRIX: 907->55|944->58|971->77|1010->79|1809->847
                     LINES: 32->4|33->5|33->5|33->5|46->18
                     -- GENERATED --
                 */

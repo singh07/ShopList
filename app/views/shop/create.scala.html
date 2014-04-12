@@ -59,14 +59,20 @@
   </div>
 *@
 
-
-@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
-@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
-@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")
-@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")
-@inputText(userForm("city"), '_label -> "City",'class -> "form-control")
-@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
-@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
+<div class="form-group">
+@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("city"), '_label -> "City",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")</div>
 
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
@@ -74,7 +80,7 @@
   </div>
 
 @*
-@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'_id -> "createdOn",'class -> "form-control",'value -> user,'readonly->"readonly",'placeholder ->user )
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'_id -> "createdOn",'_value -> user,'class -> "form-control",'value -> user,'readonly->"readonly",'placeholder ->user )
  
  @select(
     userForm("owner.email"),
@@ -86,7 +92,7 @@
 )
 *@
 
-    <div class="actions">
+    <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Create">
         <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
     </div>

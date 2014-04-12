@@ -36,38 +36,45 @@ Seq[Any](format.raw/*1.35*/("""
 
     """),_display_(Seq[Any](/*8.6*/form(action = routes.UserController.submit(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form")/*8.122*/ {_display_(Seq[Any](format.raw/*8.124*/("""
         <fieldset>
-            <legend>Account information</legend>
+           <legend><h1> Account Information</h1></legend>
 
-
+<div class="form-group">
             """),_display_(Seq[Any](/*13.14*/inputText(signupForm("firstName"),
             '_label -> "First name:",
             'class -> "form-control",
             '_help -> "Please enter your first name."))),format.raw/*16.55*/("""
+            </div>
 
-            """),_display_(Seq[Any](/*18.14*/inputText(signupForm("lastName"),
+<div class="form-group">
+            """),_display_(Seq[Any](/*20.14*/inputText(signupForm("lastName"),
             '_label -> "Last name:",
             'class -> "form-control",
-            '_help -> "Please enter your last name."))),format.raw/*21.54*/("""
+            '_help -> "Please enter your last name."))),format.raw/*23.54*/("""
+            </div>
 
-            """),_display_(Seq[Any](/*23.14*/inputText(signupForm("email"),
+<div class="form-group">
+            """),_display_(Seq[Any](/*27.14*/inputText(signupForm("email"),
                         '_label -> "Email Address:",
                         'class -> "form-control",
                         '_help -> "Enter a valid email address.",
-                        '_error -> signupForm.globalError))),format.raw/*27.59*/("""
+                        '_error -> signupForm.globalError))),format.raw/*31.59*/("""
+                        </div>
 
-            """),_display_(Seq[Any](/*29.14*/inputPassword(signupForm("password"),
-                            '_label -> "password:",
+<div class="form-group">
+            """),_display_(Seq[Any](/*35.14*/inputPassword(signupForm("password"),
+                            '_label -> "Password:",
                             'class -> "form-control",
-                            '_help -> "A password must be at least 6 characters."))),format.raw/*32.83*/("""
+                            '_help -> "A password must be at least 6 characters."))),format.raw/*38.83*/("""
+                            </div>
         </fieldset>
 
-        <div class="actions">
+        <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Sign Up">
-            <a href=""""),_display_(Seq[Any](/*37.23*/routes/*37.29*/.ApplicationController.index)),format.raw/*37.57*/("""" class="btn">Cancel</a>
+            <a href=""""),_display_(Seq[Any](/*44.23*/routes/*44.29*/.ApplicationController.index)),format.raw/*44.57*/("""" class="btn">Cancel</a>
         </div>
-    """)))})),format.raw/*39.6*/("""
+    """)))})),format.raw/*46.6*/("""
 
-""")))})),format.raw/*41.2*/("""
+""")))})),format.raw/*48.2*/("""
 """))}
     }
     
@@ -80,11 +87,11 @@ Seq[Any](format.raw/*1.35*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 06 19:25:33 IST 2014
+                    DATE: Sat Apr 12 22:27:20 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/create.scala.html
-                    HASH: cf148d06431c5971a5e816a82303df7076badd5f
-                    MATRIX: 793->1|972->34|1002->91|1039->94|1072->119|1111->121|1154->130|1279->246|1319->248|1444->337|1634->505|1687->522|1874->687|1927->704|2211->966|2264->983|2515->1212|2704->1365|2719->1371|2769->1399|2847->1446|2883->1451
-                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|37->8|37->8|37->8|42->13|45->16|47->18|50->21|52->23|56->27|58->29|61->32|66->37|66->37|66->37|68->39|70->41
+                    HASH: 88e058bb9b95f4f4440d981edc894f3c4ca6893d
+                    MATRIX: 793->1|972->34|1002->91|1039->94|1072->119|1111->121|1154->130|1279->246|1319->248|1477->370|1667->538|1766->601|1953->766|2052->829|2336->1091|2447->1166|2698->1395|2926->1587|2941->1593|2991->1621|3069->1668|3105->1673
+                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|37->8|37->8|37->8|42->13|45->16|49->20|52->23|56->27|60->31|64->35|67->38|73->44|73->44|73->44|75->46|77->48
                     -- GENERATED --
                 */
             

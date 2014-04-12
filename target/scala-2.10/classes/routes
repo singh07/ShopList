@@ -8,7 +8,7 @@ GET     /about                      controllers.ApplicationController.about()
 POST    /search                     controllers.SearchController.search()
 
 # Shop Urls
-GET      /shop/viewall              controllers.ShopController.viewAll()
+GET      /shop/viewall              controllers.ShopController.viewAll(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 GET	     /shop/create				controllers.ShopController.blank()
 POST     /shop/create               controllers.ShopController.submit()
 #POST    /shop/update/:id           controllers.ShopController.update(id:Int)

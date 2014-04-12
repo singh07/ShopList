@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:aee7a801e82851051f89f857ae047774a55a1d75
-// @DATE:Sat Apr 12 13:41:40 IST 2014
+// @HASH:c0d0f0469b0fc5aa418fe85b0f44d1865b8bc447
+// @DATE:Sat Apr 12 21:43:48 IST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -172,15 +172,15 @@ def display(id:Int): Call = {
 }
                                                 
 
-// @LINE:13
-def submit(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "shop/create")
+// @LINE:11
+def viewAll(p:Int = 0, s:String = "name", o:String = "asc", f:String = ""): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "shop/viewall" + queryString(List(if(p == 0) None else Some(implicitly[QueryStringBindable[Int]].unbind("p", p)), if(s == "name") None else Some(implicitly[QueryStringBindable[String]].unbind("s", s)), if(o == "asc") None else Some(implicitly[QueryStringBindable[String]].unbind("o", o)), if(f == "") None else Some(implicitly[QueryStringBindable[String]].unbind("f", f)))))
 }
                                                 
 
-// @LINE:11
-def viewAll(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "shop/viewall")
+// @LINE:13
+def submit(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "shop/create")
 }
                                                 
     
@@ -424,23 +424,23 @@ def display : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:11
+def viewAll : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ShopController.viewAll",
+   """
+      function(p,s,o,f) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/viewall" + _qS([(p == null ? null : (""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("p", p)), (s == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("s", s)), (o == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("o", o)), (f == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("f", f))])})
+      }
+   """
+)
+                        
+
 // @LINE:13
 def submit : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ShopController.submit",
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/create"})
-      }
-   """
-)
-                        
-
-// @LINE:11
-def viewAll : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.ShopController.viewAll",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/viewall"})
       }
    """
 )
@@ -612,15 +612,15 @@ def display(id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:13
-def submit(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ShopController.submit(), HandlerDef(this, "controllers.ShopController", "submit", Seq(), "POST", """""", _prefix + """shop/create""")
+// @LINE:11
+def viewAll(p:Int, s:String, o:String, f:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ShopController.viewAll(p, s, o, f), HandlerDef(this, "controllers.ShopController", "viewAll", Seq(classOf[Int], classOf[String], classOf[String], classOf[String]), "GET", """ Shop Urls""", _prefix + """shop/viewall""")
 )
                       
 
-// @LINE:11
-def viewAll(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ShopController.viewAll(), HandlerDef(this, "controllers.ShopController", "viewAll", Seq(), "GET", """ Shop Urls""", _prefix + """shop/viewall""")
+// @LINE:13
+def submit(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ShopController.submit(), HandlerDef(this, "controllers.ShopController", "submit", Seq(), "POST", """""", _prefix + """shop/create""")
 )
                       
     

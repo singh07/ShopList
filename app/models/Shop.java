@@ -81,4 +81,16 @@ public class Shop extends Model {
                 .ilike("name", "%" + keyword + "%")
                 .findList();
     }
+    
+    public static Page<Shop> page(int page, int pageSize, String sortBy, String order, String filter) {
+        return 
+            find.where()
+                .ilike("name", "%" + filter + "%")
+                .orderBy(sortBy + " " + order)
+                .fetch("owner")
+                .findPagingList(pageSize)
+                .setFetchAhead(false)
+                .getPage(page);
+    }
+    
 }

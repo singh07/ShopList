@@ -56,30 +56,36 @@ Seq[Any](format.raw/*1.45*/("""
 """),_display_(Seq[Any](/*30.2*/form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form")/*30.118*/ {_display_(Seq[Any](format.raw/*30.120*/("""
 """),format.raw/*60.3*/("""
 
-
-"""),_display_(Seq[Any](/*63.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*63.78*/("""
-"""),_display_(Seq[Any](/*64.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*64.91*/("""
-"""),_display_(Seq[Any](/*65.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*65.91*/("""
-"""),_display_(Seq[Any](/*66.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*66.91*/("""
-"""),_display_(Seq[Any](/*67.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*67.73*/("""
-"""),_display_(Seq[Any](/*68.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*68.73*/("""
-"""),_display_(Seq[Any](/*69.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*69.81*/("""
+<div class="form-group">
+"""),_display_(Seq[Any](/*63.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*63.78*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*65.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*65.91*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*67.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*67.91*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*69.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*69.91*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*71.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*71.73*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*73.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*73.73*/("""</div>
+<div class="form-group">
+"""),_display_(Seq[Any](/*75.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*75.81*/("""</div>
 
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*73.97*/user)),format.raw/*73.101*/("""" placeholder=""""),_display_(Seq[Any](/*73.117*/user)),format.raw/*73.121*/("""" readonly>
+    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*79.97*/user)),format.raw/*79.101*/("""" placeholder=""""),_display_(Seq[Any](/*79.117*/user)),format.raw/*79.121*/("""" readonly>
   </div>
 
-"""),format.raw/*87.3*/("""
+"""),format.raw/*93.3*/("""
 
-    <div class="actions">
+    <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Create">
-        <a href=""""),_display_(Seq[Any](/*91.19*/routes/*91.25*/.ApplicationController.index)),format.raw/*91.53*/("""" class="btn">Cancel</a>
+        <a href=""""),_display_(Seq[Any](/*97.19*/routes/*97.25*/.ApplicationController.index)),format.raw/*97.53*/("""" class="btn">Cancel</a>
     </div>
 
 
 </fieldset>
-        """)))})),format.raw/*96.10*/("""
+        """)))})),format.raw/*102.10*/("""
         """)))})))}
     }
     
@@ -92,11 +98,11 @@ Seq[Any](format.raw/*1.45*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Apr 12 12:59:01 IST 2014
+                    DATE: Sat Apr 12 20:00:51 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/shop/create.scala.html
-                    HASH: 8b5ec949fc043ab97daa2f0dd18d37921c2a8d44
-                    MATRIX: 798->1|987->44|1017->101|1056->106|1089->131|1128->133|1159->296|1200->302|1229->322|1268->323|1356->375|1398->401|1437->402|1516->445|1543->450|1594->469|1645->489|1902->711|2028->827|2069->829|2098->1844|2140->1851|2238->1927|2276->1930|2387->2019|2425->2022|2536->2111|2574->2114|2685->2203|2723->2206|2816->2277|2854->2280|2947->2351|2985->2354|3086->2433|3305->2616|3332->2620|3385->2636|3412->2640|3464->3115|3619->3234|3634->3240|3684->3268|3780->3332
-                    LINES: 26->1|32->1|34->5|36->7|36->7|36->7|38->12|40->14|40->14|40->14|42->16|42->16|42->16|43->17|43->17|44->18|46->20|56->30|56->30|56->30|57->60|60->63|60->63|61->64|61->64|62->65|62->65|63->66|63->66|64->67|64->67|65->68|65->68|66->69|66->69|70->73|70->73|70->73|70->73|73->87|77->91|77->91|77->91|82->96
+                    HASH: 920056565b12bbe64ace2c14a2a98c59448d73da
+                    MATRIX: 798->1|987->44|1017->101|1056->106|1089->131|1128->133|1159->296|1200->302|1229->322|1268->323|1356->375|1398->401|1437->402|1516->445|1543->450|1594->469|1645->489|1902->711|2028->827|2069->829|2098->1844|2164->1875|2262->1951|2332->1986|2443->2075|2513->2110|2624->2199|2694->2234|2805->2323|2875->2358|2968->2429|3038->2464|3131->2535|3201->2570|3302->2649|3527->2838|3554->2842|3607->2858|3634->2862|3686->3353|3844->3475|3859->3481|3909->3509|4006->3573
+                    LINES: 26->1|32->1|34->5|36->7|36->7|36->7|38->12|40->14|40->14|40->14|42->16|42->16|42->16|43->17|43->17|44->18|46->20|56->30|56->30|56->30|57->60|60->63|60->63|62->65|62->65|64->67|64->67|66->69|66->69|68->71|68->71|70->73|70->73|72->75|72->75|76->79|76->79|76->79|76->79|79->93|83->97|83->97|83->97|88->102
                     -- GENERATED --
                 */
             

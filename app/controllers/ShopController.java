@@ -36,9 +36,10 @@ public class ShopController extends Controller {
 	}
 	
 	
-	public static Result viewAll(){
+	public static Result viewAll(int page, String sortBy, String order, String filter){
 		
-		return ok(views.html.shop.viewall.render(shopForm,Shop.all()));	
+		return ok(views.html.shop.viewall.render(Shop.page(page, 4, sortBy, order, filter),
+                sortBy, order, filter));	
 		
 	}
 
