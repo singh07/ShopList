@@ -18,7 +18,7 @@
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 
 </head>
-<body style="padding-top:65px;background-color:white">
+<body style="padding-top:35px;background-color:white">
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -35,11 +35,22 @@
             <ul class="nav navbar-nav">
                 <li class="@("active".when(nav == "home"))"><a href="@routes.ApplicationController.index()">Home</a></li>
                 <li class="@("active".when(nav == "about"))"><a href="@routes.ApplicationController.about()">About</a></li>
-                <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.blank()">Add Shop</a></li>
                 <li class="@("active".when(nav == "contact"))"><a href="#contact">Contact</a></li>
+                 </ul>
+                 @if(session.get("email")==null){
+                  <ul class="nav navbar-nav">
+                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
+                 </ul>
+                 }else{
+                  <ul class="nav navbar-nav">
+                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
+                <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.blank()">Add Shop</a></li>
+                </ul>
+                }
+                
 
 
-            </ul>
+           
             @if(session.get("email")==null){
             <ul class="nav navbar-nav navbar-right">
 
@@ -65,7 +76,7 @@
     <div class="content">
 
         <div class="row">
-            <div class="span14">
+            <div class="page-header">
                 @content
             </div>
         </div>

@@ -11,6 +11,17 @@
 <div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
 }else{*@
 
+ @if(flash.size() > 0){
+      <div class="alert-alert error">
+          @for((key, value) <- flash){
+              <strong>Error : </strong> @value<br />
+          }
+      </div> 
+  }
+
+
+
+
 <fieldset>
     <legend>Add a new shop</legend>
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
@@ -48,34 +59,48 @@
   </div>
 *@
 
+<div class="form-group">
+@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("city"), '_label -> "City",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")</div>
+<div class="form-group">
+@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")</div>
 
-@inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
-@inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
-@inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")
-@inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")
-@inputText(userForm("city"), '_label -> "City",'class -> "form-control")
-@inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
-@inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
-@inputText(userForm("email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->user )
-
-@*
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1"  placeholder="@user" readonly>
+    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value="@user" placeholder="@user" readonly>
   </div>
 
 
 
+
+@*
+<div class="form-group">
+@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'_id -> "createdOn",'_value -> user,'class -> "form-control",'value -> user,'readonly->"readonly",'placeholder ->user )
+</div>
+
+
+
+ 
  @select(
     userForm("owner.email"),
-    options = helper.options(users),
+    options = helper.options(user),
     'class -> "form-control",
     '_default -> "--- Choose an owner ---",
     '_label -> "Select Owner",
     '_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
-) *@
+)
+*@
 
-    <div class="actions">
+    <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Create">
         <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
     </div>

@@ -79,8 +79,16 @@
     <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value="@user" placeholder="@user" readonly>
   </div>
 
+
+
+
 @*
+<div class="form-group">
 @inputText(userForm("owner.email"), '_label -> "Owner Email" ,'_id -> "createdOn",'_value -> user,'class -> "form-control",'value -> user,'readonly->"readonly",'placeholder ->user )
+</div>
+
+
+
  
  @select(
     userForm("owner.email"),

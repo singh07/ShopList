@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Shop;
+import models.Product_Shop;
 import models.Member;
 import play.data.Form;
 import play.data.validation.ValidationError;
@@ -12,7 +13,7 @@ import play.mvc.Result;
 public class ShopController extends Controller {
 
 	static Form<Shop> shopForm = Form.form(Shop.class);
-
+	static Shop savedShop;
 	public static Result display(int id) {	
 
 		return ok(views.html.shop.display.render(Shop.find(id)));
@@ -60,9 +61,11 @@ public class ShopController extends Controller {
 					loggedInUserEmail));
 		} else {
 			Shop shop = filledForm.get();
-			Shop.create(shop);
-
-			return redirect(routes.ProductController.blank());
+		savedShop=Shop.create(shop);
+//Product_Shop product_shop;
+//product_shop.shop_id=shop.id;
+	ProductController.add_shop_id(savedShop.id);
+return redirect(routes.ProductController.blank());
 
 		}
 	}

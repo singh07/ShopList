@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
 // @HASH:c0d0f0469b0fc5aa418fe85b0f44d1865b8bc447
-// @DATE:Sat Apr 12 21:43:48 IST 2014
+// @DATE:Wed Apr 16 11:27:02 IST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

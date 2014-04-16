@@ -45,7 +45,13 @@ public class Product extends Model {
     }
 
     public static List<Shop> findByShopName(String keyword) {
-        return Shop.find.where().ilike("name", "%" + keyword + "%").findList();
+        //return Shop.find.where().ilike("name", "%" + keyword + "%").findList();
+    	
+    	 Product prod=Product.find.where().like("name","%"+keyword+"%").findUnique();
+         List<Shop> foundshops=prod.shops;
+         return foundshops;
+    	
+    	
     }
 
 
