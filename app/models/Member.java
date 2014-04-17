@@ -16,6 +16,11 @@ import java.util.Set;
 @Entity
 public class Member extends Model {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
     @Email
     @OneToMany(cascade=CascadeType.ALL, mappedBy="email")

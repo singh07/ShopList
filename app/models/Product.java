@@ -2,15 +2,22 @@ package models;
 
 import play.db.ebean.*;
 import play.data.validation.Constraints.*;
-
+import javax.persistence.ManyToMany;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import models.Shop;
 
 @Entity
+@Table(name = "product")
 public class Product extends Model {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @SequenceGenerator(name="product_gen", sequenceName="product_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_gen")
     @Column(name="id")
@@ -22,8 +29,9 @@ public class Product extends Model {
     @Required
     public Float price;
 
-    @ManyToMany
-    public List<Shop> shops = new ArrayList();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_shop")
+    public List<Shop> shops = new ArrayList<>();
 
     public Product(String name, float price) {
         this.name = name;
@@ -32,12 +40,13 @@ public class Product extends Model {
     public static List<Product> all(){
         return find.all();
     }
-    public static Model.Finder<Long, Product> find = new Model.Finder(Long.class, Product.class);
+    public static Model.Finder<Long, Product> find = new Model.Finder<Long,Product>(Long.class, Product.class);
 
     public static Product create(String name,float price) {
         Product product = new Product(name, price);
         product.save();
         product.saveManyToManyAssociations("shops");
+       
         return product;
     }
     public static void delete(Long id) {

@@ -3,7 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Shop;
-import models.Product_Shop;
+
 import models.Member;
 import play.data.Form;
 import play.data.validation.ValidationError;
@@ -64,7 +64,7 @@ public class ShopController extends Controller {
 		savedShop=Shop.create(shop);
 //Product_Shop product_shop;
 //product_shop.shop_id=shop.id;
-	ProductController.add_shop_id(savedShop.id);
+	//ProductController.add_shop_id(savedShop.id);
 return redirect(routes.ProductController.blank());
 
 		}
