@@ -31,7 +31,7 @@ public class Product extends Model {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "product_shop")
-    public List<Shop> shops = new ArrayList<>();
+    public List<Shop> shops = new ArrayList<Shop>();
 
     public Product(String name, float price) {
         this.name = name;
