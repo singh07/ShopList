@@ -53,7 +53,7 @@ public class Product extends Model {
         return prod;
     }
     
-    static   List<Product> products = new ArrayList<>();
+    static   List<Product> products = new ArrayList();
     static   Member mail=null;
      
       public static Product create(Product product,Shop shop) {
@@ -70,7 +70,7 @@ public class Product extends Model {
          shop.save();
         }else
         {
-            products = new ArrayList<>();
+            products = new ArrayList();
             mail= shop.owner;
 
             products.add(product);
