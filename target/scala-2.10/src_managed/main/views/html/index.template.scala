@@ -28,9 +28,14 @@ object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 
 import helper.twitterBootstrap._
 
+def /*4.2*/title/*4.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*4.1*/("""
-"""),_display_(Seq[Any](/*5.2*/main(Html("Home"))/*5.20*/ {_display_(Seq[Any](format.raw/*5.22*/("""
+Seq[Any](format.raw/*4.11*/("""
+Home
+""")))};
+Seq[Any](format.raw/*6.2*/("""
+
+"""),_display_(Seq[Any](/*8.2*/main(title,nav="home")/*8.24*/ {_display_(Seq[Any](format.raw/*8.26*/("""
 
 <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
@@ -38,7 +43,7 @@ Seq[Any](format.raw/*4.1*/("""
     <p>Lets you search a nearby Shop and get to know their location</p>
     <p>Search Shop by Product or Shop name</p>
     <p>
-    <form class="form-inline" action=""""),_display_(Seq[Any](/*13.40*/routes/*13.46*/.SearchController.search)),format.raw/*13.70*/("""" method="post">
+    <form class="form-inline" action=""""),_display_(Seq[Any](/*16.40*/routes/*16.46*/.SearchController.search)),format.raw/*16.70*/("""" method="post">
 
         <input type="text" class="form-inline input-lg" placeholder="Product/Shop name" name="keyword">
 
@@ -77,11 +82,11 @@ Seq[Any](format.raw/*4.1*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 06 19:25:31 IST 2014
+                    DATE: Sun Apr 20 13:09:40 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/index.scala.html
-                    HASH: 7106606cce70a971254b9dc5ca8f9cbfdd49a6f6
-                    MATRIX: 905->52|941->54|967->72|1006->74|1336->368|1351->374|1397->398
-                    LINES: 32->4|33->5|33->5|33->5|41->13|41->13|41->13
+                    HASH: a0dde9612bfb688bc398f7b0244720f9625554eb
+                    MATRIX: 889->53|901->58|985->62|1030->69|1067->72|1097->94|1136->96|1466->390|1481->396|1527->420
+                    LINES: 31->4|31->4|33->4|36->6|38->8|38->8|38->8|46->16|46->16|46->16
                     -- GENERATED --
                 */
             

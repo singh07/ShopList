@@ -2,8 +2,11 @@
 
 @import helper._
 @import helper.twitterBootstrap._
+@title = {
+Sign Up
+}
 
-@main(Html("Create User")) {
+@main(title,nav="signUp") {
 
     @form(action = routes.UserController.submit(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
         <fieldset>

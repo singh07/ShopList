@@ -39,11 +39,11 @@
                  </ul>
                  @if(session.get("email")==null){
                   <ul class="nav navbar-nav">
-                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
+                 <li class="@("active".when(nav == "allShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
                  </ul>
                  }else{
                   <ul class="nav navbar-nav">
-                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
+                 <li class="@("active".when(nav == "allShop"))"><a href="@routes.ShopController.viewAll()">All Shop</a></li>
                 <li class="@("active".when(nav == "addShop"))"><a href="@routes.ShopController.blank()">Add Shop</a></li>
                 </ul>
                 }
@@ -54,13 +54,13 @@
             @if(session.get("email")==null){
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="@routes.UserController.login()">Log In</a></li>
-                <li class="@("active".when(nav == "signup"))"><a href="@routes.UserController.blank()">Sign Up</a></li>
+                <li class="@("active".when(nav == "logIn"))"><a href="@routes.UserController.login()">Log In</a></li>
+                <li class="@("active".when(nav == "signUp"))"><a href="@routes.UserController.blank()">Sign Up</a></li>
             </ul> }else{
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li class="@("active".when(nav == "signup"))"><a href="@routes.UserController.authenticate()">My Account</a></li>
+                <li class="@("active".when(nav == "account"))"><a href="@routes.UserController.authenticate()">My Account</a></li>
                 <li><a href="@routes.UserController.logout()">Logout</a></li>
 
             </ul>

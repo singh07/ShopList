@@ -34,16 +34,21 @@ public class Member extends Model {
 
 	@Required
 	public String lastName;
+	
+	 @Lob
+	    @Column(name = "user_pic")
+	    public  byte[] user_pic;
 
-   public Member(String email, String password, String firstName, String lastName)
-    {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-    }
+	   public Member(String email, String password, String firstName, String lastName,byte[] user_pic)
+	    {
+	        this.email = email;
+	        this.firstName = firstName;
+	        this.lastName = lastName;
+	        this.password = password;
+	        this.user_pic=user_pic;
+	    }
 
-	public static Finder<Integer, Member> find = new Finder(Integer.class, Member.class);
+	public static Finder<Integer, Member> find = new Finder<Integer,Member>(Integer.class, Member.class);
 
     public static void create(Member user) {
     	
@@ -56,6 +61,15 @@ public class Member extends Model {
     public static List<Member> all(){
         return find.all();
     }
+    public static Member findbyemail(String email) {
+
+
+
+      Member user= Member.find.where().eq("email", email).findUnique();
+
+          return user;
+       }
+
 
 
 	public static Member authenticate(String email, String password) {

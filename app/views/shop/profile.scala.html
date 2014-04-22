@@ -1,0 +1,105 @@
+@(added_shops:List[Shop],products:List[Product])
+
+@import helper._
+@import helper.twitterBootstrap._
+@title = {
+Added Shop
+}
+
+@main(title,nav="addedShops") {
+<fieldset>
+
+    @for(shops<-added_shops)  {
+
+    <legend><h2>@shops.name
+
+        <a  class="btn pull-right" href="#">Delete</a>
+        <a  class="btn pull-right" href="#">Edit</a>
+
+    </h2>
+
+    </legend>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-10 pull-left">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Shop Name</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.name</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.addressLine1,@shops.addressLine2,@shops.addressLine3</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">City</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.city</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Town</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.town</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Phone Number</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.phoneNumber</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@shops.category</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Owner Email</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@session.get("email")
+
+
+
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Products</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">
+                            @for(prod<-products)  {
+                            @prod.name
+                            }
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-2 pull-right">
+
+                <div class="form-group row">
+                    <img src="@routes.Assets.at("images/shop-icon.png")" height="250" width="200" alt="@shops.name" class="img-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+       }
+</fieldset>
+}

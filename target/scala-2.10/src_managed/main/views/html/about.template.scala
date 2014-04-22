@@ -28,9 +28,14 @@ object about extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 
 import helper.twitterBootstrap._
 
+def /*4.2*/title/*4.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*4.1*/("""
-"""),_display_(Seq[Any](/*5.2*/main(Html("About"))/*5.21*/ {_display_(Seq[Any](format.raw/*5.23*/("""
+Seq[Any](format.raw/*4.11*/("""
+About
+""")))};
+Seq[Any](format.raw/*6.2*/("""
+
+"""),_display_(Seq[Any](/*8.2*/main(title,nav="about")/*8.25*/ {_display_(Seq[Any](format.raw/*8.27*/("""
   <fieldset>
 
 <legend><h1>About us</h1></legend>
@@ -43,7 +48,7 @@ Seq[Any](format.raw/*4.1*/("""
     This site wouldnt exist without the support and help from people like you.
 </p>
   </fieldset>
-""")))})),format.raw/*18.2*/("""
+""")))})),format.raw/*21.2*/("""
 """))}
     }
     
@@ -56,11 +61,11 @@ Seq[Any](format.raw/*4.1*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Apr 12 22:13:59 IST 2014
+                    DATE: Sun Apr 20 13:09:40 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/about.scala.html
-                    HASH: 33c256d9083bf6907f3baa209f9f0ad089d01ddd
-                    MATRIX: 907->55|944->58|971->77|1010->79|1809->847
-                    LINES: 32->4|33->5|33->5|33->5|46->18
+                    HASH: 1793a6b62d0e0ceccdf3faab42d4c23ddbe03534
+                    MATRIX: 891->56|903->61|987->65|1035->75|1074->80|1105->103|1144->105|1943->873
+                    LINES: 31->4|31->4|33->4|36->6|38->8|38->8|38->8|51->21
                     -- GENERATED --
                 */
             

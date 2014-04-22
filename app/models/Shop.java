@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
@@ -56,6 +58,15 @@ public class Shop extends Model {
     @Required
 	public String phoneNumber;
     
+
+    @Required
+    @OneToOne
+    public String category;
+
+    @Lob
+    @Column(name = "shop_pic")
+    public  byte[] shop_pic;
+    
     @ManyToMany(mappedBy = "shops")
     public List<Product> products = new ArrayList<Product>();
     
@@ -81,6 +92,19 @@ public class Shop extends Model {
 	public static Shop find(int id) {
         return find.where().eq("id", id).findUnique();
     }
+	
+	 public static List<Shop> findbyemail(String mail) {
+	        return find.where().eq("owner_email", mail).findList();
+	    }
+	    public static Shop findshopbyemail(String mail) {
+	        return find.where().eq("owner_email", mail).findUnique();
+	    }
+	    public  static List<Product> findproduct(String mail,String shop_name){
+
+	        Shop current_shop=Shop.find.where().eq("owner_email",mail).findUnique();
+	          List <Product> prouct_on_shop=current_shop.products;
+	        return  prouct_on_shop;
+	    }
 
     public static Shop create(Shop shop) {
         shop.save();

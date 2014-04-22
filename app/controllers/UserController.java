@@ -1,6 +1,8 @@
 package controllers;
 
 import models.Member;
+import models.Shop;
+import java.util.List;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -52,23 +54,38 @@ public class UserController extends Controller{
 
 
 	}
+	
+	  public static  Result account(){
+
+	        Member current_user=Member.findbyemail(session("email"));
+	        List<Shop> user_shops =Shop.findbyemail(session("email"));
+	        return ok(views.html.user.account.render(current_user,user_shops));
+	    }
 
     public static Result authenticate()
     {
         Form<Login> loginForm = form(Login.class).bindFromRequest();
+        
 
         if(loginForm.hasErrors()) {
             return badRequest(views.html.user.login.render(loginForm));
         }
 
         else{
+        	  Login  userlogin = loginForm.get();
+        	
+           if (Login.validate(userlogin.email,userlogin.password)){
+        	   
+        	  Member user=  Member.findbyemail(userlogin.email);
+               session("email", userlogin.email);
+               session("firstname", user.firstName);
+               session("lastname", user.lastName);
 
-           Login userlogin = loginForm.get();
+               List<Shop> user_shops =Shop.findbyemail(userlogin.email);
 
-           session("email", userlogin.email);
-           if (Login.validate(userlogin.email,userlogin.password))
-
-               return ok(views.html.user.account.render(userlogin));
+               return ok(views.html.user.account.render(user,user_shops));
+               
+           }
             else{
 
                return redirect(routes.UserController.login());

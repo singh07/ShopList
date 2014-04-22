@@ -28,22 +28,28 @@ object create extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
 
 import helper.twitterBootstrap._
 
+def /*6.2*/title/*6.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
 
+Seq[Any](format.raw/*6.11*/("""
+Add Shop
+""")))};
 Seq[Any](format.raw/*1.45*/("""
 
 """),format.raw/*5.1*/("""
+"""),format.raw/*8.2*/("""
 
-"""),_display_(Seq[Any](/*7.2*/main(Html("Create Shop"))/*7.27*/ {_display_(Seq[Any](format.raw/*7.29*/("""
+"""),_display_(Seq[Any](/*10.2*/main(title,nav="addShop")/*10.27*/ {_display_(Seq[Any](format.raw/*10.29*/("""
 
-"""),format.raw/*12.9*/("""
 
- """),_display_(Seq[Any](/*14.3*/if(flash.size() > 0)/*14.23*/{_display_(Seq[Any](format.raw/*14.24*/("""
+"""),format.raw/*16.9*/("""
+
+ """),_display_(Seq[Any](/*18.3*/if(flash.size() > 0)/*18.23*/{_display_(Seq[Any](format.raw/*18.24*/("""
       <div class="alert-alert error">
-          """),_display_(Seq[Any](/*16.12*/for((key, value) <- flash) yield /*16.38*/{_display_(Seq[Any](format.raw/*16.39*/("""
-              <strong>Error : </strong> """),_display_(Seq[Any](/*17.42*/value)),format.raw/*17.47*/("""<br />
-          """)))})),format.raw/*18.12*/("""
+          """),_display_(Seq[Any](/*20.12*/for((key, value) <- flash) yield /*20.38*/{_display_(Seq[Any](format.raw/*20.39*/("""
+              <strong>Error : </strong> """),_display_(Seq[Any](/*21.42*/value)),format.raw/*21.47*/("""<br />
+          """)))})),format.raw/*22.12*/("""
       </div> 
-  """)))})),format.raw/*20.4*/("""
+  """)))})),format.raw/*24.4*/("""
 
 
 
@@ -53,42 +59,68 @@ Seq[Any](format.raw/*1.45*/("""
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
 
 
-"""),_display_(Seq[Any](/*30.2*/form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form")/*30.118*/ {_display_(Seq[Any](format.raw/*30.120*/("""
-"""),format.raw/*60.3*/("""
+"""),_display_(Seq[Any](/*34.2*/form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form")/*34.118*/ {_display_(Seq[Any](format.raw/*34.120*/("""
+"""),format.raw/*64.3*/("""
 
 <div class="form-group">
-"""),_display_(Seq[Any](/*63.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*63.78*/("""</div>
+"""),_display_(Seq[Any](/*67.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*67.78*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*65.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*65.91*/("""</div>
+"""),_display_(Seq[Any](/*69.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*69.91*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*67.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*67.91*/("""</div>
+"""),_display_(Seq[Any](/*71.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*71.91*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*69.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*69.91*/("""</div>
+"""),_display_(Seq[Any](/*73.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*73.91*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*71.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*71.73*/("""</div>
+"""),_display_(Seq[Any](/*75.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*75.73*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*73.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*73.73*/("""</div>
+"""),_display_(Seq[Any](/*77.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*77.73*/("""</div>
 <div class="form-group">
-"""),_display_(Seq[Any](/*75.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*75.81*/("""</div>
+"""),_display_(Seq[Any](/*79.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*79.81*/("""</div>
+
+   <div>
+        <label>Category</label>
+        <select name="category" class="form-control" id="select1" >
+            <option value="">-:Select Category:-&nbsp;</option>
+            <option value="antique shop">antique shop</option>
+            <option value="barbershop">barbershop</option>
+            <option value="beauty parlour">beauty parlour</option>
+            <option value="beauty salon">beauty salon</option>
+            <option value="big-box store">big-box store</option>
+            <option value="bookshop">bookshop</option>
+            <option value="bottle shop">bottle shop</option>
+            <option value="chemist">chemist</option>
+            <option value="dairy">dairy</option>
+            <option value="garage">garage</option>
+            <option value="general store">general store</option>
+            <option value="hardware shop">hardware shop</option>
+            <option value="supermarket">supermarket</option>
+            <option value="sweet shop">sweet shop</option>
+
+
+
+        </select>
+    </div>
+    <div></div>
+
 
 <div class="form-group">
     <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*79.97*/user)),format.raw/*79.101*/("""" placeholder=""""),_display_(Seq[Any](/*79.117*/user)),format.raw/*79.121*/("""" readonly>
+    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*109.97*/user)),format.raw/*109.101*/("""" placeholder=""""),_display_(Seq[Any](/*109.117*/user)),format.raw/*109.121*/("""" readonly>
   </div>
 
 
 
 
-"""),format.raw/*101.3*/("""
+"""),format.raw/*131.3*/("""
 
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Create">
-        <a href=""""),_display_(Seq[Any](/*105.19*/routes/*105.25*/.ApplicationController.index)),format.raw/*105.53*/("""" class="btn">Cancel</a>
+        <a href=""""),_display_(Seq[Any](/*135.19*/routes/*135.25*/.ApplicationController.index)),format.raw/*135.53*/("""" class="btn">Cancel</a>
     </div>
 
 
 </fieldset>
-        """)))})),format.raw/*110.10*/("""
+        """)))})),format.raw/*140.10*/("""
         """)))})))}
     }
     
@@ -101,11 +133,11 @@ Seq[Any](format.raw/*1.45*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 15 21:30:28 IST 2014
+                    DATE: Tue Apr 22 22:49:44 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/shop/create.scala.html
-                    HASH: efc494e07a9dfbd6125dee6a4a309e9aa069ff76
-                    MATRIX: 798->1|987->44|1017->101|1056->106|1089->131|1128->133|1159->296|1200->302|1229->322|1268->323|1356->375|1398->401|1437->402|1516->445|1543->450|1594->469|1645->489|1902->711|2028->827|2069->829|2098->1844|2164->1875|2262->1951|2332->1986|2443->2075|2513->2110|2624->2199|2694->2234|2805->2323|2875->2358|2968->2429|3038->2464|3131->2535|3201->2570|3302->2649|3527->2838|3554->2842|3607->2858|3634->2862|3693->3399|3852->3521|3868->3527|3919->3555|4016->3619
-                    LINES: 26->1|32->1|34->5|36->7|36->7|36->7|38->12|40->14|40->14|40->14|42->16|42->16|42->16|43->17|43->17|44->18|46->20|56->30|56->30|56->30|57->60|60->63|60->63|62->65|62->65|64->67|64->67|66->69|66->69|68->71|68->71|70->73|70->73|72->75|72->75|76->79|76->79|76->79|76->79|82->101|86->105|86->105|86->105|91->110
+                    HASH: 77f41e3ada764b1e7d0ab529b92ec9bb6ce145e5
+                    MATRIX: 798->1|970->104|982->109|1066->113|1118->44|1148->101|1176->126|1216->131|1250->156|1290->158|1323->323|1364->329|1393->349|1432->350|1520->402|1562->428|1601->429|1680->472|1707->477|1758->496|1809->516|2066->738|2192->854|2233->856|2262->1871|2328->1902|2426->1978|2496->2013|2607->2102|2677->2137|2788->2226|2858->2261|2969->2350|3039->2385|3132->2456|3202->2491|3295->2562|3365->2597|3466->2676|4777->3950|4805->3954|4859->3970|4887->3974|4946->4511|5105->4633|5121->4639|5172->4667|5269->4731
+                    LINES: 26->1|31->6|31->6|33->6|36->1|38->5|39->8|41->10|41->10|41->10|44->16|46->18|46->18|46->18|48->20|48->20|48->20|49->21|49->21|50->22|52->24|62->34|62->34|62->34|63->64|66->67|66->67|68->69|68->69|70->71|70->71|72->73|72->73|74->75|74->75|76->77|76->77|78->79|78->79|108->109|108->109|108->109|108->109|114->131|118->135|118->135|118->135|123->140
                     -- GENERATED --
                 */
             

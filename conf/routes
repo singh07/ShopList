@@ -6,10 +6,14 @@
 GET     /                           controllers.ApplicationController.index()
 GET     /about                      controllers.ApplicationController.about()
 POST    /search                     controllers.SearchController.search()
+#POST    /search                    controllers.SearchController.searchShop()
+#POST    /search/found              controllers.SearchController.searchResult(p:Int ?= 0, s ?= "name", o ?= "asc",keyword ?= "")
 
 # Shop Urls
 GET      /shop/viewall              controllers.ShopController.viewAll(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 GET	     /shop/create				controllers.ShopController.blank()
+GET      /shop/profile              controllers.ShopController.profile()
+GET     /shop/category              controllers.ShopController.displayCategory()
 POST     /shop/create               controllers.ShopController.submit()
 #POST    /shop/update/:id           controllers.ShopController.update(id:Int)
 GET      /shop/:id                	controllers.ShopController.display(id:Int)
@@ -23,6 +27,8 @@ GET   /user/logout			        controllers.UserController.logout()
 
 GET	    /user/create				controllers.UserController.blank()
 POST    /user/create                controllers.UserController.submit()
+GET    /user/account                controllers.UserController.account()
+
 
 #POST	/user/update/:id			controllers.UserController.update(id:Int)
 #POST 	/user/delete/:id			controllers.UserController.delete(id:Int)

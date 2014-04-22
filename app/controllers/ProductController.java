@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Shop;
+import java.util.List;
 
 import models.Member;
 import models.Product;
@@ -19,21 +20,30 @@ public class ProductController extends Controller {
   }*/
   
     public static Result blank() {
-    	
+    	  String category=session("category");
+
+          Form<Product> productFormData = productForm.bindFromRequest();
+
+          Shop shop=Shop.findshopbyemail(session("email"));
+
+        List<Product> prod=  Product.findbyemail(session("email"));
     
-        Form<Product> productFormData = productForm.bindFromRequest();
-        return ok(views.html.product.add.render(Product.all(),productFormData ));
+       
+        return ok(views.html.product.add.render(Product.all(),productFormData ,category,prod));
      }
 
 
     public static Result save() {
-        Form<Product> productFormData = productForm.bindFromRequest();
+    	Form<Product> productFormData = productForm.bindFromRequest();
+        String category=session("category");
+        List<Product> prod=  Product.findbyemail(session("email"));
         if(productFormData.hasErrors()) {
 
-            return badRequest(views.html.product.add.render(Product.all(), productFormData));
+            return badRequest(views.html.product.add.render(Product.all(), productFormData,category,prod));
 
         } else {
-            Product.create(productFormData.get().name,productFormData.get().price);
+        	Shop shop=Shop.findshopbyemail(session("email"));
+            Product.create(productFormData.get(),shop);
            // product_shop.product_id=savedProduct.id;
            // Product_Shop.create(product_shop);
             //add_shop_id(product_shop.shop_id);
@@ -47,7 +57,9 @@ public class ProductController extends Controller {
 
     }
     public static Result afterDeletion() {
-        return ok(views.html.product.add.render(Product.all(), productForm));
+    	  String category=session("category");
+          List<Product> prod=  Product.findbyemail(session("email"));
+        return ok(views.html.product.add.render(Product.all(), productForm,category,prod));
 
     }
 

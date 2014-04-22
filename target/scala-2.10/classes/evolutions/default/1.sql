@@ -4,13 +4,15 @@ create table member (
   email                     varchar(255) PRIMARY KEY,
   password                  varchar(255),
   first_name                varchar(255),
-  last_name                 varchar(255)
+  last_name                 varchar(255),
+  user_pic                  bytea
   )
 ;
 
 create table product (
   id                        bigserial PRIMARY KEY,
   name                      varchar(255),
+  category                  varchar(255),
   price                     real
   )
 ;
@@ -24,6 +26,8 @@ create table shop (
   city                      varchar(255),
   town                      varchar(255),
   phone_number              varchar(255),
+  category                  varchar(255),
+  shop_pic                  bytea,
   owner                     varchar(255) REFERENCES member(email) ON DELETE RESTRICT ON UPDATE RESTRICT
   )
 ;

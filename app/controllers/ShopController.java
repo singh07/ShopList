@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Shop;
+import models.Product;
 
 import models.Member;
 import play.data.Form;
@@ -18,6 +19,11 @@ public class ShopController extends Controller {
 
 		return ok(views.html.shop.display.render(Shop.find(id)));
 	}
+	
+	public static Result displayCategory()
+    {
+        return ok(views.html.shop.category.render());
+    }
 
 	public static Result blank() {
 		String loggedInUserEmail = session("email");
@@ -43,6 +49,14 @@ public class ShopController extends Controller {
                 sortBy, order, filter));	
 		
 	}
+	public static Result profile(){
+        String loggedInUserEmail = session("email");
+      List<Shop> shops_on_email= Shop.findbyemail(loggedInUserEmail);
+        String shopname = session("shop_name");
+       List<Product> product_on_email= Shop.findproduct(loggedInUserEmail,shopname);
+
+        return ok(views.html.shop.profile.render(shops_on_email,product_on_email ));
+    }
 
 	public static Result submit() {
 		Form<Shop> filledForm = shopForm.bindFromRequest();

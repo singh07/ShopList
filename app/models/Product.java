@@ -28,6 +28,11 @@ public class Product extends Model {
 
     @Required
     public Float price;
+    
+    @OneToOne
+    @Required
+    public String category;
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "product_shop")
@@ -42,13 +47,41 @@ public class Product extends Model {
     }
     public static Model.Finder<Long, Product> find = new Model.Finder<Long,Product>(Long.class, Product.class);
 
-    public static Product create(String name,float price) {
-        Product product = new Product(name, price);
-        product.save();
-        product.saveManyToManyAssociations("shops");
-       
-        return product;
+    public static List<Product> findbyemail(String mail) {
+        Shop prod_shop= Shop.find.where().eq("owner_email", mail).findUnique();
+        List<Product> prod=prod_shop.products;
+        return prod;
     }
+    
+    static   List<Product> products = new ArrayList<>();
+    static   Member mail=null;
+     
+      public static Product create(Product product,Shop shop) {
+        
+          product.save();
+         // product.saveManyToManyAssociations("shops");
+
+        if ((shop.owner).equals(mail))
+        {
+
+          products.add(product);
+
+          shop.products = products;
+         shop.save();
+        }else
+        {
+            products = new ArrayList<>();
+            mail= shop.owner;
+
+            products.add(product);
+
+            shop.products = products;
+            shop.save();
+        }
+
+
+                  return product;
+      }
     public static void delete(Long id) {
         find.ref(id).delete();
     }

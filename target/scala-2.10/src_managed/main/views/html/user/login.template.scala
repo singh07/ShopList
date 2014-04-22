@@ -28,38 +28,43 @@ object login extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 
 import helper.twitterBootstrap._
 
+def /*5.2*/title/*5.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
 
+Seq[Any](format.raw/*5.11*/("""
+Sign In
+""")))};
 Seq[Any](format.raw/*1.33*/("""
 
-"""),format.raw/*5.1*/("""
-"""),_display_(Seq[Any](/*6.2*/main(Html("Create User"))/*6.27*/ {_display_(Seq[Any](format.raw/*6.29*/("""
+"""),format.raw/*7.2*/("""
 
-"""),_display_(Seq[Any](/*8.2*/form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form")/*8.124*/ {_display_(Seq[Any](format.raw/*8.126*/("""
+"""),_display_(Seq[Any](/*9.2*/main(title,nav="signIn")/*9.26*/ {_display_(Seq[Any](format.raw/*9.28*/("""
+
+"""),_display_(Seq[Any](/*11.2*/form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form")/*11.124*/ {_display_(Seq[Any](format.raw/*11.126*/("""
 <fieldset>
     <legend><h1>LogIn</h1></legend>
 
 <div class="form-group">
-    """),_display_(Seq[Any](/*13.6*/inputText(login("email"),
+    """),_display_(Seq[Any](/*16.6*/inputText(login("email"),
     '_label -> "Email Address:",
     'class -> "form-control",
     'placeholder -> "Enter email address.",
-    '_error -> login.globalError))),format.raw/*17.34*/("""
+    '_error -> login.globalError))),format.raw/*20.34*/("""
 </div>
 <div class="form-group">
-    """),_display_(Seq[Any](/*20.6*/inputPassword(login("password"),
+    """),_display_(Seq[Any](/*23.6*/inputPassword(login("password"),
     '_label -> "Password:",
     'class -> "form-control",
-    'placeholder -> "Enter password"))),format.raw/*23.38*/("""
+    'placeholder -> "Enter password"))),format.raw/*26.38*/("""
     </div>
 </fieldset>
 
    <div class="form-group">
      <input type="submit" class="btn btn-primary" value="Log In">
-     <a href=""""),_display_(Seq[Any](/*29.16*/routes/*29.22*/.ApplicationController.index)),format.raw/*29.50*/("""" class="btn">Cancel</a>
+     <a href=""""),_display_(Seq[Any](/*32.16*/routes/*32.22*/.ApplicationController.index)),format.raw/*32.50*/("""" class="btn">Cancel</a>
    </div>
-""")))})),format.raw/*31.2*/("""
+""")))})),format.raw/*34.2*/("""
 
-""")))})),format.raw/*33.2*/("""
+""")))})),format.raw/*36.2*/("""
 """))}
     }
     
@@ -72,11 +77,11 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Apr 12 22:16:31 IST 2014
+                    DATE: Sun Apr 20 13:09:41 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/login.scala.html
-                    HASH: 14dd452f89d9110b942aea688fb9d4ad1c3e637d
-                    MATRIX: 795->1|970->32|998->85|1034->87|1067->112|1106->114|1143->117|1274->239|1314->241|1428->320|1616->486|1689->524|1839->652|2009->786|2024->792|2074->820|2141->856|2175->859
-                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|37->8|37->8|37->8|42->13|46->17|49->20|52->23|58->29|58->29|58->29|60->31|62->33
+                    HASH: 7b8cb19636ba7af19e16615dd746c35b62741f88
+                    MATRIX: 795->1|953->86|965->91|1049->95|1098->32|1126->105|1163->108|1195->132|1234->134|1272->137|1404->259|1445->261|1559->340|1747->506|1820->544|1970->672|2140->806|2155->812|2205->840|2272->876|2306->879
+                    LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|42->11|42->11|42->11|47->16|51->20|54->23|57->26|63->32|63->32|63->32|65->34|67->36
                     -- GENERATED --
                 */
             

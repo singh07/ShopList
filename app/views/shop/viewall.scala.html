@@ -31,13 +31,18 @@
 }
 
 
-@main(Html("View All")) {
+@title = {
+View All
+}
+
+@main(title,nav="allShop") {
+
 
 
 
    <legend><h1>Shops</h1></legend> 
  
-        @for(shop <- currentPage.getList) {
+        @for(allshop <- currentPage.getList) {
         
         @*
      <div class="page-header"> 
@@ -46,14 +51,14 @@
     <img class="media-object" src="..." alt="...">
   </a>
   <div class="media-body">
-    <h2 class="media-heading">@shop.name</h2>
-    <small>@shop.addressLine1,@shop.city,@shop.town</small>
+    <h2 class="media-heading">@allshop.name</h2>
+    <small>@allshop.addressLine1,@allshop.city,@shop.town</small>
   </div>
 </div>
       </div>
      *@       
       <div class="page-header">
-  <h2>@shop.name <small>@shop.addressLine1,@shop.city,@shop.town</small></h2>
+  <h2>@allshop.name <small>@allshop.addressLine1,@allshop.city,@allshop.town</small></h2>
 </div>
   }
   <div id="pagination" class="pagination">
