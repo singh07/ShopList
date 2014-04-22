@@ -94,14 +94,14 @@ public class Shop extends Model {
     }
 	
 	 public static List<Shop> findbyemail(String mail) {
-	        return find.where().eq("owner_email", mail).findList();
+	        return find.where().eq("owner.email", mail).findList();
 	    }
 	    public static Shop findshopbyemail(String mail) {
-	        return find.where().eq("owner_email", mail).findUnique();
+	        return find.where().eq("owner.email", mail).findUnique();
 	    }
 	    public  static List<Product> findproduct(String mail,String shop_name){
 
-	        Shop current_shop=Shop.find.where().eq("owner_email",mail).findUnique();
+	        Shop current_shop=Shop.find.where().eq("owner.email",mail).findUnique();
 	          List <Product> prouct_on_shop=current_shop.products;
 	        return  prouct_on_shop;
 	    }
