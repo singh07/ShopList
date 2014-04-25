@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:94998d08bfff92557c94326f82dc962fe93aeb3e
-// @DATE:Tue Apr 22 22:49:40 IST 2014
+// @HASH:cb7eab5af5c55f679947bb3b94e3e761a7f47d21
+// @DATE:Fri Apr 25 23:15:56 IST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,11 +13,13 @@ import play.libs.F
 import Router.queryString
 
 
+// @LINE:48
 // @LINE:44
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:43
+// @LINE:42
+// @LINE:41
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -35,11 +37,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:44
+// @LINE:48
 class ReverseAssets {
     
 
-// @LINE:44
+// @LINE:48
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -68,32 +70,32 @@ def index(): Call = {
 }
                           
 
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:44
+// @LINE:43
+// @LINE:42
+// @LINE:41
 class ReverseProductController {
     
 
-// @LINE:38
+// @LINE:42
 def save(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "product/add")
+   Call("POST", _prefix + { _defaultPrefix } + "product/save")
 }
                                                 
 
-// @LINE:37
+// @LINE:41
 def blank(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "product/add")
 }
                                                 
 
-// @LINE:39
+// @LINE:43
 def delete(id:Long): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "product/delete/" + implicitly[PathBindable[Long]].unbind("id", id))
 }
                                                 
 
-// @LINE:40
+// @LINE:44
 def afterDeletion(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "product/delete")
 }
@@ -102,6 +104,8 @@ def afterDeletion(): Call = {
 }
                           
 
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -114,6 +118,18 @@ class ReverseUserController {
 // @LINE:29
 def submit(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "user/create")
+}
+                                                
+
+// @LINE:32
+def edit(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "user/edit/" + implicitly[PathBindable[Long]].unbind("id", id))
+}
+                                                
+
+// @LINE:33
+def update(id:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "user/update/" + implicitly[PathBindable[Long]].unbind("id", id))
 }
                                                 
 
@@ -214,11 +230,13 @@ def blank(): Call = {
                   
 
 
+// @LINE:48
 // @LINE:44
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:43
+// @LINE:42
+// @LINE:41
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -236,11 +254,11 @@ def blank(): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:44
+// @LINE:48
 class ReverseAssets {
     
 
-// @LINE:44
+// @LINE:48
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -284,25 +302,25 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:44
+// @LINE:43
+// @LINE:42
+// @LINE:41
 class ReverseProductController {
     
 
-// @LINE:38
+// @LINE:42
 def save : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ProductController.save",
    """
       function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "product/add"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "product/save"})
       }
    """
 )
                         
 
-// @LINE:37
+// @LINE:41
 def blank : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ProductController.blank",
    """
@@ -313,7 +331,7 @@ def blank : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:39
+// @LINE:43
 def delete : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ProductController.delete",
    """
@@ -324,7 +342,7 @@ def delete : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:40
+// @LINE:44
 def afterDeletion : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ProductController.afterDeletion",
    """
@@ -338,6 +356,8 @@ def afterDeletion : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -353,6 +373,28 @@ def submit : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/create"})
+      }
+   """
+)
+                        
+
+// @LINE:32
+def edit : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.edit",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/edit/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
+// @LINE:33
+def update : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.update",
+   """
+      function(id) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/update/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
       }
    """
 )
@@ -515,11 +557,13 @@ def blank : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:48
 // @LINE:44
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:43
+// @LINE:42
+// @LINE:41
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -538,11 +582,11 @@ def blank : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:44
+// @LINE:48
 class ReverseAssets {
     
 
-// @LINE:44
+// @LINE:48
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -571,32 +615,32 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:40
-// @LINE:39
-// @LINE:38
-// @LINE:37
+// @LINE:44
+// @LINE:43
+// @LINE:42
+// @LINE:41
 class ReverseProductController {
     
 
-// @LINE:38
+// @LINE:42
 def save(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Seq(), "POST", """""", _prefix + """product/add""")
+   controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Seq(), "POST", """""", _prefix + """product/save""")
 )
                       
 
-// @LINE:37
+// @LINE:41
 def blank(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ProductController.blank(), HandlerDef(this, "controllers.ProductController", "blank", Seq(), "GET", """ Product Urls""", _prefix + """product/add""")
 )
                       
 
-// @LINE:39
+// @LINE:43
 def delete(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ProductController.delete(id), HandlerDef(this, "controllers.ProductController", "delete", Seq(classOf[Long]), "GET", """""", _prefix + """product/delete/$id<[^/]+>""")
 )
                       
 
-// @LINE:40
+// @LINE:44
 def afterDeletion(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ProductController.afterDeletion(), HandlerDef(this, "controllers.ProductController", "afterDeletion", Seq(), "GET", """""", _prefix + """product/delete""")
 )
@@ -605,6 +649,8 @@ def afterDeletion(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:33
+// @LINE:32
 // @LINE:30
 // @LINE:29
 // @LINE:28
@@ -617,6 +663,18 @@ class ReverseUserController {
 // @LINE:29
 def submit(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.UserController.submit(), HandlerDef(this, "controllers.UserController", "submit", Seq(), "POST", """""", _prefix + """user/create""")
+)
+                      
+
+// @LINE:32
+def edit(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.edit(id), HandlerDef(this, "controllers.UserController", "edit", Seq(classOf[Long]), "GET", """""", _prefix + """user/edit/$id<[^/]+>""")
+)
+                      
+
+// @LINE:33
+def update(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.update(id), HandlerDef(this, "controllers.UserController", "update", Seq(classOf[Long]), "POST", """""", _prefix + """user/update/$id<[^/]+>""")
 )
                       
 

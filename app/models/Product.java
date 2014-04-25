@@ -48,12 +48,12 @@ public class Product extends Model {
     public static Model.Finder<Long, Product> find = new Model.Finder<Long,Product>(Long.class, Product.class);
 
     public static List<Product> findbyemail(String mail) {
-        Shop prod_shop= Shop.find.where().eq("owner_email", mail).findUnique();
+        Shop prod_shop= Shop.find.where().eq("owner.email", mail).findUnique();
         List<Product> prod=prod_shop.products;
         return prod;
     }
     
-    static   List<Product> products = new ArrayList();
+    static   List<Product> products = new ArrayList<Product>();
     static   Member mail=null;
      
       public static Product create(Product product,Shop shop) {
@@ -70,7 +70,7 @@ public class Product extends Model {
          shop.save();
         }else
         {
-            products = new ArrayList();
+            products = new ArrayList<Product>();
             mail= shop.owner;
 
             products.add(product);

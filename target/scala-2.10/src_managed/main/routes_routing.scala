@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:94998d08bfff92557c94326f82dc962fe93aeb3e
-// @DATE:Tue Apr 22 22:49:40 IST 2014
+// @HASH:cb7eab5af5c55f679947bb3b94e3e761a7f47d21
+// @DATE:Fri Apr 25 23:15:56 IST 2014
 
 
 import play.core._
@@ -88,26 +88,34 @@ private[this] lazy val controllers_UserController_submit13 = Route("POST", PathP
 private[this] lazy val controllers_UserController_account14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user/account"))))
         
 
-// @LINE:37
-private[this] lazy val controllers_ProductController_blank15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/add"))))
+// @LINE:32
+private[this] lazy val controllers_UserController_edit15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user/edit/"),DynamicPart("id", """[^/]+""",true))))
         
 
-// @LINE:38
-private[this] lazy val controllers_ProductController_save16 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/add"))))
+// @LINE:33
+private[this] lazy val controllers_UserController_update16 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("user/update/"),DynamicPart("id", """[^/]+""",true))))
         
 
-// @LINE:39
-private[this] lazy val controllers_ProductController_delete17 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/delete/"),DynamicPart("id", """[^/]+""",true))))
+// @LINE:41
+private[this] lazy val controllers_ProductController_blank17 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/add"))))
         
 
-// @LINE:40
-private[this] lazy val controllers_ProductController_afterDeletion18 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/delete"))))
+// @LINE:42
+private[this] lazy val controllers_ProductController_save18 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/save"))))
+        
+
+// @LINE:43
+private[this] lazy val controllers_ProductController_delete19 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/delete/"),DynamicPart("id", """[^/]+""",true))))
         
 
 // @LINE:44
-private[this] lazy val controllers_Assets_at19 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_ProductController_afterDeletion20 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("product/delete"))))
         
-def documentation = List(("""GET""", prefix,"""controllers.ApplicationController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """about""","""controllers.ApplicationController.about()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """search""","""controllers.SearchController.search()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/viewall""","""controllers.ShopController.viewAll(p:Int ?= 0, s:String ?= "name", o:String ?= "asc", f:String ?= "")"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/create""","""controllers.ShopController.blank()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/profile""","""controllers.ShopController.profile()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/category""","""controllers.ShopController.displayCategory()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/create""","""controllers.ShopController.submit()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/$id<[^/]+>""","""controllers.ShopController.display(id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/login""","""controllers.UserController.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/login""","""controllers.UserController.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/logout""","""controllers.UserController.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/create""","""controllers.UserController.blank()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/create""","""controllers.UserController.submit()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/account""","""controllers.UserController.account()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/add""","""controllers.ProductController.blank()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/add""","""controllers.ProductController.save()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/delete/$id<[^/]+>""","""controllers.ProductController.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/delete""","""controllers.ProductController.afterDeletion()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:48
+private[this] lazy val controllers_Assets_at21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+        
+def documentation = List(("""GET""", prefix,"""controllers.ApplicationController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """about""","""controllers.ApplicationController.about()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """search""","""controllers.SearchController.search()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/viewall""","""controllers.ShopController.viewAll(p:Int ?= 0, s:String ?= "name", o:String ?= "asc", f:String ?= "")"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/create""","""controllers.ShopController.blank()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/profile""","""controllers.ShopController.profile()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/category""","""controllers.ShopController.displayCategory()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/create""","""controllers.ShopController.submit()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """shop/$id<[^/]+>""","""controllers.ShopController.display(id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/login""","""controllers.UserController.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/login""","""controllers.UserController.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/logout""","""controllers.UserController.logout()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/create""","""controllers.UserController.blank()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/create""","""controllers.UserController.submit()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/account""","""controllers.UserController.account()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/edit/$id<[^/]+>""","""controllers.UserController.edit(id:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """user/update/$id<[^/]+>""","""controllers.UserController.update(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/add""","""controllers.ProductController.blank()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/save""","""controllers.ProductController.save()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/delete/$id<[^/]+>""","""controllers.ProductController.delete(id:Long)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """product/delete""","""controllers.ProductController.afterDeletion()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -235,40 +243,56 @@ case controllers_UserController_account14(params) => {
 }
         
 
-// @LINE:37
-case controllers_ProductController_blank15(params) => {
+// @LINE:32
+case controllers_UserController_edit15(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        invokeHandler(controllers.UserController.edit(id), HandlerDef(this, "controllers.UserController", "edit", Seq(classOf[Long]),"GET", """""", Routes.prefix + """user/edit/$id<[^/]+>"""))
+   }
+}
+        
+
+// @LINE:33
+case controllers_UserController_update16(params) => {
+   call(params.fromPath[Long]("id", None)) { (id) =>
+        invokeHandler(controllers.UserController.update(id), HandlerDef(this, "controllers.UserController", "update", Seq(classOf[Long]),"POST", """""", Routes.prefix + """user/update/$id<[^/]+>"""))
+   }
+}
+        
+
+// @LINE:41
+case controllers_ProductController_blank17(params) => {
    call { 
         invokeHandler(controllers.ProductController.blank(), HandlerDef(this, "controllers.ProductController", "blank", Nil,"GET", """ Product Urls""", Routes.prefix + """product/add"""))
    }
 }
         
 
-// @LINE:38
-case controllers_ProductController_save16(params) => {
+// @LINE:42
+case controllers_ProductController_save18(params) => {
    call { 
-        invokeHandler(controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Nil,"POST", """""", Routes.prefix + """product/add"""))
+        invokeHandler(controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Nil,"POST", """""", Routes.prefix + """product/save"""))
    }
 }
         
 
-// @LINE:39
-case controllers_ProductController_delete17(params) => {
+// @LINE:43
+case controllers_ProductController_delete19(params) => {
    call(params.fromPath[Long]("id", None)) { (id) =>
         invokeHandler(controllers.ProductController.delete(id), HandlerDef(this, "controllers.ProductController", "delete", Seq(classOf[Long]),"GET", """""", Routes.prefix + """product/delete/$id<[^/]+>"""))
    }
 }
         
 
-// @LINE:40
-case controllers_ProductController_afterDeletion18(params) => {
+// @LINE:44
+case controllers_ProductController_afterDeletion20(params) => {
    call { 
         invokeHandler(controllers.ProductController.afterDeletion(), HandlerDef(this, "controllers.ProductController", "afterDeletion", Nil,"GET", """""", Routes.prefix + """product/delete"""))
    }
 }
         
 
-// @LINE:44
-case controllers_Assets_at19(params) => {
+// @LINE:48
+case controllers_Assets_at21(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }

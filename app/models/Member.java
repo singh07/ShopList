@@ -20,10 +20,15 @@ public class Member extends Model {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	 @Id
+	 public Long id;
 
-	@Id
+	  
+	
     @Email
     @OneToMany(cascade=CascadeType.ALL, mappedBy="email")
+	@JoinColumn(name="email",unique=true)
     public String email;
 
 	@Required
@@ -69,6 +74,15 @@ public class Member extends Model {
 
           return user;
        }
+    public static Member findById(Long id) {
+
+
+
+        Member user= Member.find.where().eq("id", id).findUnique();
+
+            return user;
+         }
+
 
 
 

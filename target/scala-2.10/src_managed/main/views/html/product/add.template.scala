@@ -43,7 +43,7 @@ Seq[Any](format.raw/*1.100*/("""
       <input type="text" class="form-inline input-lg" placeholder="Enter product name" name="name">
       <input type="text" class="form-inline input-lg" placeholder="Enter product price(Rs.)" name="price">
 
-          <input type="hidden" class="form-inline input-lg"  name="category" value=""""),_display_(Seq[Any](/*23.86*/category)),format.raw/*23.94*/("""">
+     <input type="hidden" class="form-inline input-lg"  name="category" value=""""),_display_(Seq[Any](/*23.81*/category)),format.raw/*23.89*/("""">
 
 
       <input type="submit" value="Add" class="btn btn-lg btn-primary">
@@ -61,28 +61,30 @@ Seq[Any](format.raw/*1.100*/("""
 
             </tr>
             </thead>
-
+ </table>
             """),_display_(Seq[Any](/*42.14*/for(product <- prod) yield /*42.34*/ {_display_(Seq[Any](format.raw/*42.36*/("""
+            <table class="table table-hover">
             <tbody>
             <tr>
-                <td>"""),_display_(Seq[Any](/*45.22*/product/*45.29*/.name)),format.raw/*45.34*/("""</td>
-                <td>"""),_display_(Seq[Any](/*46.22*/product/*46.29*/.price)),format.raw/*46.35*/("""</td>
+                <td>"""),_display_(Seq[Any](/*46.22*/product/*46.29*/.name)),format.raw/*46.34*/("""</td>
+                <td>"""),_display_(Seq[Any](/*47.22*/product/*47.29*/.price)),format.raw/*47.35*/("""</td>
 
             </tr>
 
             </tbody>
-            """)))})),format.raw/*51.14*/("""
+           
         </table>
+         """)))})),format.raw/*54.11*/("""
     </div>
 
-     """)))})),format.raw/*55.7*/("""
+     """)))})),format.raw/*57.7*/("""
 
 
 
-    """),format.raw/*76.8*/("""
+   
 
 </fieldset>
-"""),format.raw/*79.6*/("""
+
 
 """)))})))}
     }
@@ -96,11 +98,11 @@ Seq[Any](format.raw/*1.100*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 22 22:49:44 IST 2014
+                    DATE: Wed Apr 23 14:12:06 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/product/add.scala.html
-                    HASH: cbee16fcc29cbd260638745484b682d589d5733d
-                    MATRIX: 829->1|1072->99|1100->152|1136->154|1169->179|1208->181|1314->546|1392->588|1407->594|1454->619|1800->929|1830->937|1979->1050|1992->1054|2021->1061|2084->1089|2114->1110|2157->1115|2425->1347|2461->1367|2501->1369|2596->1428|2612->1435|2639->1440|2702->1467|2718->1474|2746->1480|2838->1540|2905->1576|2940->1967|2981->1986
-                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|41->18|42->19|42->19|42->19|46->23|46->23|53->30|53->30|53->30|54->31|54->31|54->31|65->42|65->42|65->42|68->45|68->45|68->45|69->46|69->46|69->46|74->51|78->55|82->76|85->79
+                    HASH: 140b74577a4727e3a92ad15ede9c65d5426ce57b
+                    MATRIX: 829->1|1072->99|1100->152|1136->154|1169->179|1208->181|1314->546|1392->588|1407->594|1454->619|1795->924|1825->932|1974->1045|1987->1049|2016->1056|2079->1084|2109->1105|2152->1110|2429->1351|2465->1371|2505->1373|2646->1478|2662->1485|2689->1490|2752->1517|2768->1524|2796->1530|2914->1616|2964->1635
+                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|41->18|42->19|42->19|42->19|46->23|46->23|53->30|53->30|53->30|54->31|54->31|54->31|65->42|65->42|65->42|69->46|69->46|69->46|70->47|70->47|70->47|77->54|80->57
                     -- GENERATED --
                 */
             

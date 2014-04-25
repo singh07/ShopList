@@ -76,6 +76,10 @@ public class ShopController extends Controller {
 		} else {
 			Shop shop = filledForm.get();
 		savedShop=Shop.create(shop);
+		
+		 
+          session("category",shop.category);
+         session("shop_name",shop.name);
 //Product_Shop product_shop;
 //product_shop.shop_id=shop.id;
 	//ProductController.add_shop_id(savedShop.id);

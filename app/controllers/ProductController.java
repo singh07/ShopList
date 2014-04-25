@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Shop;
+
 import java.util.List;
 
 import models.Member;
@@ -8,6 +9,7 @@ import models.Product;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.index;
 
 public class ProductController extends Controller {
 
@@ -25,8 +27,9 @@ public class ProductController extends Controller {
           Form<Product> productFormData = productForm.bindFromRequest();
 
           Shop shop=Shop.findshopbyemail(session("email"));
+          String login_user=session("email");
 
-        List<Product> prod=  Product.findbyemail(session("email"));
+        List<Product> prod=  Product.findbyemail(login_user);
     
        
         return ok(views.html.product.add.render(Product.all(),productFormData ,category,prod));
@@ -36,17 +39,17 @@ public class ProductController extends Controller {
     public static Result save() {
     	Form<Product> productFormData = productForm.bindFromRequest();
         String category=session("category");
-        List<Product> prod=  Product.findbyemail(session("email"));
+        List<Product> pro=  Product.findbyemail(session("email"));
+        
         if(productFormData.hasErrors()) {
-
-            return badRequest(views.html.product.add.render(Product.all(), productFormData,category,prod));
+        	  return ok(index.render());
+          //  return badRequest(views.html.product.add.render(Product.all(), productFormData,category,pro));
 
         } else {
-        	Shop shop=Shop.findshopbyemail(session("email"));
+        	String mail=session("email");
+        	Shop shop=Shop.findshopbyemail(mail);
             Product.create(productFormData.get(),shop);
-           // product_shop.product_id=savedProduct.id;
-           // Product_Shop.create(product_shop);
-            //add_shop_id(product_shop.shop_id);
+          
             return redirect(routes.ProductController.blank());
         }
     }

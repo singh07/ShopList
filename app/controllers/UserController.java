@@ -32,11 +32,32 @@ public class UserController extends Controller{
         }
     }
 
+    public static Result edit(Long id) {
+        Form<Member> memberForm = form(Member.class).fill(
+            Member.findById(id)
+        );
+        return ok(
+        		views.html.user.edit.render(id, memberForm)
+           
+        );
+    }
 
 
-
-	public void update(int id)
-	{}
+	public static Result update(Long id)
+	{
+		Form<Member> memberForm = form(Member.class).bindFromRequest();
+        if(memberForm.hasErrors()) {
+            return badRequest(views.html.user.edit.render(id, memberForm));
+        }
+        memberForm.get().update(id);
+        session("email", memberForm.get().email);
+        session("firstname", memberForm.get().firstName);
+        session("lastname", memberForm.get().lastName);
+       Member current_user=Member.findbyemail(session("email"));
+        List<Shop> user_shops =Shop.findbyemail(session("email"));
+        return ok(views.html.user.account.render(current_user,user_shops));
+		
+	}
 	
 	public void delete(int id)
 	{}

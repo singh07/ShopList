@@ -1,7 +1,8 @@
 # --- !Ups
 
 create table member (
-  email                     varchar(255) PRIMARY KEY,
+  id                        bigserial PRIMARY KEY,
+  email                     varchar(255) UNIQUE,
   password                  varchar(255),
   first_name                varchar(255),
   last_name                 varchar(255),
