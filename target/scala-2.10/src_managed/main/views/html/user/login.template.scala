@@ -42,29 +42,35 @@ Seq[Any](format.raw/*1.33*/("""
 """),_display_(Seq[Any](/*11.2*/form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form")/*11.124*/ {_display_(Seq[Any](format.raw/*11.126*/("""
 <fieldset>
     <legend><h1>Sign In</h1></legend>
+    
+    """),_display_(Seq[Any](/*15.6*/if(flash.contains("success"))/*15.35*/ {_display_(Seq[Any](format.raw/*15.37*/("""
+    <p class="bg-success"><h3> """),_display_(Seq[Any](/*16.33*/flash/*16.38*/.get("success"))),format.raw/*16.53*/("""</h3></p>
+       
+  
+""")))})),format.raw/*19.2*/("""
 
 <div class="form-group">
-    """),_display_(Seq[Any](/*16.6*/inputText(login("email"),
+    """),_display_(Seq[Any](/*22.6*/inputText(login("email"),
     '_label -> "Email Address:",
     'class -> "form-control",
     'placeholder -> "Enter email address.",
-    '_error -> login.globalError))),format.raw/*20.34*/("""
+    '_error -> login.globalError))),format.raw/*26.34*/("""
 </div>
 <div class="form-group">
-    """),_display_(Seq[Any](/*23.6*/inputPassword(login("password"),
+    """),_display_(Seq[Any](/*29.6*/inputPassword(login("password"),
     '_label -> "Password:",
     'class -> "form-control",
-    'placeholder -> "Enter password"))),format.raw/*26.38*/("""
+    'placeholder -> "Enter password"))),format.raw/*32.38*/("""
     </div>
 </fieldset>
 
    <div class="form-group">
      <input type="submit" class="btn btn-primary" value="Log In">
-     <a href=""""),_display_(Seq[Any](/*32.16*/routes/*32.22*/.ApplicationController.index)),format.raw/*32.50*/("""" class="btn">Cancel</a>
+     <a href=""""),_display_(Seq[Any](/*38.16*/routes/*38.22*/.ApplicationController.index)),format.raw/*38.50*/("""" class="btn">Cancel</a>
    </div>
-""")))})),format.raw/*34.2*/("""
+""")))})),format.raw/*40.2*/("""
 
-""")))})),format.raw/*36.2*/("""
+""")))})),format.raw/*42.2*/("""
 """))}
     }
     
@@ -77,11 +83,11 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 28 20:21:40 IST 2014
+                    DATE: Tue Apr 29 01:19:14 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/login.scala.html
-                    HASH: d8d78d814cb8b259497ceb9314e6f69f05a24c7f
-                    MATRIX: 795->1|953->86|965->91|1049->95|1098->32|1126->105|1163->108|1195->132|1234->134|1272->137|1404->259|1445->261|1561->342|1749->508|1822->546|1972->674|2142->808|2157->814|2207->842|2274->878|2308->881
-                    LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|42->11|42->11|42->11|47->16|51->20|54->23|57->26|63->32|63->32|63->32|65->34|67->36
+                    HASH: a77b500abda9f11c1ff826f30351a3f854a58ede
+                    MATRIX: 795->1|953->86|965->91|1049->95|1098->32|1126->105|1163->108|1195->132|1234->134|1272->137|1404->259|1445->261|1540->321|1578->350|1618->352|1687->385|1701->390|1738->405|1791->427|1858->459|2046->625|2119->663|2269->791|2439->925|2454->931|2504->959|2571->995|2605->998
+                    LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|42->11|42->11|42->11|46->15|46->15|46->15|47->16|47->16|47->16|50->19|53->22|57->26|60->29|63->32|69->38|69->38|69->38|71->40|73->42
                     -- GENERATED --
                 */
             

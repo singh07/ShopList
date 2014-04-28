@@ -28,7 +28,8 @@ public class UserController extends Controller{
         }
         else {
             Member.create(filledForm.get());
-            return redirect(routes.ApplicationController.index());
+            flash("success", "You are successfully registered now you can login");
+            return redirect(routes.UserController.login());
         }
     }
 

@@ -79,6 +79,13 @@ public class Shop extends Model {
     public static List<Shop> findByCategoryName(String category) {
         return find.where().eq("category", category).findList();
     }
+    
+    public static List<Shop> findShopsByProduct(String product) {
+        return  Ebean.find(Shop.class)
+                .fetch("products", new FetchConfig().query())
+                .where().eq("products.name", product)
+                .findList();
+    }
 
 
     public static Shop findbyid(Long id) {

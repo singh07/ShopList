@@ -44,7 +44,7 @@ public class SearchController extends Controller {
         }
         else
         	if (criteria.equals("product")) {
-            List<Shop> shops = Product.findByShopName(keyword);
+            List<Shop> shops = Shop.findShopsByProduct(keyword);
         result.shops.addAll(shops);
         }else{
 
