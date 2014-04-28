@@ -64,7 +64,7 @@ public class Product extends Model {
     public static List<Product> all(){
         return find.all();
     }
-   static   List<Product> products = new ArrayList<>();
+   static   List<Product> products = new ArrayList();
 //  static   User mail;
     public static Model.Finder<Long, Product> find = new Model.Finder<>(Long.class, Product.class);
 
@@ -93,7 +93,7 @@ public class Product extends Model {
        // List<Product> prod=Product.find.where().like("name","%"+keyword+"%").findList();
        // List<Shop> found_shops=new ArrayList<>();
       // found_shops=prod.;
-        List<Shop> found_shops=new ArrayList<>();
+        List<Shop> found_shops=new ArrayList();
         found_shops=Shop.find.where().like("name","%"+keyword+"%").findList();
         return found_shops;
 

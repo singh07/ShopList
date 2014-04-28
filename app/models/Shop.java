@@ -39,7 +39,7 @@ public class Shop extends Model {
 	public String phoneNumber;
 
     @OneToMany(mappedBy = "shop")
-    public List<Product> products=new ArrayList<>();
+    public List<Product> products=new ArrayList();
 
 
     @Required
