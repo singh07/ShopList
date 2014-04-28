@@ -66,7 +66,7 @@ public class Product extends Model {
     }
    static   List<Product> products = new ArrayList();
 //  static   User mail;
-    public static Model.Finder<Long, Product> find = new Model.Finder<>(Long.class, Product.class);
+    public static Model.Finder<Long, Product> find = new Model.Finder(Long.class, Product.class);
 
     public static Product create(Product product,Shop shop) {
 

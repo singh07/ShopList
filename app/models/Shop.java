@@ -59,7 +59,7 @@ public class Shop extends Model {
 
 
 
-    public static Model.Finder<Long,Shop> find = new Model.Finder<>(Long.class, Shop.class);
+    public static Model.Finder<Long,Shop> find = new Model.Finder(Long.class, Shop.class);
 
     /**
      * Retrieve a Shop from id.
