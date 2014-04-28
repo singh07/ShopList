@@ -46,10 +46,25 @@ public class SearchController extends Controller {
         	if (criteria.equals("product")) {
             List<Shop> shops = Product.findByShopName(keyword);
         result.shops.addAll(shops);
-        }
+        }else{
+
+            return (controllers.ShopController.viewAll(0, "name", "asc", ""));
+
+}
 
         return ok(views.html.search.results.render(result));
     }
+    
+    public static Result searchByCategory(String category) {
+    	
+    	 List<Shop> shops = Shop.findByCategoryName(category);
+    	// result.shops.addAll(shops);
+    	
+    	 return ok(views.html.search.category.render(shops,category));
+    }
+    }
+    
+    
 
 
-}
+

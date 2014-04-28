@@ -32,7 +32,7 @@ public class Product extends Model {
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    public Shop shops;
+    public Shop shop;
   //  public List<Shop> getShops(){return shops;}
 
   /*  public Product(String name, float price) {
@@ -42,7 +42,7 @@ public class Product extends Model {
     }    */
   public static List<Product> findbyemail(Long id) {
     //  Shop prod_shop= Shop.find.where().eq("owner.email", mail).findUnique();
-      List<Product> prod=Product.find.where().eq("shops.id", id).findList();
+      List<Product> prod=Product.find.where().eq("shop.id", id).findList();
 
 
 
@@ -52,7 +52,7 @@ public class Product extends Model {
 
 
     public static List<Product> findByShopId(Long id) {
-        List<Product> prod= Product.find.where().eq("shops.id", id).findList();
+        List<Product> prod= Product.find.where().eq("shop.id", id).findList();
        // List<Product> prod=new ArrayList<>();
 
 

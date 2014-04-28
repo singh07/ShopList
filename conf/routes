@@ -6,6 +6,7 @@
 GET     /                           controllers.ApplicationController.index()
 GET     /about                      controllers.ApplicationController.about()
 POST    /search                     controllers.SearchController.search()
+GET    /search/category/:category   controllers.SearchController.searchByCategory(category:String)
 #POST    /search                    controllers.SearchController.searchShop()
 #POST    /search/found              controllers.SearchController.searchResult(p:Int ?= 0, s ?= "name", o ?= "asc",keyword ?= "")
 
@@ -15,8 +16,15 @@ GET	     /shop/create				controllers.ShopController.blank()
 GET      /shop/profile/:id          controllers.ShopController.profile(id:Long)
 GET     /shop/category              controllers.ShopController.displayCategory()
 POST     /shop/create               controllers.ShopController.submit()
-#POST    /shop/update/:id           controllers.ShopController.update(id:Int)
+
+GET    /shop/edit/:id                controllers.ShopController.edit(id:Long)
+POST    /shop/update/:id              controllers.ShopController.update(id:Long)
+
+
+
 GET      /shop/:id                	controllers.ShopController.display(id:Int)
+GET      /shop/found/:id            controllers.ShopController.profileFound(id:Long)
+
 
 
 
@@ -38,10 +46,12 @@ POST   /user/update/:id              controllers.UserController.update(id:Long)
 #POST 	/user/delete/:id			controllers.UserController.delete(id:Int)
 
 # Product Urls
+
 GET    /product/addProduct          controllers.ProductController.addProduct()
 GET    /product/add                 controllers.ProductController.blank()
 POST   /product/save                controllers.ProductController.save()
 GET   /product/delete/:id           controllers.ProductController.delete(id:Long)
+GET   /product/show/:id           controllers.ProductController.showProducts(id:Long)
 #GET   /product/delete               controllers.ProductController.afterDeletion()
 
 

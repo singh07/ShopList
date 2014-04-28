@@ -49,7 +49,7 @@ public class ProductController extends Controller {
 
 
             // Shop shop=Shop.findshopbyemail(session("email"));
-            productFormData.get().shops=shop;
+            productFormData.get().shop=shop;
             Product.create(productFormData.get(),shop);
             return redirect(controllers.routes.ProductController.blank());
         }

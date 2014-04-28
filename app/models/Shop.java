@@ -38,7 +38,7 @@ public class Shop extends Model {
     @Required
 	public String phoneNumber;
 
-    @OneToMany(mappedBy = "shops")
+    @OneToMany(mappedBy = "shop")
     public List<Product> products=new ArrayList<>();
 
 
@@ -74,6 +74,10 @@ public class Shop extends Model {
 
     public static List<Shop> findByOwnerId(Long id) {
         return find.where().eq("owner.id", id).findList();
+    }
+    
+    public static List<Shop> findByCategoryName(String category) {
+        return find.where().eq("category", category).findList();
     }
 
 

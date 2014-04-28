@@ -57,7 +57,46 @@ public class ShopController extends Controller {
 
         return ok(views.html.shop.profile.render(shops_on_email,product_on_email ));
     }
+	public static Result profileFound(Long id){
+        String loggedInUserEmail = session("email");
+        List<Shop> shops_on_id= Shop.findById(id);
+        String shopname = session("shop_name");
+        List<Product> product_on_id= Shop.findproduct(id);
 
+        return ok(views.html.shop.found.render(shops_on_id,product_on_id,id ));
+    }
+	
+	public static Result edit(Long id) {
+        Form<Shop> shopForm = Form.form(Shop.class).fill(
+               Shop.findbyid(id)
+        );
+        String loggedInUserEmail = session("email");
+        return ok(
+                views.html.shop.edit.render(id, shopForm,loggedInUserEmail)
+        );
+    }
+
+    public static Result update(Long id) {
+        Form<Shop> shopForm = Form.form(Shop.class).bindFromRequest();
+        Member user=Member.findbyemail(session("email"));
+        shopForm.get().owner.id=user.id;
+        String loggedInUserEmail = session("email");
+        if(shopForm.hasErrors()) {
+            return badRequest( views.html.shop.edit.render(id, shopForm,loggedInUserEmail));
+        }
+        shopForm.get().update(id);
+        session("category",shopForm.get().category);
+        session("shop_name",shopForm.get().name);
+
+        List<Shop> shops_on_id= Shop.findByOwnerId(id);
+        String shopname = session("shop_name");
+        List<Product> product_on_id= Shop.findproduct(id);
+        return redirect(routes.ShopController.profile(user.id));
+       // return redirect(views.html.shop.profile.render(shops_on_id,product_on_id,id ));
+    }
+
+	
+	
 	public static Result submit() {
 		Form<Shop> filledForm = shopForm.bindFromRequest();
 		String loggedInUserEmail = session("email");

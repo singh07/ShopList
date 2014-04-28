@@ -7,7 +7,9 @@
 
 
 <fieldset>
-    <legend>Add Product</legend>
+    <legend><h2>Add Product
+     <a  class="btn pull-right" href="@routes.ShopController.profile(user_id)">Go to shop</a></h2>
+    </legend>
   <div class="jumbotron">
       @*
 @form(action=routes.ProductController.save(), 'class -> "form-inline", 'role->"form") {
