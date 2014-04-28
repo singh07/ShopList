@@ -1,81 +1,78 @@
-@(user: models.Member,user_shops:List[Shop])
-
-@import helper._
-@import helper.twitterBootstrap._
-@title = {
-Account
-}
+@(user: models.Member,user_shops:List[Shop]) @import helper._ @import
+helper.twitterBootstrap._ @title = { Account }
 
 @main(title,nav="account") {
 <fieldset>
 
 
 
-<legend><h2>@user.firstName&nbsp;@user.lastName
+	<legend>
+		<h2>
+			@user.firstName&nbsp;@user.lastName <a class="btn pull-right"
+				href="@routes.UserController.edit(user.id)">Edit</a>
 
-    
-    <a  class="btn pull-right" href="@routes.UserController.edit(user.id)">Edit</a>
+		</h2>
 
-</h2>
+	</legend>
 
-</legend>
+	<div class="container">
+		<div class="row">
 
-    <div class="container">
-        <div class="row">
+			<div class="col-sm-10 pull-left">
 
-            <div class="col-sm-10 pull-left">
+				<div class="form-group row">
+					<label class="col-sm-2 control-label">First Name</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">@user.firstName</p>
+					</div>
+				</div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 control-label">First Name</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">@user.firstName</p>
-                    </div>
-                </div>
+				<div class="form-group row">
+					<label class="col-sm-2 control-label">Last Name</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">@user.lastName</p>
+					</div>
+				</div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 control-label">Last Name</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">@user.lastName</p>
-                    </div>
-                </div>
+				<div class="form-group row">
+					<label class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">@user.email</p>
+					</div>
+				</div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">@user.email</p>
-                    </div>
-                </div>
+				<div class="form-group row">
+					<label class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">@user.password</p>
+					</div>
+				</div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">@user.password</p>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 control-label">Shops</label>
-                    <div class="col-sm-10">
-                        <p class="form-control-static">@user_shops.size Shop(s) added
-                            @for(shops<-user_shops)   {
-                           (<a href="@routes.ShopController.profile(shops.owner.id)">  @shops.name&nbsp;  </a> )
-                            }
+				<div class="form-group row">
+					<label class="col-sm-2 control-label">Shops</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">
+							@user_shops.size Shop(s) added @for(shops<-user_shops) { (<a
+								href="@routes.ShopController.profile(shops.owner.id)">
+								@shops.name&nbsp; </a> ) }
 
 
-                            </p>
-                    </div>
-                </div>
+						</p>
+					</div>
+				</div>
 
-            </div>
+			</div>
 
-            <div class="col-sm-2 pull-right">
+			<div class="col-sm-2 pull-right">
 
-                <div class="form-group row">
-                    <img  src="@routes.Assets.at("images/person-icon.jpg")" height="200" width="150"  class="img-thumbnail">
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="form-group row">
+					<img src="@routes.Assets.at("
+						images/person-icon.jpg")" height="200" width="150"
+						class="img-thumbnail">
+				</div>
+			</div>
+		</div>
+	</div>
 
-   </fieldset>
+</fieldset>
 }
