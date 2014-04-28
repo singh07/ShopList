@@ -70,8 +70,10 @@ public class Shop extends Model {
     @ManyToMany(mappedBy = "shops")
     public List<Product> products = new ArrayList<Product>();
     
+    
+    @Required
     @ManyToOne
-    @JoinColumn(name="owner")
+    @Column(name="owner_id")
     public Member owner;
     
    
@@ -91,6 +93,9 @@ public class Shop extends Model {
 
 	public static Shop find(int id) {
         return find.where().eq("id", id).findUnique();
+    }
+	public static List<Shop> findById(Long id) {
+        return find.where().eq("owner.id", id).findList();
     }
 	
 	 public static List<Shop> findbyemail(String mail) {

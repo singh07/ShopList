@@ -1,28 +1,10 @@
-@(products: List[Product], addProductForm: Form[Product])
+@(products: List[Product], addProductForm: Form[Product],category:String,prod:List[models.Product])
 
 @import helper._
 @import helper.twitterBootstrap._
 
 @main(Html("Add Product")) {
- @*
-<h1>@products.size() products</h1>
 
-<ul class="list-group">
-    @for(product <- products) {
-    <li>
-
-
-            <li class="list-group-item" type="none"><a href="@routes.ProductController.delete(product.id)" >14</a></span> @product.name
-
-
-
-
-       @form(routes.ProductController.delete(product.id)) {
-        <input type="submit" value="Delete">
-        }
-    </li>
-    }
-</ul>     *@
 
 <fieldset>
     <legend>Add Product</legend>
@@ -36,15 +18,49 @@
  *@
       <form class="form-inline" action="@routes.ProductController.save()" method="post">
       <input type="text" class="form-inline input-lg" placeholder="Enter product name" name="name">
-      <input type="text" class="form-inline input-lg" placeholder="Enter product price" name="price">
+      <input type="text" class="form-inline input-lg" placeholder="Enter product price(Rs.)" name="price">
 
-
+     <input type="hidden" class="form-inline input-lg"  name="category" value="@category">
 
 
       <input type="submit" value="Add" class="btn btn-lg btn-primary">
           </form>
   </div>
- </fieldset>
-@*}*@
+
+    <h3>@prod.size() product(s) added</h3>
+    @if(!(prod.size()==0))    {
+    <div class="bs-example">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price(Rs.)</th>
+
+            </tr>
+            </thead>
+ </table>
+            @for(product <- prod) {
+            <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td>@product.name</td>
+                <td>@product.price</td>
+
+            </tr>
+
+            </tbody>
+           
+        </table>
+         }
+    </div>
+
+     }
+
+
+
+   
+
+</fieldset>
+
 
 }

@@ -53,8 +53,11 @@ public class UserController extends Controller{
         session("email", memberForm.get().email);
         session("firstname", memberForm.get().firstName);
         session("lastname", memberForm.get().lastName);
-       Member current_user=Member.findbyemail(session("email"));
-        List<Shop> user_shops =Shop.findbyemail(session("email"));
+       Member current_user=Member.findById(memberForm.get().id);
+      List<Shop> user_shops =Shop.findById(memberForm.get().id);
+       // Member current_user=Member.findbyemail(session("email"));
+       // List<Shop> user_shops =Shop.findbyemail(session("email"));
+        
         return ok(views.html.user.account.render(current_user,user_shops));
 		
 	}
@@ -102,7 +105,7 @@ public class UserController extends Controller{
                session("firstname", user.firstName);
                session("lastname", user.lastName);
 
-               List<Shop> user_shops =Shop.findbyemail(userlogin.email);
+               List<Shop> user_shops =Shop.findById(user.id);
 
                return ok(views.html.user.account.render(user,user_shops));
                

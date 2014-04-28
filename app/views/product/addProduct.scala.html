@@ -1,0 +1,29 @@
+@( addProductForm: Form[Product],category:String)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Add Product")) {
+
+
+<fieldset>
+    <legend>Add Product</legend>
+    <div class="jumbotron">
+
+        <form class="form-inline" action="@routes.ProductController.save()" method="post">
+            <input type="text" class="form-inline input-lg" placeholder="Enter product name" name="name">
+            <input type="text" class="form-inline input-lg" placeholder="Enter product price(Rs.)" name="price">
+
+            <input type="hidden" class="form-inline input-lg"  name="category" value="@category">
+
+
+            <input type="submit" value="Add" class="btn btn-lg btn-primary">
+        </form>
+    </div>
+
+
+
+</fieldset>
+
+
+}

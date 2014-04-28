@@ -36,6 +36,7 @@
                 <li class="@("active".when(nav == "home"))"><a href="@routes.ApplicationController.index()">Home</a></li>
                 <li class="@("active".when(nav == "about"))"><a href="@routes.ApplicationController.about()">About</a></li>
                 <li class="@("active".when(nav == "contact"))"><a href="#contact">Contact</a></li>
+                  <li class="@("active".when(nav == "category"))"><a href="@routes.ShopController.displayCategory()">Category</a></li>
                  </ul>
                  @if(session.get("email")==null){
                   <ul class="nav navbar-nav">
@@ -60,7 +61,7 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li class="@("active".when(nav == "account"))"><a href="@routes.UserController.authenticate()">My Account</a></li>
+                <li class="@("active".when(nav == "account"))"><a href="@routes.UserController.account()">My Account</a></li>
                 <li><a href="@routes.UserController.logout()">Logout</a></li>
 
             </ul>

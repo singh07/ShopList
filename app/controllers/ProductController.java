@@ -20,6 +20,11 @@ public class ProductController extends Controller {
  /* public static void add_shop_id(Long id){
 	  product_shop.shop_id=id;  
   }*/
+   public static Result addProduct() {
+       Form<Product> productFormData = productForm.bindFromRequest();
+       String category=session("category");
+       return ok(views.html.product.addProduct.render(productFormData,category ));
+   }
   
     public static Result blank() {
     	  String category=session("category");
@@ -54,11 +59,12 @@ public class ProductController extends Controller {
         }
     }
 
-        public static Result delete(Long id) {
-            Product.delete(id);
-            return redirect(routes.ProductController.afterDeletion());
 
-    }
+    public static Result delete(Long id) {
+        Product.delete(id);
+        return redirect(routes.ProductController.blank());
+
+}
     public static Result afterDeletion() {
     	  String category=session("category");
           List<Product> prod=  Product.findbyemail(session("email"));

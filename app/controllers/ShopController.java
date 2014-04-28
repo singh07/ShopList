@@ -60,7 +60,7 @@ public class ShopController extends Controller {
 
 	public static Result submit() {
 		Form<Shop> filledForm = shopForm.bindFromRequest();
-
+		String loggedInUserEmail = session("email");
 		if (filledForm.hasErrors()) {
 			
 			for(String key : filledForm.errors().keySet()){
@@ -70,11 +70,13 @@ public class ShopController extends Controller {
 			      }
 			  }      
 			
-			String loggedInUserEmail = session("email");
+			
 			return badRequest(views.html.shop.create.render(filledForm,
 					loggedInUserEmail));
 		} else {
 			Shop shop = filledForm.get();
+			Member user=Member.findbyemail(loggedInUserEmail);
+	            shop.owner.id=user.id;
 		savedShop=Shop.create(shop);
 		
 		 
@@ -83,7 +85,7 @@ public class ShopController extends Controller {
 //Product_Shop product_shop;
 //product_shop.shop_id=shop.id;
 	//ProductController.add_shop_id(savedShop.id);
-return redirect(routes.ProductController.blank());
+return redirect(routes.ProductController.addProduct());
 
 		}
 	}

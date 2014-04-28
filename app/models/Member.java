@@ -21,14 +21,19 @@ public class Member extends Model {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	 @Id
-	 public Long id;
+	@Id
+	@SequenceGenerator(name="member_gen", sequenceName="member_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="member_gen")
+    @Column(name="id")
+	@OneToMany(cascade={CascadeType.ALL})
+    @JoinColumn(name="owner_id")
+	public Long id;
 
 	  
 	
     @Email
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="email")
-	@JoinColumn(name="email",unique=true)
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="owner_email")
     public String email;
 
 	@Required

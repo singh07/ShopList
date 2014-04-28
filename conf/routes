@@ -38,6 +38,7 @@ POST   /user/update/:id              controllers.UserController.update(id:Long)
 #POST 	/user/delete/:id			controllers.UserController.delete(id:Int)
 
 # Product Urls
+GET    /product/addProduct          controllers.ProductController.addProduct()
 GET    /product/add                 controllers.ProductController.blank()
 POST   /product/save                controllers.ProductController.save()
 GET   /product/delete/:id           controllers.ProductController.delete(id:Long)

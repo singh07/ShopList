@@ -41,7 +41,7 @@ Seq[Any](format.raw/*1.33*/("""
 
 """),_display_(Seq[Any](/*11.2*/form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form")/*11.124*/ {_display_(Seq[Any](format.raw/*11.126*/("""
 <fieldset>
-    <legend><h1>LogIn</h1></legend>
+    <legend><h1>Sign In</h1></legend>
 
 <div class="form-group">
     """),_display_(Seq[Any](/*16.6*/inputText(login("email"),
@@ -77,10 +77,10 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 20 13:09:41 IST 2014
+                    DATE: Sun Apr 27 23:08:22 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/login.scala.html
-                    HASH: 7b8cb19636ba7af19e16615dd746c35b62741f88
-                    MATRIX: 795->1|953->86|965->91|1049->95|1098->32|1126->105|1163->108|1195->132|1234->134|1272->137|1404->259|1445->261|1559->340|1747->506|1820->544|1970->672|2140->806|2155->812|2205->840|2272->876|2306->879
+                    HASH: d8d78d814cb8b259497ceb9314e6f69f05a24c7f
+                    MATRIX: 795->1|953->86|965->91|1049->95|1098->32|1126->105|1163->108|1195->132|1234->134|1272->137|1404->259|1445->261|1561->342|1749->508|1822->546|1972->674|2142->808|2157->814|2207->842|2274->878|2308->881
                     LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|42->11|42->11|42->11|47->16|51->20|54->23|57->26|63->32|63->32|63->32|65->34|67->36
                     -- GENERATED --
                 */

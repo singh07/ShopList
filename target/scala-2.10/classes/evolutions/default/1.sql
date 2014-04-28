@@ -1,25 +1,30 @@
 # --- !Ups
 
 create table member (
-  id                        bigserial PRIMARY KEY,
-  email                     varchar(255) UNIQUE,
+  id                        bigserial not null PRIMARY KEY,
+  email                     varchar(255) not null,
   password                  varchar(255),
   first_name                varchar(255),
   last_name                 varchar(255),
   user_pic                  bytea
+  
+ 
+  
   )
 ;
 
 create table product (
-  id                        bigserial PRIMARY KEY,
+  id                        bigserial not null PRIMARY KEY,
   name                      varchar(255),
-  category                  varchar(255),
-  price                     real
+  price                     real,
+  category                  varchar(255)
+  
+  
   )
 ;
 
 create table shop (
-  id                        bigserial PRIMARY KEY,
+  id                        bigserial not null PRIMARY KEY,
   name                      varchar(255),
   address_line1             varchar(255),
   address_line2             varchar(255),
@@ -29,7 +34,8 @@ create table shop (
   phone_number              varchar(255),
   category                  varchar(255),
   shop_pic                  bytea,
-  owner                     varchar(255) REFERENCES member(email) ON DELETE RESTRICT ON UPDATE RESTRICT
+  owner_id                  bigint REFERENCES member(id) ON DELETE RESTRICT ON UPDATE RESTRICT
+ 
   )
 ;
 
@@ -41,7 +47,7 @@ create table product_shop (
   )
 ;
 
-create index ix_shop_email on shop (owner);
+create index ix_shop_email on shop (owner_id);
 
 # --- !Downs
 
