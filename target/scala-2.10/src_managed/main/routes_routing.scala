@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:f0ad65caecb14d091534fceb043f4424170f53ba
-// @DATE:Tue Apr 29 02:54:13 IST 2014
+// @HASH:a0a7d99e56c482b103c9286059fec9bffaa2cca6
+// @DATE:Tue Apr 29 05:02:11 IST 2014
 
 
 import play.core._

@@ -44,7 +44,7 @@ Seq[Any](format.raw/*1.45*/("""
 
 <legend><h2>"""),_display_(Seq[Any](/*14.14*/user/*14.18*/.firstName)),format.raw/*14.28*/("""&nbsp;"""),_display_(Seq[Any](/*14.35*/user/*14.39*/.lastName)),format.raw/*14.48*/("""
 
-    
+
     <a  class="btn pull-right" href=""""),_display_(Seq[Any](/*17.39*/routes/*17.45*/.UserController.edit(user.id))),format.raw/*17.74*/("""">Edit</a>
 
 </h2>
@@ -89,7 +89,7 @@ Seq[Any](format.raw/*1.45*/("""
                     <div class="col-sm-10">
                         <p class="form-control-static">"""),_display_(Seq[Any](/*59.57*/user_shops/*59.67*/.size)),format.raw/*59.72*/(""" Shop(s) added
                             """),_display_(Seq[Any](/*60.30*/for(shops<-user_shops) yield /*60.52*/   {_display_(Seq[Any](format.raw/*60.56*/("""
-                           (<a href=""""),_display_(Seq[Any](/*61.39*/routes/*61.45*/.ShopController.profile(shops.owner.id))),format.raw/*61.84*/("""">  """),_display_(Seq[Any](/*61.89*/shops/*61.94*/.name)),format.raw/*61.99*/("""&nbsp;  </a> )
+                         ( <a href=""""),_display_(Seq[Any](/*61.38*/routes/*61.44*/.ShopController.profile(shops.owner.id))),format.raw/*61.83*/("""">  """),_display_(Seq[Any](/*61.88*/shops/*61.93*/.name)),format.raw/*61.98*/("""&nbsp;  </a> )
                             """)))})),format.raw/*62.30*/("""
 
 
@@ -102,7 +102,7 @@ Seq[Any](format.raw/*1.45*/("""
             <div class="col-sm-2 pull-right">
 
                 <div class="form-group row">
-                    <img  src=""""),_display_(Seq[Any](/*74.33*/routes/*74.39*/.Assets.at("images/person-icon.jpg"))),format.raw/*74.75*/("""" height="200" width="150"  class="img-thumbnail">
+                    <img   src=""""),_display_(Seq[Any](/*74.34*/routes/*74.40*/.Assets.at("images/person-icon.jpg"))),format.raw/*74.76*/("""" height="200" width="150"  class="img-thumbnail">
                 </div>
             </div>
         </div>
@@ -121,10 +121,10 @@ Seq[Any](format.raw/*1.45*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 28 21:25:35 IST 2014
+                    DATE: Tue Apr 29 05:00:46 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/user/account.scala.html
-                    HASH: 59328b21078a152824a81b8c75ccb01bfc2271f7
-                    MATRIX: 799->1|969->98|981->103|1065->107|1114->44|1142->117|1179->120|1212->145|1251->147|1315->175|1328->179|1360->189|1403->196|1416->200|1447->209|1528->254|1543->260|1594->289|1984->643|1997->647|2029->657|2342->934|2355->938|2386->947|2695->1220|2708->1224|2736->1230|3048->1506|3061->1510|3092->1519|3401->1792|3420->1802|3447->1807|3527->1851|3565->1873|3607->1877|3682->1916|3697->1922|3758->1961|3799->1966|3813->1971|3840->1976|3916->2020|4183->2251|4198->2257|4256->2293
+                    HASH: 7356a36d902d9a51882f8d65ef3bdaa767d7fc54
+                    MATRIX: 799->1|969->98|981->103|1065->107|1114->44|1142->117|1179->120|1212->145|1251->147|1315->175|1328->179|1360->189|1403->196|1416->200|1447->209|1524->250|1539->256|1590->285|1980->639|1993->643|2025->653|2338->930|2351->934|2382->943|2691->1216|2704->1220|2732->1226|3044->1502|3057->1506|3088->1515|3397->1788|3416->1798|3443->1803|3523->1847|3561->1869|3603->1873|3677->1911|3692->1917|3753->1956|3794->1961|3808->1966|3835->1971|3911->2015|4179->2247|4194->2253|4252->2289
                     LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|45->14|45->14|45->14|45->14|45->14|45->14|48->17|48->17|48->17|62->31|62->31|62->31|69->38|69->38|69->38|76->45|76->45|76->45|83->52|83->52|83->52|90->59|90->59|90->59|91->60|91->60|91->60|92->61|92->61|92->61|92->61|92->61|92->61|93->62|105->74|105->74|105->74
                     -- GENERATED --
                 */

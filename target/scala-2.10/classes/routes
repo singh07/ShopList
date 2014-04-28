@@ -18,9 +18,9 @@ GET     /shop/category              controllers.ShopController.displayCategory()
 POST     /shop/create               controllers.ShopController.submit()
 
 GET    /shop/edit/:id                controllers.ShopController.edit(id:Long)
-POST    /shop/update/:id              controllers.ShopController.update(id:Long)
+POST    /shop/update/:id             controllers.ShopController.update(id:Long)
 
-GET      /shop/delete/:id                	controllers.ShopController.delete(id:Long)
+GET    /shop/delete/:id              controllers.ShopController.delete(id:Long)
 
 GET      /shop/:id                	controllers.ShopController.display(id:Int)
 GET      /shop/found/:id            controllers.ShopController.profileFound(id:Long)

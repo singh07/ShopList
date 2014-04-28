@@ -1,136 +1,150 @@
-@(id:Long, userForm: Form[Member]) @import helper._ @import
-helper.twitterBootstrap._ @title = { Account }
+@(id:Long, userForm: Form[Member])
 
-@main(title,nav="account") { @helper.form(action =
-routes.UserController.update(id), 'class -> "form-horizontal") {
+
+@import helper._
+@import helper.twitterBootstrap._
+@title = {
+Account
+}
+
+@main(title,nav="account") {
+@helper.form(action = routes.UserController.update(id), 'class -> "form-horizontal") {
 <fieldset>
 
 
 
-	<legend>
-		<h2>Edit</h2>
-	</legend>
+<legend><h2>Edit</h2></legend>
 
 
-	@inputText(userForm("firstName"), '_label -> "First name:", 'class ->
-	"form-control", '_help -> "Please enter your first name.", '_error ->
-	userForm.globalError , 'required ->"required" )
+    @inputText(userForm("firstName"),
+    '_label -> "First name:",
+    'class -> "form-control",
+    '_help -> "Please enter your first name.",
+    '_error -> userForm.globalError ,
+    'required ->"required"
+    )
 
 
 
-	@inputText(userForm("lastName"), '_label -> "Last name:", 'class ->
-	"form-control", '_help -> "Please enter your last name.", '_error ->
-	userForm.globalError , 'required ->"required" )
+    @inputText(userForm("lastName"),
+    '_label -> "Last name:",
+    'class -> "form-control",
+    '_help -> "Please enter your last name.",
+    '_error -> userForm.globalError ,
+    'required ->"required"
+    )
 
 
-	@inputText(userForm("email"), '_label -> "Email Address:", 'class ->
-	"form-control", '_help -> "Enter a valid email address.", '_error ->
-	userForm.globalError,'required ->"required")
+    @inputText(userForm("email"),
+    '_label -> "Email Address:",
+    'class -> "form-control",
+    '_help -> "Enter a valid email address.",
+    '_error -> userForm.globalError,'required ->"required")
 
 
-	@inputPassword(userForm("password"), '_label -> "Password:", 'class ->
-	"form-control", '_help -> "A password must be at least 6
-	characters.",'required ->"required") @*
-	<div class="form-group">
-		<label for="exampleInputFile">Enter Picture</label> <input type="file"
-			id="exampleInputFile">
+    @inputPassword(userForm("password"),
+    '_label -> "Password:",
+    'class -> "form-control",
+    '_help -> "A password must be at least 6 characters.",'required ->"required")
 
-	</div>
-	*@
+
 </fieldset>
 
 <div class="actions">
-	<input type="submit" class="btn btn-primary" value="Update"> <a
-		href="@routes.UserController.account" class="btn">Cancel</a>
+    <input type="submit" class="btn btn-primary" value="Update">
+    <a href="@routes.UserController.account" class="btn">Cancel</a>
 </div>
-} @*
-<form role="form" action="@routes.UserController.update(id)">
-	<div class="form-group">
-		<label for="exampleInputPassword1">First Name</label> <input
-			type="text" class="form-control" id="exampleInputText"
-			placeholder="@userForm.firstName">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Last Name</label> <input
-			type="password" class="form-control" id="exampleInputText1"
-			placeholder="@userForm.lastName">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputEmail1">Email address</label> <input
-			type="email" class="form-control" id="exampleInputEmail1"
-			placeholder="@userForm.email">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Password</label> <input
-			type="password" class="form-control" id="exampleInputPassword1"
-			placeholder="@userForm.password">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputFile">Enter Picture</label> <input type="file"
-			id="exampleInputFile">
-		<p class="help-block">Example block-level help text here.</p>
-	</div>
-
-	<button type="submit" class="btn btn-default">update</button>
-</form>
-
-
-*@ @*
-<div class="container">
-	<div class="row">
-
-		<div class="col-sm-10 pull-left">
-
-			<div class="form-group row">
-				<label class="col-sm-2 control-label">First Name</label>
-				<div class="col-sm-10">
-					<p class="form-control-static">
-						<input type="text" name="firstName" default="@userForm.firstName"
-							placeholder="@userForm.firstName">
-					</p>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 control-label">Last Name</label>
-				<div class="col-sm-10">
-					<p class="form-control-static">@inputText(userForm("lastName"))</p>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 control-label">Email</label>
-				<div class="col-sm-10">
-					<p class="form-control-static">@inputText(userForm("email"))</p>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 control-label">Password</label>
-				<div class="col-sm-10">
-					<p class="form-control-static">@inputText(userForm("password"))</p>
-				</div>
-			</div>
-
-			<div class="actions">
-				<a href="@routes.UserController.update(id)" class="btn"> <input
-					type="submit" class="btn btn-primary" value="Update"></a> <a
-					href="@routes.ApplicationController.index" class="btn">Cancel</a>
-			</div>
+        }
 
 
 
-		</div>
 
-		<div class="col-sm-2 pull-right">
 
-			<div class="form-group row">
-				<img src="@routes.Assets.at(" images/person-icon.jpg")" height="200"
-					width="150" class="img-thumbnail">
-			</div>
-		</div>
-	</div>
-</div>
 
-</fieldset>
-*@ }
+
+
+    @*
+    <form role="form" action="@routes.UserController.update(id)">
+        <div class="form-group">
+            <label for="exampleInputPassword1">First Name</label>
+            <input type="text" class="form-control" id="exampleInputText" placeholder="@userForm.firstName">
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Last Name</label>
+        <input type="password" class="form-control" id="exampleInputText1"  placeholder="@userForm.lastName">
+    </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="@userForm.email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="@userForm.password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">Enter Picture</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+
+        <button type="submit" class="btn btn-default">update</button>
+    </form>
+
+
+     *@
+
+
+   @* <div class="container">
+        <div class="row">
+
+            <div class="col-sm-10 pull-left">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">First Name</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static"><input type="text" name="firstName" default="@userForm.firstName" placeholder="@userForm.firstName">
+           </p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@inputText(userForm("lastName"))</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@inputText(userForm("email"))</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">@inputText(userForm("password"))</p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a href="@routes.UserController.update(id)" class="btn">  <input type="submit" class="btn btn-primary" value="Update"></a>
+                    <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-sm-2 pull-right">
+
+                <div class="form-group row">
+                    <img  src="@routes.Assets.at("images/person-icon.jpg")" height="200" width="150"  class="img-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+
+   </fieldset>           *@
+}

@@ -28,56 +28,37 @@ object create extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
 
 import helper.twitterBootstrap._
 
-def /*6.2*/title/*6.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
+def /*5.2*/title/*5.7*/:play.api.templates.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*6.11*/("""
+Seq[Any](format.raw/*5.11*/("""
 Add Shop
 """)))};
 Seq[Any](format.raw/*1.45*/("""
 
-"""),format.raw/*5.1*/("""
-"""),format.raw/*8.2*/("""
+"""),format.raw/*7.2*/("""
 
-"""),_display_(Seq[Any](/*10.2*/main(title,nav="addShop")/*10.27*/ {_display_(Seq[Any](format.raw/*10.29*/("""
+"""),_display_(Seq[Any](/*9.2*/main(title,nav="addShop")/*9.27*/ {_display_(Seq[Any](format.raw/*9.29*/("""
 
+"""),_display_(Seq[Any](/*11.2*/if(session.get("email")==null)/*11.32*/{_display_(Seq[Any](format.raw/*11.33*/("""
 
-"""),format.raw/*16.9*/("""
-
- """),_display_(Seq[Any](/*18.3*/if(flash.size() > 0)/*18.23*/{_display_(Seq[Any](format.raw/*18.24*/("""
-      <div class="alert-alert error">
-          """),_display_(Seq[Any](/*20.12*/for((key, value) <- flash) yield /*20.38*/{_display_(Seq[Any](format.raw/*20.39*/("""
-              <strong>Error : </strong> """),_display_(Seq[Any](/*21.42*/value)),format.raw/*21.47*/("""<br />
-          """)))})),format.raw/*22.12*/("""
-      </div> 
-  """)))})),format.raw/*24.4*/("""
-
-
-
-
+<div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
+""")))}/*14.2*/else/*14.6*/{_display_(Seq[Any](format.raw/*14.7*/("""
 <fieldset>
     <legend>Add a new shop</legend>
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
 
 
-"""),_display_(Seq[Any](/*34.2*/form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form")/*34.118*/ {_display_(Seq[Any](format.raw/*34.120*/("""
-"""),format.raw/*64.3*/("""
+"""),_display_(Seq[Any](/*20.2*/form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form")/*20.118*/ {_display_(Seq[Any](format.raw/*20.120*/("""
 
-<div class="form-group">
-"""),_display_(Seq[Any](/*67.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*67.78*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*69.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*69.91*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*71.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*71.91*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*73.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*73.91*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*75.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*75.73*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*77.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*77.73*/("""</div>
-<div class="form-group">
-"""),_display_(Seq[Any](/*79.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*79.81*/("""</div>
+"""),_display_(Seq[Any](/*22.2*/inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control"))),format.raw/*22.78*/("""
+"""),_display_(Seq[Any](/*23.2*/inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control"))),format.raw/*23.91*/("""
+"""),_display_(Seq[Any](/*24.2*/inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control"))),format.raw/*24.91*/("""
+"""),_display_(Seq[Any](/*25.2*/inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control"))),format.raw/*25.91*/("""
+"""),_display_(Seq[Any](/*26.2*/inputText(userForm("city"), '_label -> "City",'class -> "form-control"))),format.raw/*26.73*/("""
+"""),_display_(Seq[Any](/*27.2*/inputText(userForm("town"), '_label -> "Town",'class -> "form-control"))),format.raw/*27.73*/("""
+"""),_display_(Seq[Any](/*28.2*/inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control"))),format.raw/*28.81*/("""
 
-  <div class="form-group">
+      <div >
         <label>Category</label>
         <select name="category" class="form-control" id="select1" >
             <option value="">-:Select Category:-&nbsp;</option>
@@ -100,27 +81,22 @@ Seq[Any](format.raw/*1.45*/("""
 
         </select>
     </div>
-   
-
-
-<div class="form-group">
-    <label for="exampleInputEmail1">Owner Email</label>
-    <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*109.97*/user)),format.raw/*109.101*/("""" placeholder=""""),_display_(Seq[Any](/*109.117*/user)),format.raw/*109.121*/("""" readonly>
-  </div>
-
-
-
-
-"""),format.raw/*131.3*/("""
-
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Create">
-        <a href=""""),_display_(Seq[Any](/*135.19*/routes/*135.25*/.ApplicationController.index)),format.raw/*135.53*/("""" class="btn">Cancel</a>
+      <br>
+    <div>
+        <label >Owner Email</label>
+        <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value=""""),_display_(Seq[Any](/*56.101*/user)),format.raw/*56.105*/("""" placeholder=""""),_display_(Seq[Any](/*56.121*/user)),format.raw/*56.125*/("""" readonly>
     </div>
 
-
 </fieldset>
-        """)))})),format.raw/*140.10*/("""
+    """),format.raw/*73.15*/("""
+    <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Create">
+        <a href=""""),_display_(Seq[Any](/*76.19*/routes/*76.25*/.ApplicationController.index)),format.raw/*76.53*/("""" class="btn">Cancel</a>
+    </div>
+
+""")))})),format.raw/*79.2*/("""
+
+        """)))})),format.raw/*81.10*/("""
         """)))})))}
     }
     
@@ -133,11 +109,11 @@ Seq[Any](format.raw/*1.45*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 28 20:21:40 IST 2014
+                    DATE: Tue Apr 29 04:59:10 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/shop/create.scala.html
-                    HASH: dc09e7c48f3cf71f6b9d12490b9578755d17035a
-                    MATRIX: 798->1|970->104|982->109|1066->113|1118->44|1148->101|1176->126|1216->131|1250->156|1290->158|1323->323|1364->329|1393->349|1432->350|1520->402|1562->428|1601->429|1680->472|1707->477|1758->496|1809->516|2066->738|2192->854|2233->856|2262->1871|2328->1902|2426->1978|2496->2013|2607->2102|2677->2137|2788->2226|2858->2261|2969->2350|3039->2385|3132->2456|3202->2491|3295->2562|3365->2597|3466->2676|4783->3956|4811->3960|4865->3976|4893->3980|4952->4517|5111->4639|5127->4645|5178->4673|5275->4737
-                    LINES: 26->1|31->6|31->6|33->6|36->1|38->5|39->8|41->10|41->10|41->10|44->16|46->18|46->18|46->18|48->20|48->20|48->20|49->21|49->21|50->22|52->24|62->34|62->34|62->34|63->64|66->67|66->67|68->69|68->69|70->71|70->71|72->73|72->73|74->75|74->75|76->77|76->77|78->79|78->79|108->109|108->109|108->109|108->109|114->131|118->135|118->135|118->135|123->140
+                    HASH: f0fc0b8275c80e3e19e855abf250ef74fc4fcbbb
+                    MATRIX: 798->1|970->102|982->107|1066->111|1118->44|1148->124|1187->129|1220->154|1259->156|1299->161|1338->191|1377->192|1513->310|1525->314|1563->315|1812->529|1938->645|1979->647|2019->652|2117->728|2155->731|2266->820|2304->823|2415->912|2453->915|2564->1004|2602->1007|2695->1078|2733->1081|2826->1152|2864->1155|2965->1234|4234->2466|4261->2470|4314->2486|4341->2490|4413->3084|4566->3201|4581->3207|4631->3235|4703->3276|4748->3289
+                    LINES: 26->1|31->5|31->5|33->5|36->1|38->7|40->9|40->9|40->9|42->11|42->11|42->11|45->14|45->14|45->14|51->20|51->20|51->20|53->22|53->22|54->23|54->23|55->24|55->24|56->25|56->25|57->26|57->26|58->27|58->27|59->28|59->28|87->56|87->56|87->56|87->56|91->73|94->76|94->76|94->76|97->79|99->81
                     -- GENERATED --
                 */
             
