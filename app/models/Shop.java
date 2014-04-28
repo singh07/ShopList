@@ -38,7 +38,7 @@ public class Shop extends Model {
     @Required
 	public String phoneNumber;
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "shop",cascade = CascadeType.ALL)
     public List<Product> products=new ArrayList();
 
 
@@ -86,6 +86,14 @@ public class Shop extends Model {
                 .where().eq("products.name", product)
                 .findList();
     }
+    
+    public static boolean delete(Shop shop) {
+    	 Boolean deletion = false;
+    	        try{
+    	        shop.delete(); deletion = true;
+    	 }catch(Exception e){}
+    	        return deletion;
+    	    }
 
 
     public static Shop findbyid(Long id) {

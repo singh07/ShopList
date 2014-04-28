@@ -31,7 +31,7 @@ public class Product extends Model {
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     public Shop shop;
   //  public List<Shop> getShops(){return shops;}
 

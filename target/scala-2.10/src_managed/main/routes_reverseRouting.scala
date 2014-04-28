@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:1b8a65d9eb03b0b3ec02faa71ad0ccc0d491d23b
-// @DATE:Mon Apr 28 23:18:43 IST 2014
+// @HASH:f0ad65caecb14d091534fceb043f4424170f53ba
+// @DATE:Tue Apr 29 02:54:13 IST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -29,6 +29,7 @@ import Router.queryString
 // @LINE:32
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -200,6 +201,7 @@ def search(): Call = {
 
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -209,6 +211,12 @@ def search(): Call = {
 // @LINE:14
 class ReverseShopController {
     
+
+// @LINE:23
+def delete(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "shop/delete/" + implicitly[PathBindable[Long]].unbind("id", id))
+}
+                                                
 
 // @LINE:17
 def displayCategory(): Call = {
@@ -286,6 +294,7 @@ def blank(): Call = {
 // @LINE:32
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -547,6 +556,7 @@ def search : JavascriptReverseRoute = JavascriptReverseRoute(
 
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -556,6 +566,17 @@ def search : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:14
 class ReverseShopController {
     
+
+// @LINE:23
+def delete : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ShopController.delete",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/delete/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
 
 // @LINE:17
 def displayCategory : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -678,6 +699,7 @@ def blank : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:32
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -850,6 +872,7 @@ def search(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:26
 // @LINE:25
+// @LINE:23
 // @LINE:21
 // @LINE:20
 // @LINE:18
@@ -859,6 +882,12 @@ def search(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:14
 class ReverseShopController {
     
+
+// @LINE:23
+def delete(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ShopController.delete(id), HandlerDef(this, "controllers.ShopController", "delete", Seq(classOf[Long]), "GET", """""", _prefix + """shop/delete/$id<[^/]+>""")
+)
+                      
 
 // @LINE:17
 def displayCategory(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(

@@ -4,12 +4,12 @@ import java.util.List;
 
 import models.Shop;
 import models.Product;
-
 import models.Member;
 import play.data.Form;
 import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.index;
 
 public class ShopController extends Controller {
 
@@ -65,6 +65,12 @@ public class ShopController extends Controller {
 
         return ok(views.html.shop.found.render(shops_on_id,product_on_id,id ));
     }
+	
+	public static Result delete(Long id) {
+		Shop shop=Shop.findbyid(id);
+		Shop.delete(shop);
+		 return ok(index.render());
+	}
 	
 	public static Result edit(Long id) {
         Form<Shop> shopForm = Form.form(Shop.class).fill(

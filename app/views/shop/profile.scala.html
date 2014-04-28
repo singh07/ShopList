@@ -13,7 +13,7 @@ Added Shop
 
     <legend><h2>@shops.name
 
-        <a  class="btn pull-right" href="#">Delete</a>
+        <a  class="btn pull-right" href="@routes.ShopController.delete(shops.id)" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
         <a  class="btn pull-right" href="@routes.ShopController.edit(shops.id)">Edit</a>
     </h2>
 
