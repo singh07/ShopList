@@ -61,7 +61,7 @@ Seq[Any](format.raw/*6.2*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 27 15:42:10 IST 2014
+                    DATE: Mon Apr 28 20:21:39 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/about.scala.html
                     HASH: 1793a6b62d0e0ceccdf3faab42d4c23ddbe03534
                     MATRIX: 891->56|903->61|987->65|1035->75|1074->80|1105->103|1144->105|1943->873

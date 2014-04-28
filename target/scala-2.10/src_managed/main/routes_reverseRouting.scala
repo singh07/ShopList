@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/Akash Singh/Desktop/ShopList/conf/routes
-// @HASH:4ed3edd35065bf8c61c64e3dbd0e22afbba67dc8
-// @DATE:Sun Apr 27 23:43:33 IST 2014
+// @HASH:e49d16ce6e856390a42ef240b87cf15da6eb3d87
+// @DATE:Mon Apr 28 20:21:35 IST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,7 +14,6 @@ import Router.queryString
 
 
 // @LINE:49
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -71,7 +70,6 @@ def index(): Call = {
 }
                           
 
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -79,15 +77,9 @@ def index(): Call = {
 class ReverseProductController {
     
 
-// @LINE:44
-def delete(id:Long): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "product/delete/" + implicitly[PathBindable[Long]].unbind("id", id))
-}
-                                                
-
-// @LINE:45
-def afterDeletion(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "product/delete")
+// @LINE:43
+def save(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "product/save")
 }
                                                 
 
@@ -97,15 +89,15 @@ def addProduct(): Call = {
 }
                                                 
 
-// @LINE:43
-def save(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "product/save")
-}
-                                                
-
 // @LINE:42
 def blank(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "product/add")
+}
+                                                
+
+// @LINE:44
+def delete(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "product/delete/" + implicitly[PathBindable[Long]].unbind("id", id))
 }
                                                 
     
@@ -209,8 +201,8 @@ def submit(): Call = {
                                                 
 
 // @LINE:15
-def profile(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "shop/profile")
+def profile(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "shop/profile/" + implicitly[PathBindable[Long]].unbind("id", id))
 }
                                                 
 
@@ -239,7 +231,6 @@ def blank(): Call = {
 
 
 // @LINE:49
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -311,7 +302,6 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -319,23 +309,12 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseProductController {
     
 
-// @LINE:44
-def delete : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.ProductController.delete",
-   """
-      function(id) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "product/delete/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
-      }
-   """
-)
-                        
-
-// @LINE:45
-def afterDeletion : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.ProductController.afterDeletion",
+// @LINE:43
+def save : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ProductController.save",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "product/delete"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "product/save"})
       }
    """
 )
@@ -352,23 +331,23 @@ def addProduct : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:43
-def save : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.ProductController.save",
-   """
-      function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "product/save"})
-      }
-   """
-)
-                        
-
 // @LINE:42
 def blank : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ProductController.blank",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "product/add"})
+      }
+   """
+)
+                        
+
+// @LINE:44
+def delete : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ProductController.delete",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "product/delete/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
       }
    """
 )
@@ -532,8 +511,8 @@ def submit : JavascriptReverseRoute = JavascriptReverseRoute(
 def profile : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ShopController.profile",
    """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/profile"})
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop/profile/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
       }
    """
 )
@@ -579,7 +558,6 @@ def blank : JavascriptReverseRoute = JavascriptReverseRoute(
 
 
 // @LINE:49
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -637,7 +615,6 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:45
 // @LINE:44
 // @LINE:43
 // @LINE:42
@@ -645,15 +622,9 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 class ReverseProductController {
     
 
-// @LINE:44
-def delete(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ProductController.delete(id), HandlerDef(this, "controllers.ProductController", "delete", Seq(classOf[Long]), "GET", """""", _prefix + """product/delete/$id<[^/]+>""")
-)
-                      
-
-// @LINE:45
-def afterDeletion(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ProductController.afterDeletion(), HandlerDef(this, "controllers.ProductController", "afterDeletion", Seq(), "GET", """""", _prefix + """product/delete""")
+// @LINE:43
+def save(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Seq(), "POST", """""", _prefix + """product/save""")
 )
                       
 
@@ -663,15 +634,15 @@ def addProduct(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:43
-def save(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ProductController.save(), HandlerDef(this, "controllers.ProductController", "save", Seq(), "POST", """""", _prefix + """product/save""")
-)
-                      
-
 // @LINE:42
 def blank(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ProductController.blank(), HandlerDef(this, "controllers.ProductController", "blank", Seq(), "GET", """""", _prefix + """product/add""")
+)
+                      
+
+// @LINE:44
+def delete(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ProductController.delete(id), HandlerDef(this, "controllers.ProductController", "delete", Seq(classOf[Long]), "GET", """""", _prefix + """product/delete/$id<[^/]+>""")
 )
                       
     
@@ -775,8 +746,8 @@ def submit(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
                       
 
 // @LINE:15
-def profile(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ShopController.profile(), HandlerDef(this, "controllers.ShopController", "profile", Seq(), "GET", """""", _prefix + """shop/profile""")
+def profile(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ShopController.profile(id), HandlerDef(this, "controllers.ShopController", "profile", Seq(classOf[Long]), "GET", """""", _prefix + """shop/profile/$id<[^/]+>""")
 )
                       
 

@@ -82,7 +82,7 @@ Seq[Any](format.raw/*6.2*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 27 15:42:10 IST 2014
+                    DATE: Mon Apr 28 20:21:39 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/index.scala.html
                     HASH: a0dde9612bfb688bc398f7b0244720f9625554eb
                     MATRIX: 889->53|901->58|985->62|1030->69|1067->72|1097->94|1136->96|1466->390|1481->396|1527->420

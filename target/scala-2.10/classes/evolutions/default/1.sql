@@ -17,8 +17,8 @@ create table product (
   id                        bigserial not null PRIMARY KEY,
   name                      varchar(255),
   price                     real,
-  category                  varchar(255)
-  
+  category                  varchar(255),
+  shop_id                    bigint
   
   )
 ;
@@ -40,12 +40,6 @@ create table shop (
 ;
 
 
-create table product_shop (
-  product_id                     bigint REFERENCES product(id) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  shop_id                        bigint REFERENCES shop(id) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  PRIMARY KEY (product_id, shop_id)
-  )
-;
 
 create index ix_shop_email on shop (owner_id);
 

@@ -20,16 +20,16 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object add extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template4[List[Product],Form[Product],String,List[models.Product],play.api.templates.HtmlFormat.Appendable] {
+object add extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[Product],Form[Product],String,List[models.Product],Long,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(products: List[Product], addProductForm: Form[Product],category:String,prod:List[models.Product]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(products: List[Product], addProductForm: Form[Product],category:String,prod:List[models.Product],user_id:Long):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 import helper.twitterBootstrap._
 
 
-Seq[Any](format.raw/*1.100*/("""
+Seq[Any](format.raw/*1.113*/("""
 
 """),format.raw/*5.1*/("""
 """),_display_(Seq[Any](/*6.2*/main(Html("Add Product"))/*6.27*/ {_display_(Seq[Any](format.raw/*6.29*/("""
@@ -87,19 +87,19 @@ Seq[Any](format.raw/*1.100*/("""
 """)))})))}
     }
     
-    def render(products:List[Product],addProductForm:Form[Product],category:String,prod:List[models.Product]): play.api.templates.HtmlFormat.Appendable = apply(products,addProductForm,category,prod)
+    def render(products:List[Product],addProductForm:Form[Product],category:String,prod:List[models.Product],user_id:Long): play.api.templates.HtmlFormat.Appendable = apply(products,addProductForm,category,prod,user_id)
     
-    def f:((List[Product],Form[Product],String,List[models.Product]) => play.api.templates.HtmlFormat.Appendable) = (products,addProductForm,category,prod) => apply(products,addProductForm,category,prod)
+    def f:((List[Product],Form[Product],String,List[models.Product],Long) => play.api.templates.HtmlFormat.Appendable) = (products,addProductForm,category,prod,user_id) => apply(products,addProductForm,category,prod,user_id)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 27 23:57:59 IST 2014
+                    DATE: Mon Apr 28 20:21:40 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/product/add.scala.html
-                    HASH: 6081ee113ac58e2210bc4d50d1503d4465448a92
-                    MATRIX: 829->1|1072->99|1100->152|1136->154|1169->179|1208->181|1314->546|1392->588|1407->594|1454->619|1800->929|1830->937|1979->1050|1992->1054|2021->1061|2084->1089|2114->1110|2157->1115|2425->1347|2461->1367|2501->1369|2596->1428|2612->1435|2639->1440|2702->1467|2718->1474|2746->1480|2818->1516|2833->1522|2892->1559|3050->1685|3117->1721|3152->2112|3193->2131
+                    HASH: 209c647dc5cba10eecf92574a44efcb62dbbf213
+                    MATRIX: 834->1|1090->112|1118->165|1154->167|1187->192|1226->194|1332->559|1410->601|1425->607|1472->632|1818->942|1848->950|1997->1063|2010->1067|2039->1074|2102->1102|2132->1123|2175->1128|2443->1360|2479->1380|2519->1382|2614->1441|2630->1448|2657->1453|2720->1480|2736->1487|2764->1493|2836->1529|2851->1535|2910->1572|3068->1698|3135->1734|3170->2125|3211->2144
                     LINES: 26->1|32->1|34->5|35->6|35->6|35->6|41->18|42->19|42->19|42->19|46->23|46->23|53->30|53->30|53->30|54->31|54->31|54->31|65->42|65->42|65->42|68->45|68->45|68->45|69->46|69->46|69->46|70->47|70->47|70->47|74->51|78->55|82->76|85->79
                     -- GENERATED --
                 */

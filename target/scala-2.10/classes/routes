@@ -12,7 +12,7 @@ POST    /search                     controllers.SearchController.search()
 # Shop Urls
 GET      /shop/viewall              controllers.ShopController.viewAll(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 GET	     /shop/create				controllers.ShopController.blank()
-GET      /shop/profile              controllers.ShopController.profile()
+GET      /shop/profile/:id          controllers.ShopController.profile(id:Long)
 GET     /shop/category              controllers.ShopController.displayCategory()
 POST     /shop/create               controllers.ShopController.submit()
 #POST    /shop/update/:id           controllers.ShopController.update(id:Int)
@@ -42,7 +42,7 @@ GET    /product/addProduct          controllers.ProductController.addProduct()
 GET    /product/add                 controllers.ProductController.blank()
 POST   /product/save                controllers.ProductController.save()
 GET   /product/delete/:id           controllers.ProductController.delete(id:Long)
-GET   /product/delete               controllers.ProductController.afterDeletion()
+#GET   /product/delete               controllers.ProductController.afterDeletion()
 
 
 # Map static resources from the /public folder to the /assets URL path

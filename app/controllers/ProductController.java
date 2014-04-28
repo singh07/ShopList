@@ -1,75 +1,79 @@
 package controllers;
 
 import models.Shop;
-
-import java.util.List;
-
 import models.Member;
 import models.Product;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
+
+import java.util.List;
 
 public class ProductController extends Controller {
 
-   static Form<Product> productForm = Form.form(Product.class);
-//  static  Product_Shop product_shop= new Product_Shop();
- // static Product savedProduct;
-  
- /* public static void add_shop_id(Long id){
-	  product_shop.shop_id=id;  
-  }*/
-   public static Result addProduct() {
-       Form<Product> productFormData = productForm.bindFromRequest();
-       String category=session("category");
-       return ok(views.html.product.addProduct.render(productFormData,category ));
-   }
-  
+    static Form<Product> productForm = Form.form(Product.class);
+
+    public static Result addProduct() {
+        Form<Product> productFormData = productForm.bindFromRequest();
+        String category=session("category");
+        Shop shop=Shop.findshopbyemail(session("email"));
+        return ok(views.html.product.addProduct.render(productFormData,category,shop.owner.id));
+    }
+
     public static Result blank() {
-    	  String category=session("category");
 
-          Form<Product> productFormData = productForm.bindFromRequest();
+        String category=session("category");
 
-          Shop shop=Shop.findshopbyemail(session("email"));
-          String login_user=session("email");
+        Form<Product> productFormData = productForm.bindFromRequest();
 
-        List<Product> prod=  Product.findbyemail(login_user);
-    
-       
-        return ok(views.html.product.add.render(Product.all(),productFormData ,category,prod));
+        Shop shop=Shop.findshopbyemail(session("email"));
+
+        List<Product> prod=  Product.findbyemail(shop.id);
+     // List<Product> prod=  Product.findbyemail(session("email"));
+
+        return ok(views.html.product.add.render(Product.all(),productFormData,category,prod,shop.owner.id ));
      }
 
 
     public static Result save() {
-    	Form<Product> productFormData = productForm.bindFromRequest();
-        String category=session("category");
-        List<Product> pro=  Product.findbyemail(session("email"));
-        
+        Form<Product> productFormData = productForm.bindFromRequest();
+        Shop shop=Shop.findshopbyemail(session("email"));
         if(productFormData.hasErrors()) {
-        	  return ok(index.render());
-          //  return badRequest(views.html.product.add.render(Product.all(), productFormData,category,pro));
+            String category=session("category");
+
+
+            List<Product> prod=  Product.findbyemail(shop.id);
+            return badRequest(views.html.product.add.render(Product.all(), productFormData,category,prod,shop.owner.id));
 
         } else {
-        	String mail=session("email");
-        	Shop shop=Shop.findshopbyemail(mail);
+
+
+            // Shop shop=Shop.findshopbyemail(session("email"));
+            productFormData.get().shops=shop;
             Product.create(productFormData.get(),shop);
-          
-            return redirect(routes.ProductController.blank());
+            return redirect(controllers.routes.ProductController.blank());
         }
     }
 
+    public static Result showProducts(Long id) {
 
-    public static Result delete(Long id) {
-        Product.delete(id);
-        return redirect(routes.ProductController.blank());
-
-}
-    public static Result afterDeletion() {
-    	  String category=session("category");
-          List<Product> prod=  Product.findbyemail(session("email"));
-        return ok(views.html.product.add.render(Product.all(), productForm,category,prod));
+       List<Product> products=Product.findByShopId(id);
+        Shop shop=Shop.findbyid(id);
+        return ok(views.html.product.showProducts.render(products,shop.name,id));
 
     }
+
+        public static Result delete(Long id) {
+            Product.delete(id);
+            return redirect(routes.ProductController.blank());
+
+    }
+
+  /*  public static Result afterDeletion() {
+        String category=session("category");
+        List<Product> prod=  Product.findbyemail(session("email"));
+        return ok(views.html.product.add.render(Product.all(), productForm,category,prod));
+
+    }  */
 
 }

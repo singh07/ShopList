@@ -49,11 +49,11 @@ public class ShopController extends Controller {
                 sortBy, order, filter));	
 		
 	}
-	public static Result profile(){
+	public static Result profile(Long id){
         String loggedInUserEmail = session("email");
       List<Shop> shops_on_email= Shop.findbyemail(loggedInUserEmail);
         String shopname = session("shop_name");
-       List<Product> product_on_email= Shop.findproduct(loggedInUserEmail,shopname);
+       List<Product> product_on_email= Shop.findProductByOwner(id);
 
         return ok(views.html.shop.profile.render(shops_on_email,product_on_email ));
     }

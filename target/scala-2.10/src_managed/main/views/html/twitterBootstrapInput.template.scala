@@ -48,7 +48,7 @@ Seq[Any](format.raw/*1.34*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Apr 27 15:42:10 IST 2014
+                    DATE: Mon Apr 28 20:21:40 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/twitterBootstrapInput.scala.html
                     HASH: 7b1478d5c49bb808c17aca4539258e33773fb9a2
                     MATRIX: 804->1|930->33|959->193|1017->216|1047->238|1086->240|1123->246|1178->266|1194->274|1218->277|1256->280|1272->288|1299->294|1376->336|1392->344|1419->350|1491->386|1508->394|1551->415
