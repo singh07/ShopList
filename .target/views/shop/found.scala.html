@@ -1,4 +1,4 @@
-@(added_shops:List[Shop],products:List[Product])
+@(added_shops:List[Shop],products:List[Product],id:Long)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -13,8 +13,8 @@ Added Shop
 
     <legend><h2>@shops.name
 
-        <a  class="btn pull-right" href="@routes.ShopController.delete(shops.id)" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
-        <a  class="btn pull-right" href="@routes.ShopController.edit(shops.id)">Edit</a>
+
+
     </h2>
 
     </legend>
@@ -68,7 +68,7 @@ Added Shop
                 <div class="form-group row">
                     <label class="col-sm-2 control-label">Owner Email</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static">@session.get("email")
+                        <p class="form-control-static">@shops.owner.email
 
 
 
@@ -82,16 +82,11 @@ Added Shop
                     <label class="col-sm-2 control-label">Products</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">
-                      @if(products.isEmpty){
-                      
-                      <a href="@routes.ProductController.addProduct()">Add Products</a>
-                      
-                      }else{
-                       ( <a href="@routes.ProductController.showProducts(shops.id)">
+                            (
                             @for(prod<-products)  {
-                            @prod.name,
+                            @prod.name,&nbsp;
                             }
-                            </a>)}
+                        )
                         </p>
                     </div>
                 </div>
@@ -106,6 +101,6 @@ Added Shop
             </div>
         </div>
     </div>
-       }
+    }
 </fieldset>
 }

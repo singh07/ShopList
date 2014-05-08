@@ -50,15 +50,16 @@ View All
   <a class="pull-left" href="#">
     <img class="media-object" src="..." alt="...">
   </a>
-  <div class="media-body">
-    <h2 class="media-heading">@allshop.name</h2>
-    <small>@allshop.addressLine1,@allshop.city,@shop.town</small>
+ <div class="media-body">
+      <a href="@routes.ShopController.profile(allshop.id)"> <h2 class="media-heading">@allshop.name</h2> </a>
+    <small>@allshop.addressLine1,@allshop.city,@shop.town</small>  
   </div>
 </div>
       </div>
      *@       
-      <div class="page-header">
-  <h2>@allshop.name <small>@allshop.addressLine1,@allshop.city,@allshop.town</small></h2>
+       <div class="page-header">
+          
+  <h2><a href="@routes.ShopController.profileFound(allshop.id)"> @allshop.name </a><small>@allshop.addressLine1,@allshop.city,@allshop.town</small></h2>  
 </div>
   }
   <div id="pagination" class="pagination">

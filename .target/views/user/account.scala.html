@@ -13,7 +13,7 @@ Account
 
 <legend><h2>@user.firstName&nbsp;@user.lastName
 
-    
+
     <a  class="btn pull-right" href="@routes.UserController.edit(user.id)">Edit</a>
 
 </h2>
@@ -58,7 +58,7 @@ Account
                     <div class="col-sm-10">
                         <p class="form-control-static">@user_shops.size Shop(s) added
                             @for(shops<-user_shops)   {
-                            (@shops.name&nbsp;)
+                         ( <a href="@routes.ShopController.profile(shops.owner.id)">  @shops.name&nbsp;  </a> )
                             }
 
 
@@ -71,7 +71,7 @@ Account
             <div class="col-sm-2 pull-right">
 
                 <div class="form-group row">
-                    <img  src="@routes.Assets.at("images/person-icon.jpg")" height="200" width="150"  class="img-thumbnail">
+                    <img   src="@routes.Assets.at("images/person-icon.jpg")" height="200" width="150"  class="img-thumbnail">
                 </div>
             </div>
         </div>

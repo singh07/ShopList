@@ -1,0 +1,82 @@
+@(id:Long,userForm: Form[models.Shop],user:String)
+
+@import helper._
+@import helper.twitterBootstrap._
+@title = {
+Edit Shop
+}
+
+@main(title,nav="editShop") {
+
+@if(session.get("email")==null){
+
+<div class="alert alert-danger"><p><strong>Warning!</strong>&nbsp;To add a shop please login first.</p>  </div>
+}else{
+<fieldset>
+    <legend>Add a new shop</legend>
+    <p>Before submitting the form kindly select the category field.</p>
+
+
+    @form(action = routes.ShopController.update(id), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form") {
+
+    @inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
+    @inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
+    @inputText(userForm("addressLine2"), '_label -> "Address Line 2",'class -> "form-control")
+    @inputText(userForm("addressLine3"), '_label -> "Address Line 3",'class -> "form-control")
+    @inputText(userForm("city"), '_label -> "City",'class -> "form-control")
+    @inputText(userForm("town"), '_label -> "Town",'class -> "form-control")
+    @inputText(userForm("phoneNumber"), '_label -> "Phone",'class -> "form-control")
+
+    <div >
+        <label>Category(Confirm ur category)</label>
+        <select name="category" class="form-control" id="select1"  >
+            <option value="">-:Select Category:-&nbsp;</option>
+            <option value="antique shop">antique shop</option>
+            <option value="barbershop">barbershop</option>
+            <option value="beauty parlour">beauty parlour</option>
+            <option value="beauty salon">beauty salon</option>
+            <option value="big-box store">big-box store</option>
+            <option value="bookshop">bookshop</option>
+            <option value="bottle shop">bottle shop</option>
+            <option value="chemist">chemist</option>
+            <option value="dairy">dairy</option>
+            <option value="garage">garage</option>
+            <option value="general store">general store</option>
+            <option value="hardware shop">hardware shop</option>
+            <option value="supermarket">supermarket</option>
+            <option value="sweet shop">sweet shop</option>
+
+
+
+        </select>
+    </div>
+    <br>
+    <div>
+        <label >Owner Email</label>
+        <input type="email" name="owner.email" class="form-control" id="exampleInputEmail1" value="@user" placeholder="@user" readonly>
+    </div>
+
+</fieldset>
+@*@inputText(userForm("owner.email"), '_label -> "Owner Email" ,'id -> "createdOn",'class -> "form-control",'readonly ->"readonly",'placeholder ->session.get("email") )
+
+@select(
+userForm("owner.email"),
+options = helper.options(users),
+'class -> "form-control",
+'_default -> "--- Choose an owner ---",
+'_label -> "Select Owner",
+'_error -> userForm("owner").error.map(_.withMessage("Please select an owner"))
+)
+
+<div >
+    <input type="file" class="btn"  name="shop_pic" accept="image/*">
+</div> *@
+<div class="actions">
+    <input type="submit" class="btn btn-primary" value="Update">
+    <a href="@routes.ApplicationController.index" class="btn">Cancel</a>
+</div>
+
+}
+
+}
+}

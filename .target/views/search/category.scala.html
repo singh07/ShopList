@@ -1,11 +1,11 @@
-@(result: viewmodels.SearchResult)
+@(result: List[Shop],category:String)
 
 @import helper._
 
 @main(Html("Shop Details")) {
-<legend><h2>@result.shops.size shop(s) found</h2></legend>
+<legend><h2>@result.size shop(s) found having category "@category"</h2></legend>
 
-@for(shop <- result.shops) {
+@for(shop <- result) {
        @* <h2>Shop Details</h2>
 
         <p><b>Shop Name: </b>@shop.name</p>

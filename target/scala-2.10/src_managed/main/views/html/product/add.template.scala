@@ -41,7 +41,7 @@ Seq[Any](format.raw/*1.113*/("""
     </legend>
   <div class="jumbotron">
       """),format.raw/*20.4*/("""
-      <form class="form-inline" action=""""),_display_(Seq[Any](/*21.42*/routes/*21.48*/.ProductController.save())),format.raw/*21.73*/("""" method="post">
+      <form class="form-inline" action=""""),_display_(Seq[Any](/*21.42*/routes/*21.48*/.ProductController.save())),format.raw/*21.73*/("""" method="post" onsubmit="return validateForm(this);">
       <input type="text" class="form-inline input-lg" placeholder="Enter product name" name="name">
       <input type="text" class="form-inline input-lg" placeholder="Enter product price(Rs.)" name="price">
 
@@ -86,6 +86,61 @@ Seq[Any](format.raw/*1.113*/("""
 </fieldset>
 """),format.raw/*81.6*/("""
 
+
+<script type="text/javascript" charset="utf-8">
+function validateForm(createProduct) """),format.raw/*85.38*/("""{"""),format.raw/*85.39*/("""
+var reason = "";
+
+reason += validateProductName(createProduct.name);
+reason += validateProductPrice(createProduct.price);
+
+
+if (reason != "") """),format.raw/*92.19*/("""{"""),format.raw/*92.20*/("""
+alert("Some fields need correction:\n" + reason);
+return false;
+"""),format.raw/*95.1*/("""}"""),format.raw/*95.2*/("""
+
+return true;
+"""),format.raw/*98.1*/("""}"""),format.raw/*98.2*/("""
+
+
+function validateProductName(fld) """),format.raw/*101.35*/("""{"""),format.raw/*101.36*/("""
+var error = "";
+var illegalChars = /\W/; // allow letters, numbers, and underscores
+var letters = /^[A-Za-z]+$/;
+
+if (fld.value == "") """),format.raw/*106.22*/("""{"""),format.raw/*106.23*/("""
+
+error = "You didn't enter a Product Name.\n";
+
+"""),format.raw/*110.1*/("""}"""),format.raw/*110.2*/("""  
+return error;
+"""),format.raw/*112.1*/("""}"""),format.raw/*112.2*/("""
+
+
+
+function validateProductPrice(fld) """),format.raw/*116.36*/("""{"""),format.raw/*116.37*/("""
+var error = "";
+var stripped = fld.value.replace(/[\(\)\.\-\ ]/g, '');
+
+if (fld.value == "") """),format.raw/*120.22*/("""{"""),format.raw/*120.23*/("""
+error = "You didn't enter a product price.\n";
+
+"""),format.raw/*123.1*/("""}"""),format.raw/*123.2*/(""" else if (isNaN(parseInt(stripped))) """),format.raw/*123.39*/("""{"""),format.raw/*123.40*/("""
+error = "The product price field contains illegal characters.\n";
+
+"""),format.raw/*126.1*/("""}"""),format.raw/*126.2*/("""
+return error;
+"""),format.raw/*128.1*/("""}"""),format.raw/*128.2*/("""
+
+
+
+</script>
+
+
+
+
+
 """)))})))}
     }
     
@@ -98,11 +153,11 @@ Seq[Any](format.raw/*1.113*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 28 22:44:30 IST 2014
+                    DATE: Thu May 08 19:21:41 IST 2014
                     SOURCE: C:/Users/Akash Singh/Desktop/ShopList/app/views/product/add.scala.html
-                    HASH: 97bfe2b6276b792af7d812b9f395db3b0c883320
-                    MATRIX: 834->1|1090->112|1118->165|1154->167|1187->192|1226->194|1343->275|1358->281|1412->313|1507->667|1585->709|1600->715|1647->740|1993->1050|2023->1058|2172->1171|2185->1175|2214->1182|2277->1210|2307->1231|2350->1236|2618->1468|2654->1488|2694->1490|2789->1549|2805->1556|2832->1561|2895->1588|2911->1595|2939->1601|3011->1637|3026->1643|3085->1680|3243->1806|3310->1842|3345->2233|3386->2252
-                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|40->11|40->11|40->11|43->20|44->21|44->21|44->21|48->25|48->25|55->32|55->32|55->32|56->33|56->33|56->33|67->44|67->44|67->44|70->47|70->47|70->47|71->48|71->48|71->48|72->49|72->49|72->49|76->53|80->57|84->78|87->81
+                    HASH: b7c541b986d1d1be39d1a5e8d82b16c0fbf79e29
+                    MATRIX: 834->1|1090->112|1118->165|1154->167|1187->192|1226->194|1343->275|1358->281|1412->313|1507->667|1585->709|1600->715|1647->740|2031->1088|2061->1096|2210->1209|2223->1213|2252->1220|2315->1248|2345->1269|2388->1274|2656->1506|2692->1526|2732->1528|2827->1587|2843->1594|2870->1599|2933->1626|2949->1633|2977->1639|3049->1675|3064->1681|3123->1718|3281->1844|3348->1880|3383->2271|3424->2290|3540->2378|3569->2379|3740->2522|3769->2523|3861->2588|3889->2589|3931->2604|3959->2605|4025->2642|4055->2643|4220->2779|4250->2780|4327->2829|4356->2830|4401->2847|4430->2848|4498->2887|4528->2888|4651->2982|4681->2983|4758->3032|4787->3033|4853->3070|4883->3071|4979->3139|5008->3140|5051->3155|5080->3156
+                    LINES: 26->1|32->1|34->5|35->6|35->6|35->6|40->11|40->11|40->11|43->20|44->21|44->21|44->21|48->25|48->25|55->32|55->32|55->32|56->33|56->33|56->33|67->44|67->44|67->44|70->47|70->47|70->47|71->48|71->48|71->48|72->49|72->49|72->49|76->53|80->57|84->78|87->81|91->85|91->85|98->92|98->92|101->95|101->95|104->98|104->98|107->101|107->101|112->106|112->106|116->110|116->110|118->112|118->112|122->116|122->116|126->120|126->120|129->123|129->123|129->123|129->123|132->126|132->126|134->128|134->128
                     -- GENERATED --
                 */
             

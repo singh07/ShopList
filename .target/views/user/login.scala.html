@@ -11,6 +11,12 @@ Sign In
 @form(action = routes.UserController.authenticate(), 'id -> "userCreationForm", 'class -> "form-horizontal", 'role->"form") {
 <fieldset>
     <legend><h1>Sign In</h1></legend>
+    
+    @if(flash.contains("success")) {
+    <p class="bg-success"><h3> @flash.get("success")</h3></p>
+       
+  
+}
 
 <div class="form-group">
     @inputText(login("email"),

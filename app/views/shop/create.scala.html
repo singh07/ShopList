@@ -17,7 +17,7 @@ Add Shop
      <p>To add a shop to this website fill in the form given below.Add as much information about your shop so the customer may know abot your shop more.</p>
 
 
-@form(action = routes.ShopController.submit(), 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form") {
+@form(action = routes.ShopController.submit(),'name ->"userForm", 'id -> "shopCreationForm", 'class -> "form-horizontal", 'role->"form", 'onsubmit -> "return validateForm(this);") {
 
 @inputText(userForm("name"), '_label -> "Shop Name",'class -> "form-control")
 @inputText(userForm("addressLine1"), '_label -> "Address Line 1",'class -> "form-control")
@@ -77,6 +77,119 @@ Add Shop
     </div>
 
 }
+<script type="text/javascript" charset="utf-8">
+    function validateForm(createShop) {
+    var reason = "";
 
+    reason += validateShopName(createShop.name);
+    reason += validateAddress(createShop.addressLine1);
+    reason += validateCity(createShop.city);
+    reason += validateTown(createShop.town);
+    reason += validatePhone(createShop.phoneNumber);
+    reason += validateCategory(createShop.category);
+
+
+    if (reason != "") {
+    alert("Some fields need correction:\n" + reason);
+    return false;
+    }
+
+    return true;
+    }
+
+
+    function validateShopName(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+    var letters = /^[A-Za-z]+$/;
+
+    if (fld.value == "") {
+
+    error = "You didn't enter a Shop Name.\n";
+
+    }  
+    return error;
+    }
+
+
+    function validateAddress(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+    var letters = /^[A-Za-z]+$/;
+
+    if (fld.value == "") {
+
+    error = "You didn't enter a AddressLine 1.\n";
+
+    } 
+    return error;
+    }
+
+    function validateCity(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+
+    if (fld.value == "") {
+
+    error = "You didn't enter a City.\n";
+
+    }  else if (illegalChars.test(fld.value)) {
+    error = "The City field contains illegal characters.\n";
+
+    }
+    return error;
+    }
+
+    function validateTown(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+
+    if (fld.value == "") {
+
+    error = "You didn't enter a Town.\n";
+
+    }  else if (illegalChars.test(fld.value)) {
+    error = "The Town field contains illegal characters.\n";
+
+    }
+    return error;
+    }
+
+    function validatePhone(fld) {
+    var error = "";
+    var stripped = fld.value.replace(/[\(\)\.\-\ ]/g, '');
+
+    if (fld.value == "") {
+    error = "You didn't enter a phone number.\n";
+
+    } else if (isNaN(parseInt(stripped))) {
+    error = "The phone number contains illegal characters.\n";
+
+    } else if (!(stripped.length == 10)) {
+    error = "The phone number is the wrong length. Make sure you included an area code.\n";
+
+    }
+    return error;
+    }
+
+    function validateCategory(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+
+    if (fld.value == "") {
+
+    error = "You didn't select a Category.\n";
+
+    }  
+    return error;
+    }
+
+
+
+
+
+
+
+</script>
         }
         }

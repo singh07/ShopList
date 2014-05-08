@@ -1,4 +1,5 @@
-@( addProductForm: Form[Product],category:String)
+@( addProductForm: Form[Product],category:String,user_id:Long)
+
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -7,7 +8,9 @@
 
 
 <fieldset>
-    <legend>Add Product</legend>
+    <legend><h2>Add Product
+     <a  class="btn pull-right" href="@routes.ShopController.profile(user_id)">Go to shop</a></h2>
+    </legend>
     <div class="jumbotron">
 
         <form class="form-inline" action="@routes.ProductController.save()" method="post">

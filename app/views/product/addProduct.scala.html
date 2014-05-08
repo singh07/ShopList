@@ -13,7 +13,7 @@
     </legend>
     <div class="jumbotron">
 
-        <form class="form-inline" action="@routes.ProductController.save()" method="post">
+        <form class="form-inline" action="@routes.ProductController.save()" method="post" onsubmit="return validateForm(this);">
             <input type="text" class="form-inline input-lg" placeholder="Enter product name" name="name">
             <input type="text" class="form-inline input-lg" placeholder="Enter product price(Rs.)" name="price">
 
@@ -27,6 +27,57 @@
 
 
 </fieldset>
+<script type="text/javascript" charset="utf-8">
+function validateForm(createProduct) {
+var reason = "";
+
+reason += validateProductName(createProduct.name);
+reason += validateProductPrice(createProduct.price);
+
+
+if (reason != "") {
+alert("Some fields need correction:\n" + reason);
+return false;
+}
+
+return true;
+}
+
+
+function validateProductName(fld) {
+var error = "";
+var illegalChars = /\W/; // allow letters, numbers, and underscores
+var letters = /^[A-Za-z]+$/;
+
+if (fld.value == "") {
+
+error = "You didn't enter a Product Name.\n";
+
+}  
+return error;
+}
+
+
+
+function validateProductPrice(fld) {
+var error = "";
+var stripped = fld.value.replace(/[\(\)\.\-\ ]/g, '');
+
+if (fld.value == "") {
+error = "You didn't enter a product price.\n";
+
+} else if (isNaN(parseInt(stripped))) {
+error = "The product price field contains illegal characters.\n";
+
+}
+return error;
+}
+
+
+
+</script>
+
+
 
 
 }
