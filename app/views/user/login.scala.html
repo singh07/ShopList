@@ -23,13 +23,17 @@ Sign In
     '_label -> "Email Address:",
     'class -> "form-control",
     'placeholder -> "Enter email address.",
-    '_error -> login.globalError)
+    '_error -> login.globalError,
+    'required ->"required"
+    )
 </div>
 <div class="form-group">
     @inputPassword(login("password"),
     '_label -> "Password:",
     'class -> "form-control",
-    'placeholder -> "Enter password")
+    'placeholder -> "Enter password",
+    'required ->"required"
+    )
     </div>
 </fieldset>
 
